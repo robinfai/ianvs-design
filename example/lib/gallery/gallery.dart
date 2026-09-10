@@ -391,12 +391,8 @@ class _CodePanelState extends State<CodePanel> {
                             lines.length,
                             (i) => '${i + 1}',
                           ).join('\n'),
-                          style: TextStyle(
-                            fontFamily: 'GalleryMono',
-                            fontFamilyFallback: ['GallerySans'],
+                          style: context.ianvsTypography.code.copyWith(
                             color: t.subtle,
-                            fontSize: 13,
-                            height: 1.5,
                           ),
                         ),
                       ),
@@ -418,12 +414,7 @@ class _CodePanelState extends State<CodePanel> {
                                 ),
                             ],
                           ),
-                          style: const TextStyle(
-                            fontFamily: 'GalleryMono',
-                            fontFamilyFallback: ['GallerySans'],
-                            fontSize: 13,
-                            height: 1.5,
-                          ),
+                          style: context.ianvsTypography.code,
                         ),
                       ),
                     ],

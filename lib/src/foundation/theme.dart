@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'tokens.dart';
 import 'menu_style.dart';
+import 'typography.dart';
 
 /// Builds both Ianvs and standard Material 3 widget themes.
 ///
@@ -21,6 +22,9 @@ abstract final class IanvsTheme {
     ThemeData? base,
     String? fontFamily,
     List<String>? fontFamilyFallback,
+    String? monoFontFamily,
+    List<String>? monoFontFamilyFallback,
+    TextStyle? codeTextStyle,
   }) {
     var t =
         (brightness == Brightness.dark ? IanvsTokens.dark : IanvsTokens.light)
@@ -229,8 +233,18 @@ abstract final class IanvsTheme {
         displayColor: onAccent,
       ),
       extensions: [
-        ...seed.extensions.values.where((e) => e is! IanvsTokens),
+        ...seed.extensions.values.where(
+          (e) => e is! IanvsTokens && e is! IanvsTypography,
+        ),
         t,
+        IanvsTypography.defaults(
+          platform: target,
+          color: t.text,
+          density: density,
+          monoFontFamily: monoFontFamily,
+          monoFontFamilyFallback: monoFontFamilyFallback,
+          codeTextStyle: codeTextStyle,
+        ),
       ],
       visualDensity: densityValue,
       materialTapTargetSize: tap,

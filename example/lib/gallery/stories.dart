@@ -1,4 +1,5 @@
 import 'package:ianvs_design/ianvs_design.dart';
+import 'panel_story.dart';
 
 class MaterialStories extends StatefulWidget {
   const MaterialStories({super.key, required this.page});
@@ -1083,6 +1084,10 @@ class _MaterialStoriesState extends State<MaterialStories> {
         outcome(),
       ]),
       const IanvsBanner(message: '缩小应用窗口即可查看侧栏切换为抽屉的实际效果。'),
+      const SizedBox(height: 24),
+      section('可调整面板', '拖动分隔线调整尺寸，双击重置；Tab 聚焦后可使用方向键。', [
+        framed(const PanelStory()),
+      ]),
     ],
   );
 

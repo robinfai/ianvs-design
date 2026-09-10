@@ -1,10 +1,10 @@
 # Terminal 与 ACP 接入
 
-本轮产物是独立组件库；同级应用作为只读参考。接入采用逐步替换，不改变连接、会话和 Agent 业务模型。
+Ianvs Design 提供同系列应用共享的主题和基础交互；连接、会话和 Agent 业务模型由宿主管理。可在一次接入中统一采用，无需为了迁移顺序保留第二套基础主题。
 
-## 先接主题
+## 主题与依赖
 
-在目标应用实际的 pubspec 中加入 path 依赖。示例：从 `ianvs-terminal/example` 指向 `../../ianvs-design`；从更深的 ACP package 目录应按实际层级调整。
+在目标应用实际的 pubspec 中加入 `ianvs_design: ^0.2.0`。库与宿主联合开发时可临时使用指向本仓库的 path override，正式交付使用 pub.dev 版本。
 
 ```dart
 ThemeData createTheme(Brightness brightness, ThemeData appBase) {
@@ -41,3 +41,65 @@ ThemeData createTheme(Brightness brightness, ThemeData appBase) {
 ## 每个应用接入后检查
 
 确认主题、真实业务表单保存/取消、菜单焦点返回、200%文字、窄窗和系统外观切换。这里的组件测试验证了公共 UI 契约；真实终端进程、ACP 请求与数据存储仍需目标应用自己的集成测试。
+
+## 等宽文字与阅读字号
+
+```dart
+final theme = IanvsTheme.build(
+  brightness: brightness,
+  monoFontFamily: 'AppMono', // 宿主已在 pubspec 中声明的字体
+  monoFontFamilyFallback: const ['Menlo', 'monospace'],
+  codeTextStyle: const TextStyle(fontSize: 13, height: 1.5),
+);
+
+final code = context.ianvsTypography.code;
+Text(filePath, style: code);
+// 终端/代码渲染器可读取 code.fontFamily 与 code.fontFamilyFallback。
+```
+
+主题负责代码文字的默认前景，语法高亮与 ANSI palette 继续由宿主提供。ACP 的15px聊天阅读字号属于 ChatTheme，可独立保留。Web 或需要一致字体的原生应用应打包字体；库不附带字体资源。
+
+## 受控多面板组合
+
+```dart
+// width 是宿主 State 持有的状态；外层提供有限高度。
+Row(children: [
+  SizedBox(width: width, child: sidebar),
+  IanvsResizeHandle(
+    value: width,
+    min: 220,
+    max: 320,
+    resetValue: 260,
+    semanticLabel: '侧栏宽度',
+    semanticValueFormatter: (value) => '${value.round()} 逻辑像素',
+    onChanged: (value) => setState(() => width = value),
+  ),
+  Expanded(child: body),
+]);
+```
+
+右侧 Inspector 的手柄放在面板之前并传 `reverse: true`；底部终端使用 `axis: Axis.vertical, reverse: true` 并放在终端上方。宿主按窗口可用空间计算上下界，必要时隐藏面板或改布局；保持稳定 key/controller 防止草稿和会话被重建。现有 MacosWorkspaceLayout 可以复用手柄，继续管理快捷键、原生菜单、显示/隐藏和偏好存储。IanvsWorkspace 原 API 不变，不强制替换整个工作区。
+
+## macOS 原生文本语义代理
+
+ACP 的 `AccessibleTextField` 使用 AppKitView 和宿主注册的 MethodChannel 代理，包含语义开关、焦点与输入同步生命周期。它不是普通 `labelText` 的等价功能，应保留在宿主；Ianvs Design 不注册 ACP 的原生 view type 或 channel。
+
+```dart
+// AccessibleTextField 是宿主组件，不由 ianvs_design 导出。
+AccessibleTextField(
+  label: '搜索工作区',
+  description: '按名称筛选工作区',
+  controller: controller,
+  onChanged: onChanged,
+  enabled: enabled,
+  builder: (focusNode) => IanvsTextField(
+    controller: controller,
+    focusNode: focusNode,
+    onChanged: onChanged,
+    enabled: enabled,
+    hintText: '输入工作区名称',
+  ),
+);
+```
+
+两层必须共享 controller、FocusNode 和回调；enabled、多行属性与读写能力保持一致。代理的 native setText 路径更新 controller 后由代理显式触发业务回调，不能依赖程序设置 controller 自动触发 TextFormField.onChanged。原生平台 view 注册、代理代际清理、VoiceOver 名称及原生文本编辑仍由宿主的测试和真实 macOS 验证覆盖；本库测试只验证 Flutter 的 controller/focus/Form 契约，不能代替原生端验证。

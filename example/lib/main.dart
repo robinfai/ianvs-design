@@ -59,6 +59,8 @@ class _GalleryAppState extends State<GalleryApp> {
       platform: TargetPlatform.macOS,
       fontFamily: kIsWeb ? 'GallerySans' : null,
       fontFamilyFallback: const ['GallerySans', 'PingFang SC'],
+      monoFontFamily: 'GalleryMono',
+      monoFontFamilyFallback: const ['GallerySans', 'monospace'],
     ),
     darkTheme: IanvsTheme.build(
       brightness: Brightness.dark,
@@ -66,6 +68,8 @@ class _GalleryAppState extends State<GalleryApp> {
       platform: TargetPlatform.macOS,
       fontFamily: kIsWeb ? 'GallerySans' : null,
       fontFamilyFallback: const ['GallerySans', 'PingFang SC'],
+      monoFontFamily: 'GalleryMono',
+      monoFontFamilyFallback: const ['GallerySans', 'monospace'],
     ),
     themeMode: mode,
     themeAnimationDuration:

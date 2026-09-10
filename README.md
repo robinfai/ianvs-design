@@ -10,7 +10,7 @@
 
 ```yaml
 dependencies:
-  ianvs_design: ^0.1.0
+  ianvs_design: ^0.2.0
 ```
 
 ```dart
@@ -36,7 +36,7 @@ MaterialApp(
 | 导航 | AppBar / BottomAppBar、NavigationBar / Rail / Drawer、TabBar / TabBarView、MenuAnchor / MenuBar / PopupMenu |
 | 容器与反馈 | Card、ListTile 与选择行、Divider、ExpansionTile、DataTable、Badge、Tooltip、SnackBar、MaterialBanner、线性与圆形进度 |
 | 弹层与时间 | AlertDialog / SimpleDialog、模态底部面板、日期 / 日期范围 / 时间选择器、确认弹窗 |
-| 桌面组合 | Sidebar、Toolbar、Workspace、FormSection、FieldRow、SettingsRow、Banner、EmptyState |
+| 桌面组合 | Sidebar、Toolbar、Workspace、ResizeHandle、FormSection、FieldRow、SettingsRow、Banner、EmptyState |
 | 补充交互 | Cascader 级联路径、NumberStepper 整数步进、Skeleton 骨架屏；参考 TDesign Flutter 后统一适配 |
 
 详细说明见 [组件 API 与交互契约](https://github.com/robinfai/ianvs-design/blob/main/docs/components.md)、[设计规范](https://github.com/robinfai/ianvs-design/blob/main/docs/design/plan.md) 和 [Terminal / ACP 接入指南](https://github.com/robinfai/ianvs-design/blob/main/docs/integration.md)。
@@ -89,6 +89,10 @@ final theme = IanvsTheme.build(
 macOS / iOS 默认系统字体。Web 字体需由宿主提供并传入 `fontFamily` / `fontFamilyFallback`；展厅内附的 Noto Sans SC 和 Roboto Mono 仅属于 example，不会打包进库使用者的应用。
 
 基础颜色通过 `ColorScheme` 获取，额外表面、状态色与尺寸通过 `Theme.of(context).extension<IanvsTokens>()!` 或 `context.ianvs` 获取。`IanvsTheme.build(base: ...)` 可保留宿主的其他 ThemeExtension；请提供 Material 3 的 base。覆盖 token 后若还需改变标准 Material 控件，应同步覆盖对应的 ThemeData 样式。
+
+代码、路径和工具输出使用 `context.ianvsTypography.code`。默认等宽字号为13（触控16）、行高1.5，颜色随明暗主题变化；`IanvsTheme.build` 可通过 `monoFontFamily`、`monoFontFamilyFallback` 和 `codeTextStyle` 覆盖。字体文件由宿主提供，聊天阅读字号、代码语法色与终端 ANSI 颜色由宿主业务主题管理。
+
+`IanvsResizeHandle` 可嵌入现有 Row / Column，提供受控面板尺寸调整、键盘和无障碍操作。它不管理会话状态、面板显隐或原生窗口，详见[接入示例](https://github.com/robinfai/ianvs-design/blob/main/docs/integration.md)。
 
 ## 运行组件展厅
 

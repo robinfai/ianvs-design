@@ -5,6 +5,8 @@
 | API | 用途 | 状态所有权与约定 |
 | --- | --- | --- |
 | `IanvsTheme.light/dark/build` | Material 3 + Ianvs 主题 | build 支持 density、accent、platform、base 与字体；ThemeExtension 支持 copyWith / lerp |
+| `IanvsTypography` | 代码、路径与工具输出排版 | `of(context).code` / `context.ianvsTypography.code`；build 可传 `monoFontFamily`、`monoFontFamilyFallback`、`codeTextStyle` |
+| `IanvsResizeHandle` | 受控面板尺寸调整 | value/min/max/onChanged；axis 表示尺寸方向，reverse 用于右/下侧面板；宿主持有布局和可见性 |
 | `IanvsButton` | 主、色调、高亮、描边、文字、危险操作 | onPressed 支持 Future；内部忙碌状态阻止重复触发；loading 可由外部控制；onError 接收失败，否则上报 FlutterError |
 | `IanvsIconButton` | 图标操作 | 必填 tooltip，同时作为无障碍名称；支持 focusNode、selected、禁用 |
 | `IanvsTextField` | 统一 TextFormField | controller 与 initialValue 互斥；validator / onSaved / autovalidateMode 遵循 Form；外部 controller / FocusNode 由宿主销毁 |
@@ -28,6 +30,16 @@
 | `IanvsSkeleton` | 内容加载骨架 | loading/child；默认延迟200ms显示，保留 child 的布局尺寸，隐藏其交互和语义；尊重 MediaQuery.disableAnimations；lines/animate/label 可配置 |
 
 ## 扩展控件示例
+
+`IanvsTypography.code` 是独立于普通 TextTheme 的等宽 TextStyle。默认13px/1.5（touch 16px），颜色取主题前景；macOS/iOS 默认 Menlo，Windows 默认 Consolas，Linux 默认 DejaVu Sans Mono，Android/Fuchsia 默认 monospace。平台字体只是请求的字体族与回退链，不保证该字体已安装；确定字体效果需要宿主打包字体并配置。`codeTextStyle` 最后按 `TextStyle.merge` 规则覆盖默认样式。IanvsTheme 重建自身的 Tokens/Typography 扩展，保留其他类型的宿主扩展。仅用 Material 主题时 `IanvsTypography.of` 也提供主题感知默认值。
+
+`IanvsResizeHandle` 的 `axis: Axis.horizontal` 调整宽度、`Axis.vertical` 调整高度；`reverse: true` 将物理拖动方向反转，适用于右/下侧面板，与文字方向无关。`semanticLabel` 必填，可用 `semanticValueFormatter` 本地化尺寸读法。`step` 默认20，`hitExtent` 默认8（触控场景应由宿主提供更大命中区）。父容器必须为手柄的长度方向提供有限约束。
+
+- `onChanged: null` 或 min=max 时禁用；所有请求限制在 min/max 内，父组件应用新 value 后才改变实际尺寸。
+- 外部传入范围外的 value 会在手柄显示和操作中被限制，不自动修改宿主尺寸；宿主负责布局预算和窗口缩小时的尺寸修正。
+- 方向键按物理方向移动分隔线；Home/End 请求最小/最大尺寸，语义 increase/decrease 始终表示尺寸增加/减少。
+- 传入 `resetValue` 后双击或 Enter 重置，重置值也限制在范围内。带修饰键的快捷键交给宿主。
+- FocusNode 可由宿主传入和销毁。隐藏面板时的焦点迁移、状态保持和持久化由宿主处理。
 
 ```dart
 IanvsCascader<String>(

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 — 2026-09-10
+
+- 新增 `IanvsTypography` 主题扩展与 `context.ianvsTypography.code`，统一代码、路径和工具输出的等宽排版；支持平台字体默认值、宿主字体覆盖、明暗插值及触控密度。
+- `IanvsTheme.build` 新增 `monoFontFamily`、`monoFontFamilyFallback`、`codeTextStyle`，不改变普通正文与宿主业务主题。
+- 新增受控 `IanvsResizeHandle`，支持宽度/高度、右侧/底部面板、拖动边界、键盘与语义增减、双击/Enter 重置；布局、显隐与持久化由宿主持有。
+- 展厅增加可调整侧栏和底部面板，并使用共享等宽主题；补充尺寸调整与草稿保留回归测试。
+- 明确 ACP 原生输入代理的集成边界，并验证 `IanvsTextField` 共享 controller、FocusNode、回调及 Form 契约。
+
 ## 0.1.0 — 2026-09-10
 
 - 首次发布到 pub.dev，补齐 MIT 许可证、第三方来源说明、仓库地址和安装文档。
