@@ -1,0 +1,15 @@
+# Build output and local tooling (.pubignore replaces the root .gitignore).
+.dart_tool/
+.flutter-plugins-dependencies
+build/
+**/build/
+**/.dart_tool/
+**/ephemeral/
+**/Pods/
+.DS_Store
+*.log
+
+# Documentation and design artifacts remain available in the GitHub repository.
+docs/
+design-qa.md
+tool/

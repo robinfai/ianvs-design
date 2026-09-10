@@ -6,12 +6,11 @@
 
 ## 开始使用
 
-要求 Flutter **3.44+**、Dart **3.12+**。在应用的 `pubspec.yaml` 中添加本地依赖，按实际目录调整路径：
+要求 Flutter **3.44+**、Dart **3.12+**。在应用的 `pubspec.yaml` 中添加依赖：
 
 ```yaml
 dependencies:
-  ianvs_design:
-    path: ../ianvs-design
+  ianvs_design: ^0.1.0
 ```
 
 ```dart
@@ -40,7 +39,7 @@ MaterialApp(
 | 桌面组合 | Sidebar、Toolbar、Workspace、FormSection、FieldRow、SettingsRow、Banner、EmptyState |
 | 补充交互 | Cascader 级联路径、NumberStepper 整数步进、Skeleton 骨架屏；参考 TDesign Flutter 后统一适配 |
 
-详细说明见 [组件 API 与交互契约](docs/components.md)、[设计规范](docs/design/plan.md) 和 [Terminal / ACP 接入指南](docs/integration.md)。
+详细说明见 [组件 API 与交互契约](https://github.com/robinfai/ianvs-design/blob/main/docs/components.md)、[设计规范](https://github.com/robinfai/ianvs-design/blob/main/docs/design/plan.md) 和 [Terminal / ACP 接入指南](https://github.com/robinfai/ianvs-design/blob/main/docs/integration.md)。
 
 ## 组合组件
 
@@ -116,6 +115,10 @@ flutter build macos --release
 flutter build web --release --no-web-resources-cdn
 ```
 
-[设计验收报告](design-qa.md) 记录同视口对照、实际操作、修复与适用边界。[设计资料](docs/design/README.md) 包含用户选定稿、ImageGen 设计板、差异标注和原始截图。
+[设计验收报告](https://github.com/robinfai/ianvs-design/blob/main/design-qa.md) 记录同视口对照、实际操作、修复与适用边界。[设计资料](https://github.com/robinfai/ianvs-design/blob/main/docs/design/README.md) 包含用户选定稿、ImageGen 设计板、差异标注和原始截图。
 
-本包当前为本地复用版本（`publish_to: none`），尚未发布到 pub.dev。macOS 系统窗口行为由宿主负责；example 演示了标题栏明暗同步。这个库不提供 Terminal 或 ACP 的运行时连接、进程管理和配置持久化。
+macOS 系统窗口行为由宿主负责；example 演示了标题栏明暗同步。这个库不提供 Terminal 或 ACP 的运行时连接、进程管理和配置持久化。
+
+## 许可证
+
+Ianvs Design 原创代码使用 [MIT License](LICENSE)。Flutter Material 使用 BSD-3-Clause，TDesign Flutter 交互参考使用 MIT；示例字体保留 SIL Open Font License 1.1。上游代码和资源适用各自许可证，详见 [第三方来源与许可](THIRD_PARTY_NOTICES.md)。
