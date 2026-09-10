@@ -1,0 +1,12 @@
+00:00 +0: loading /Users/robinfai/flutter_projects/ianvs-design/test/search_field_test.dart
+00:00 +0: search opens in place without moving field or neighbours Brightness.dark IanvsDensity.compact
+00:00 +1: search opens in place without moving field or neighbours Brightness.dark IanvsDensity.comfortable
+00:00 +2: search opens in place without moving field or neighbours Brightness.dark IanvsDensity.touch
+00:00 +3: search supports keyboard, empty results, dismissal and reopening Brightness.dark
+00:00 +4: mouse can select a suggestion without losing input focus Brightness.dark
+00:00 +5: search opens in place without moving field or neighbours Brightness.light IanvsDensity.compact
+00:00 +6: search opens in place without moving field or neighbours Brightness.light IanvsDensity.comfortable
+00:01 +7: search opens in place without moving field or neighbours Brightness.light IanvsDensity.touch
+00:01 +8: search supports keyboard, empty results, dismissal and reopening Brightness.light
+00:01 +9: mouse can select a suggestion without losing input focus Brightness.light
+00:01 +10: All tests passed!

@@ -1,0 +1,1129 @@
+[
+  {
+    "id": "01-connection-global",
+    "screenshots": [
+      {
+        "name": "01-connection-narrow-default",
+        "note": "默认浏览器视口；连接设置初始状态",
+        "verified": true,
+        "width": 836,
+        "height": 942,
+        "text_scale": 1
+      },
+      {
+        "name": "02-connection-dark-default",
+        "note": "1440×1000 桌面宽屏；连接设置默认、静态错误与禁用/焦点示例",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "03-connection-startup-open",
+        "note": "启动方式展开，选中行与其他选项",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "04-connection-saving",
+        "note": "真实保存中：输入/分段/开关/取消禁用，保存显示加载",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "05-connection-saved",
+        "note": "保存完成状态",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "06-connection-validation",
+        "note": "真实提交校验错误",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "07-connection-acp",
+        "note": "ACP 场景已选择",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "08-global-theme-open",
+        "note": "外观模式菜单与当前选中项",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "09-connection-light",
+        "note": "连接设置浅色，错误与选中态",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "10-global-density-open",
+        "note": "密度菜单展开",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "11-connection-comfortable",
+        "note": "舒适密度，控件增高与内容滚动",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "12-connection-touch",
+        "note": "触控密度 48px",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      }
+    ],
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/01-connection-global-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/01-connection-global-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/01-connection-global-3.png"
+    ]
+  },
+  {
+    "id": "02-actions",
+    "screenshots": [
+      {
+        "name": "13-actions-light-default",
+        "note": "所有常规按钮、图标按钮、FAB与禁用/静态加载",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "14-actions-async-busy",
+        "note": "异步按钮真实忙碌状态",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "16-actions-selection",
+        "note": "收藏取消、单选切换、多选并存",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "17-actions-dark",
+        "note": "按钮深色：完成与多选状态",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      }
+    ],
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/02-actions-1.png"
+    ]
+  },
+  {
+    "id": "03-inputs-fields-menus",
+    "screenshots": [
+      {
+        "name": "18-inputs-dark-top",
+        "note": "输入字段默认、密码隐藏、多行、禁用",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "19-inputs-error-password",
+        "note": "真实必填校验错误、密码显示",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "20b-inputs-save-confirmed",
+        "note": "有效值再次点击校验并保存，确认结果",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "21b-inputs-search-open",
+        "note": "搜索建议展开，实际可见结果",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "22-inputs-search-empty",
+        "note": "搜索zz-no-match，无匹配连接菜单。",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "23-inputs-search-keyboard",
+        "note": "Loc 筛选与键盘高亮第二项",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "24-inputs-search-selected",
+        "note": "搜索选定 Local Server 并关闭菜单",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "25-inputs-autocomplete-open",
+        "note": "Autocomplete 展开与多条建议",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "26-inputs-select-open",
+        "note": "受控 Select：选中、未选与禁用选项",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "27-inputs-dropdown-open",
+        "note": "Material DropdownMenu 展开",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "45-inputs-light-top",
+        "note": "浅色文本字段与搜索选择器",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      }
+    ],
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/03-inputs-fields-menus-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/03-inputs-fields-menus-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/03-inputs-fields-menus-3.png"
+    ]
+  },
+  {
+    "id": "04-inputs-selection",
+    "screenshots": [
+      {
+        "name": "28-inputs-controls-default",
+        "note": "输入页下部：滑块、Chip、日期和代码。",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "29-inputs-selection-default",
+        "note": "选择控件与滑块完整默认状态",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "30-inputs-selection-changed",
+        "note": "复选取消、三态未选、远程Radio、开关关闭、Slider与Range变化",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "31-inputs-chips-default",
+        "note": "Chip 默认和日期入口",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "32-inputs-chips-selected",
+        "note": "FilterChip多选本地和远程，ChoiceChip选择舒适。",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "33-inputs-chip-deleted",
+        "note": "实际为InputChip选中；删除状态见38，文件名为采集时暂定名。",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "38-inputs-chip-removed",
+        "note": "InputChip 实际删除，显示恢复标签",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "43-inputs-light-bottom",
+        "note": "浅色滑块、Chip与日期入口",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "44-inputs-light-middle",
+        "note": "浅色选择控件",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      }
+    ],
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/04-inputs-selection-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/04-inputs-selection-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/04-inputs-selection-3.png"
+    ]
+  },
+  {
+    "id": "05-date-time",
+    "screenshots": [
+      {
+        "name": "34-inputs-date-picker",
+        "note": "日期选择器月视图，默认选中与今天",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "35-inputs-date-year",
+        "note": "日期年份选择",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "36-inputs-date-entry",
+        "note": "日期文本输入模式",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "37-inputs-date-invalid",
+        "note": "无效日期输入错误提示",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "39-inputs-date-range",
+        "note": "日期范围：起止日期和连续区间",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "40-inputs-range-entry",
+        "note": "日期范围输入模式",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "41-inputs-time-clock",
+        "note": "时间选择器时钟与上午下午",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "42-inputs-time-entry",
+        "note": "时间文本输入模式",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      }
+    ],
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/05-date-time-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/05-date-time-2.png"
+    ]
+  },
+  {
+    "id": "06-navigation",
+    "screenshots": [
+      {
+        "name": "46-navigation-light-top",
+        "note": "导航页 AppBar、BottomAppBar、NavigationBar与Rail",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "47-navigation-selected",
+        "note": "NavigationBar与Rail同步切换项目",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "48-navigation-lower-default",
+        "note": "Drawer、Tabs、三类菜单默认",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "49-navigation-tabs-spec",
+        "note": "TabBar 切换规范内容，Drawer选中背景可见",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "50-navigation-anchor-menu",
+        "note": "锚定菜单，含图标和禁用项",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "51-navigation-quick-menu",
+        "note": "快捷菜单展开",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "52-navigation-menubar-file",
+        "note": "MenuBar 文件菜单",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "53-navigation-view-menu",
+        "note": "实际为快捷菜单选择重命名后的反馈；复选菜单见57。",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "55-navigation-dark-lower",
+        "note": "导航页深色下半部",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "56-navigation-dark-top",
+        "note": "导航页深色上半部",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "57-navigation-checkbox-menu",
+        "note": "视图菜单打开：显示隐藏文件选中",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "58-navigation-checkbox-toggled",
+        "note": "点击复选菜单后菜单关闭；未捕获重开后的取消勾选态。",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      }
+    ],
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/06-navigation-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/06-navigation-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/06-navigation-3.png"
+    ]
+  },
+  {
+    "id": "07-feedback",
+    "screenshots": [
+      {
+        "name": "59-feedback-dark-top",
+        "note": "状态提示、Badge、Banner和进度默认",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "60-feedback-snackbar",
+        "note": "Snackbar 带撤销动作",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "61-feedback-undo",
+        "note": "撤销后恢复通知计数",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "62-feedback-material-banner",
+        "note": "MaterialBanner 持续提示与知道了",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "63-feedback-tooltip-trigger",
+        "note": "提示按钮点击反馈；未捕获悬停气泡。",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "65-feedback-list-table",
+        "note": "Card、ListTile、选择行、折叠区与DataTable",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "66-feedback-list-expanded",
+        "note": "同步关闭、远程存储、高级设置展开",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "67-feedback-table-empty",
+        "note": "数据表格和空状态完整截图",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "68-feedback-table-sorted-selected",
+        "note": "名称降序、选中第一行、表头混合态",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "69-feedback-table-select-all",
+        "note": "全选表格",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "70-feedback-empty-action",
+        "note": "空状态主操作反馈：示例创建结果",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "71-feedback-light-lower",
+        "note": "反馈页浅色：列表、表格全选、空状态",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "72-feedback-light-top",
+        "note": "反馈页浅色：Banner、进度与卡片",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      }
+    ],
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/07-feedback-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/07-feedback-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/07-feedback-3.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/07-feedback-4.png"
+    ]
+  },
+  {
+    "id": "08-supplements",
+    "screenshots": [
+      {
+        "name": "73-supplements-light-default",
+        "note": "扩展组件浅色默认：级联选择、步进输入、骨架屏",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "74-cascader-empty",
+        "note": "清空级联选择，返回全部层级",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "75-cascader-remote",
+        "note": "选择远程，显示SSH叶节点",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "76-stepper-edit-out-of-range",
+        "note": "数字步进编辑超范围99，提交前",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "77-stepper-clamped",
+        "note": "提交后限制到上界32，加号禁用",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "78-stepper-escape",
+        "note": "Esc还原已提交32",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "79-supplements-dark-top",
+        "note": "扩展组件深色：选中路径、数字上下界及禁用",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "80-skeleton-preview",
+        "note": "骨架加载示意与已加载内容对照",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "81-skeleton-reloading",
+        "note": "模拟重新加载中，按钮带加载指示并禁用，预览切换为骨架。",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "83-code-interaction-tab",
+        "note": "代码面板交互约定标签",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "84-code-tokens-copy",
+        "note": "设计变量标签与复制代码反馈",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      }
+    ],
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/08-supplements-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/08-supplements-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/08-supplements-3.png"
+    ]
+  },
+  {
+    "id": "09-workspace",
+    "screenshots": [
+      {
+        "name": "85-workspace-dark-default",
+        "note": "工作区深色默认与框架层级",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "86-workspace-files",
+        "note": "工作区切换文件导航与文件内容标题",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "87-workspace-settings-new",
+        "note": "工作区设置导航与新建文档反馈",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "88-workspace-light",
+        "note": "工作区浅色：工具栏、导航与内容分层",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "107-workspace-narrow",
+        "note": "480px窄屏工作区，侧栏隐藏",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      },
+      {
+        "name": "108-workspace-narrow-switched",
+        "note": "窄屏切换内容替代内层侧栏",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      }
+    ],
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/09-workspace-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/09-workspace-2.png"
+    ]
+  },
+  {
+    "id": "10-overlays",
+    "screenshots": [
+      {
+        "name": "89-overlays-light-default",
+        "note": "确认与退出浅色默认及草稿输入",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "90-confirm-light-open",
+        "note": "浅色放弃更改确认，对继续编辑设置初始焦点",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "91-confirm-cancel-retains",
+        "note": "Escape取消，草稿内容保留",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "92-confirm-discarded",
+        "note": "确认放弃，草稿清空与反馈",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "93-alert-light",
+        "note": "浅色AlertDialog说明与关闭",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "94-simple-dialog-light",
+        "note": "SimpleDialog启动方式选项",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "95-simple-selected",
+        "note": "SimpleDialog选择ACP后的反馈",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "96-bottom-sheet-light",
+        "note": "浅色底部面板打开，三类创建选项和取消",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "97-bottom-sheet-selected",
+        "note": "选择空白项目，底部面板关闭并返回结果",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "98-overlays-dark-default",
+        "note": "确认与退出深色默认",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "99-confirm-dark-open",
+        "note": "深色确认弹窗与默认安全焦点",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "100-bottom-sheet-dark",
+        "note": "深色底部面板",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "119-overlays-narrow",
+        "note": "480px弹层入口布局",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      },
+      {
+        "name": "120-confirm-narrow",
+        "note": "480px确认弹窗",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      },
+      {
+        "name": "121-bottom-sheet-narrow",
+        "note": "480px底部面板，全宽适配",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      },
+      {
+        "name": "130-overlays-scale-200",
+        "note": "200%文字：确认与退出入口",
+        "verified": true,
+        "width": 1280,
+        "height": 720,
+        "text_scale": 2
+      },
+      {
+        "name": "131-confirm-scale-200",
+        "note": "1280×720、200%文字：确认弹窗内容和按钮均完整",
+        "verified": true,
+        "width": 1280,
+        "height": 720,
+        "text_scale": 2
+      }
+    ],
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/10-overlays-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/10-overlays-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/10-overlays-3.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/10-overlays-4.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/10-overlays-5.png"
+    ]
+  },
+  {
+    "id": "11-foundations-search",
+    "screenshots": [
+      {
+        "name": "101-foundations-dark-top",
+        "note": "基础规范深色：色板与排版",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "102-foundations-dark-lower",
+        "note": "基础规范深色：字号、尺寸、动效、交互",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "103-foundations-light-lower",
+        "note": "基础规范浅色：排版与尺寸",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "104-foundations-light-top",
+        "note": "基础规范浅色：完整色板",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "105-global-search-matches",
+        "note": "快捷键聚焦搜索，date过滤组件目录",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "106-global-search-empty",
+        "note": "目录搜索无匹配与清除入口",
+        "verified": true,
+        "width": 1440,
+        "height": 1000,
+        "text_scale": 1
+      },
+      {
+        "name": "122-foundations-narrow",
+        "note": "480px基础色板换行和文字层级",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      }
+    ],
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/11-foundations-search-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/11-foundations-search-2.png"
+    ]
+  },
+  {
+    "id": "12-responsive",
+    "screenshots": [
+      {
+        "name": "109-global-drawer-open",
+        "note": "窄屏组件目录抽屉打开",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      },
+      {
+        "name": "110-connection-narrow",
+        "note": "480px连接设置，纵向表单与代码分区",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      },
+      {
+        "name": "111-connection-narrow-save",
+        "note": "窄屏滚动后保存与取消可见",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      },
+      {
+        "name": "112-actions-narrow",
+        "note": "480px按钮页，按钮换行及分段布局",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      },
+      {
+        "name": "113-inputs-narrow",
+        "note": "480px输入页，标签纵向排布",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      },
+      {
+        "name": "114-navigation-narrow",
+        "note": "480px导航页，顶栏/底栏/导航栏",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      },
+      {
+        "name": "115-navigation-narrow-lower",
+        "note": "窄屏NavigationDrawer、Tabs和菜单",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      },
+      {
+        "name": "116-feedback-narrow",
+        "note": "480px反馈页：状态按钮换行、Banner",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      },
+      {
+        "name": "117-supplements-narrow",
+        "note": "480px扩展组件：级联选择、步进折行",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      },
+      {
+        "name": "118-supplements-narrow-skeleton",
+        "note": "480px骨架屏与内容预览纵向排列",
+        "verified": true,
+        "width": 480,
+        "height": 900,
+        "text_scale": 1
+      },
+      {
+        "name": "124-inputs-scale-200",
+        "note": "1280×720、200%文字缩放：输入页默认。",
+        "verified": true,
+        "width": 1280,
+        "height": 720,
+        "text_scale": 2
+      },
+      {
+        "name": "125-connection-scale-200",
+        "note": "1280×720、200%文字：连接设置",
+        "verified": true,
+        "width": 1280,
+        "height": 720,
+        "text_scale": 2
+      },
+      {
+        "name": "126-connection-scale-200-lower",
+        "note": "200%文字：滚动后的连接表单字段。",
+        "verified": true,
+        "width": 1280,
+        "height": 720,
+        "text_scale": 2
+      },
+      {
+        "name": "127-supplements-scale-200",
+        "note": "200%文字：级联选择标题和路径",
+        "verified": true,
+        "width": 1280,
+        "height": 720,
+        "text_scale": 2
+      },
+      {
+        "name": "128-supplements-scale-200-lower",
+        "note": "200%文字：级联路径与数字步进。",
+        "verified": true,
+        "width": 1280,
+        "height": 720,
+        "text_scale": 2
+      },
+      {
+        "name": "129-supplements-scale-200-skeleton",
+        "note": "200%文字：骨架与预览内容",
+        "verified": true,
+        "width": 1280,
+        "height": 720,
+        "text_scale": 2
+      }
+    ],
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/12-responsive-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/12-responsive-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/12-responsive-3.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/12-responsive-4.png"
+    ]
+  }
+]

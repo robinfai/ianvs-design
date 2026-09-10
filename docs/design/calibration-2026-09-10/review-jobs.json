@@ -1,0 +1,170 @@
+[
+  {
+    "id": "01-connection",
+    "prompt": "Use case: ui-mockup\nAsset type: 中文视觉验收板。\n任务：你负责 Ianvs Design 本轮连接设置校准的视觉验收。逐张对照左侧 BEFORE 与右侧 AFTER 真实截图；第5张为修改后的错误、保存中、已保存状态。输出高分辨率横向中文验收板，列出每项「通过 / 不通过 / 证据不足」，引用原截图编号，给出简短理由与残留问题。不能默认通过。\n验收项：F02 ACP填入npx后真实表单旧错误是否清除；F05桌面和480px窄屏保存操作是否易于发现、滚动后是否保持可见；F06初始已保存状态和禁用操作是否一致；保存中与完成状态是否清晰；复制示例和代码说明层级是否改善。右侧「状态预览」里的红框是独立静态错误样本，不是真实表单旧错误。窄屏after07为触控密度且有滚动，不能将正常离屏字段当成永久缺失。\n约束：只做视觉验收，不宣称代码、性能或完整无障碍测试通过；不要重绘或改写截图来证明结论。尽量用原图局部与简洁批注。标题「连接设置 · ImageGen 视觉验收」，角注明「截图证据验收，不替代功能测试」。若有阻断缺陷明确标出。保留紧凑桌面工具既有设计语言。\n",
+    "references": [
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/01-layout.png",
+        "sha256": "3a1df0ad94369f1e2e11c5ae5fbf56eac58eca76c7e8cdcef0d6907a76993538"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/02-validation.png",
+        "sha256": "746ef701bed1167f7dcbe37415c47ba843c88e2e03b6b9fda5988a8ae6dabc68"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/03-narrow.png",
+        "sha256": "0497397104991321a8bb79747e880100eafe0950f062d04940a8639700afc3bb"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/04-scroll.png",
+        "sha256": "0710728e01fefd114a48c4493876a0573661fde1c8c8784ff34945e380bcd622"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/05-connection-states.png",
+        "sha256": "cf8e6cd346f70119221257da7a89766002a6cbe449e514aa4c03be05baf5958c"
+      }
+    ],
+    "original": "/Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-6351f393-bdbc-48ee-a232-aae44c955cc2.png",
+    "output": "reviews/01-connection.png"
+  },
+  {
+    "id": "02-navigation",
+    "prompt": "Use case: ui-mockup\n任务：对 Ianvs Design 导航抽屉本轮修改做独立视觉验收，输出中文横向验收板。输入是未缩放原始截图的前后并排对照；BEFORE/AFTER标签在产品外。重点是主内容区内的 NavigationDrawer，不是最左侧Gallery目录。F01旧版蓝色选中矩形在容器中间、图标文字在左侧。逐项检查修改后：背景是否覆盖对应图标和标签、三个目的地是否一致、桌面深浅与480px窄屏是否对齐、选中层级是否清楚。深色前后所选目的地可能不同，请按各自选中行对比布局，不把文字变化当成缺陷。第四张补充主页和设置状态。\n输出：每项标「通过/不通过/证据不足」，引用原始编号，最多4条检查结论与2条残留建议。只根据截图，不宣称键盘、读屏或完整功能测试通过。不得重绘错误证据或将正常滚动截面当成裁切缺陷。标题「导航选中状态 · ImageGen 视觉验收」，注明「仅视觉验收」。保留现有紧凑Material桌面风格，不做风格重设计，不默认通过。\n",
+    "references": [
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/06-navigation-project.png",
+        "sha256": "11d5cc32c95ff3342388b24ce2af3d57840b59a0700e52933ee36f67aec201ed"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/07-navigation-dark.png",
+        "sha256": "f04b9f8dee8f160eaefaea241092147b5ebc2562f9e78665468e9d52f0ec7962"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/08-navigation-narrow.png",
+        "sha256": "5e12e9b2d1400b4a2f67831eb75283105929ce25cf6cb7554613f1911b266b10"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/09-navigation-destinations.png",
+        "sha256": "878dcda47931bbc831928936f47650b3ff096d2c0c1b747d1bad69cf3d7236dc"
+      }
+    ],
+    "original": "/Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-3c172fd8-5dce-4bf1-b63b-c08bc5b793c4.png",
+    "output": "reviews/02-navigation.png"
+  },
+  {
+    "id": "03-dates-time",
+    "prompt": "Use case: ui-mockup\n生成中文视觉验收板：日期与时间 · ImageGen 视觉验收。你负责验收，不能默认通过。5张输入均是原始页面截图对照或状态汇总，不是待重设计样式稿。逐项给出通过/不通过/证据不足与原截图编号：F03 日期标题的周四是否完整，范围两日期是否按完整单位换行；F07 上午/下午选中是否从紫色统一为蓝色，并与小时/时钟一致；无效输入的真实错误是否保留；200%文字是否完整。第5张中的25是发现问题的中间失败版，27才是最终修复版；请明确27是否解决25的省略，24是单日期200%，14是真实无效日期状态。最终验收以13-17、24、27为准。前后底层滚动位置和输入数据略有区别，不影响上述局部验收。只判断截图可见内容，禁止宣称功能、性能或全部无障碍通过。输出简洁高分辨率中文评审板，引用原图编号，清楚列出阻断项和非阻断建议。不要重绘产品截图制造证据；如难保留原图只写文字结论和引用。角注明截图证据验收，不替代功能测试。\n",
+    "references": [
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/10-date-entry.png",
+        "sha256": "9ffed1603aad5de7d3c98b9eada0658520ac3027e82205e07e2f864038d283ce"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/11-range-entry.png",
+        "sha256": "fdbe83f3051d4b89e8acc3b3e9ff17339dff166bdfe206bd23e70b26908a5ac9"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/12-time-clock.png",
+        "sha256": "0e4acbdc8a7803a1ce982932c3dd6fb0a338c685e8c97bb851edd71c984c7038"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/13-time-input.png",
+        "sha256": "996fdde72c7b8ca9854f9ef286ed537faf3a67570be73c1ac27cb704b989304d"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/14-date-large-text.png",
+        "sha256": "f6d198176a3d3a10fde47269f4847bce9b8de5db7e6a6f843db7be5c54a0dfca"
+      }
+    ],
+    "original": "/Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-b297f529-a380-4303-860d-cab9e0a9a7a1.png",
+    "output": "reviews/03-dates-time.png"
+  },
+  {
+    "id": "04-catalog-workspace",
+    "prompt": "Use case: ui-mockup\n你负责 Ianvs Design 目录与工作区的本轮视觉验收。生成中文验收板，不能默认通过。5张输入为同尺寸同主题的原始截图对照（工作区额外第三格为选择设置后的结果）。F04只指全局目录空结果：31的无匹配提示与清空搜索是否紧邻输入；窄屏工具栏32的密度与复制是否更紧凑、复制是否有适合的次要权重；工作区33/34直接菜单的概览/文件/设置是否可发现，当前项和选中结果是否明确；数字步进器35/36新增范围8–32与超限调整到边界的规则，和99提交到32结果是否一致；设计规范30和before101的视觉语言、字号层级、色板是否保持一致。部分主体区上方级联选择数据与before不同，只验收数字步进器的规则及状态。按通过/不通过/证据不足逐项判断，引用原截图编号。只判断可见证据，不声称已验证完整无障碍或功能代码；键盘另有测试。不得重绘截图制造证据，可只用简洁文字评审加编号。高分辨率横向中文板，标题「目录与工作区 · ImageGen 视觉验收」，列出阻断项及非阻断建议，角注截图证据验收，不替代功能测试。\n",
+    "references": [
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/15-search-empty.png",
+        "sha256": "2bd7d9b1a55e8986a91fdfba327029ddd36f4920404425583fc9752ad079e37b"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/16-toolbar-narrow.png",
+        "sha256": "77f186d2aa1f7fa523d4e57d48c631d5bc4afb91da2408c498556315eef65193"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/17-workspace-direct-menu.png",
+        "sha256": "b3890bbdf220399471f55abed1316e1237c546ce93f1dffe2544ef8b5f9ab5d9"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/18-stepper-boundaries.png",
+        "sha256": "bcca7a2dd5f3e84f0fa024ffdd31b9788ebebec04dfc5ccd357dd6f32faac3c4"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/22-foundations.png",
+        "sha256": "2cfd549f813a768a1fa3efede701dfb2b902c5ef663721b4d95d150f0317574f"
+      }
+    ],
+    "original": "/Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-41957967-4420-469c-aa91-8e681107f596.png",
+    "output": "reviews/04-catalog-workspace.png"
+  },
+  {
+    "id": "05-feedback-dialog",
+    "prompt": "Use case: ui-mockup\n生成中文视觉验收板：反馈与确认 · ImageGen 视觉验收。你负责验收，不能默认通过。三张原始像素截图拼接，左 BEFORE 右 AFTER。检查深色页面的文字操作（重试、查看项目）、Snackbar撤销是否更清晰且延续蓝色行动语义；确认弹窗在200%文字下标题顶部留白、正文完整、两按钮边界和安全默认焦点是否清晰。第3对截图均1280×720、200%文字，同一确认状态，背景滚动位置不同。列出每项通过/不通过/证据不足，引用原截图19/20/26和对应before编号，列出可见阻断问题与非阻断建议。不要凭图声称达到精确对比度比值，也不要宣称全部无障碍、键盘、功能测试通过。仅视觉验收；代码另有对比度和交互测试。禁止重绘产品截图来证明结论，可以只用文字判定与原图编号。中文简洁高分辨率横向验收板，角注明截图证据验收，不替代功能测试。\n",
+    "references": [
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/19-feedback-actions.png",
+        "sha256": "1120b44aefde4c36711dbb6c8cc87bf290f2f7b0d9dbd4a9f2f656da5d8cc28b"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/20-feedback-snackbar.png",
+        "sha256": "c2c2ac62303ca744d9f4d05656952056ed1afe9d1efffa1bb950275ece918c71"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/21-confirm-large-text.png",
+        "sha256": "ea7598c00240276e71693ef2c8a624554995447248c125af5114c6c5de00d04b"
+      }
+    ],
+    "original": "/Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-81a7f4f7-8e10-4605-a7bc-1ee21413b5b5.png",
+    "output": "reviews/05-feedback-dialog.png"
+  },
+  {
+    "id": "06-feedback-supplement",
+    "prompt": "Use case: ui-mockup\n这是 Ianvs Design「反馈与确认」视觉验收的证据补充，不是重新设计。上一轮验收已通过重试、撤销、200%标题顶部留白、正文和按钮边界，但把「查看项目入口」与「继续编辑的焦点边框」判为证据不足。现在直接提供两张原始全分辨率截图（不再使用缩小的拼接图）：图19为1440×1000深色反馈页；图26为1280×720、200%文字确认弹窗。请独立复核两项：1 图19下部项目概览卡片中的查看项目链接是否清晰且保持蓝色行动语义；2 图26左侧继续编辑按钮是否有清晰的蓝色焦点轮廓，以及危险按钮边界区分是否明确。只能判断可见焦点样式，不能从静态图宣称所有键盘行为通过。若仍看不清就证据不足。输出中文补充验收板，给出每项通过/不通过/证据不足、引用原图编号与一句理由，列出剩余阻断项。不要重绘任何产品截图，只输出文字验收结论，避免图像重绘混淆证据。不要编造日期或问题编号。标题「反馈与确认 · 补充视觉验收」，角注原始截图为证据，不替代功能测试。\n",
+    "references": [
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/19-feedback-dark-actions.jpg",
+        "sha256": "09da22ee60d95267d223d473d29c123a47b04c3176ac8b49b22043fd2df4d140"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/26-confirm-scale200.jpg",
+        "sha256": "98cb631fa90bd72f8cf8dc6e1bf3c21e89d33a59dda69bafc411bca23836a7d1"
+      }
+    ],
+    "original": "/Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-65459626-2e8c-4b2a-8445-3a7dffa0a2cc.png",
+    "output": "reviews/06-feedback-supplement.png"
+  },
+  {
+    "id": "07-boundaries-long-dates",
+    "prompt": "Use case: ui-mockup\n请负责 Ianvs Design 的补充视觉验收。只输出中文文字表格验收板，绝对不要重绘产品界面或数值。不要创造F编号或日期。标题「数值边界与长日期 · 补充视觉验收」。4张引用：图1是原截图35（1440×1000）输入99编辑中；图2是原截图36（1440×1000）同控件提交后的画面；图3是200%长日期before37/after38；图4是200%常规日期before24/after39。请从真实截图独立判定通过/不通过/证据不足，不预设通过。\nA 数字步进器：只检查数字步进区最左边标有「终端字号」的那个可编辑控件。它右边的最小边界8、最大边界32、禁用13是另外三个固定示例，不是待提交控件。图35与36是同一真实交互的前后截图：实际浏览器操作为选中最左字段→输入99→截图35→按Return→截图36。请核对截图最左字段的可见数字、其增加按钮的边界禁用外观，和上方范围8–32及超限调整到最近边界的说明是否一致。只验收可见前后状态，截图不能独立证明内部算法或所有输入分支，功能测试已另行执行；不要因静态截图缺少动画而判定视觉失败。上一轮拼版将左侧控件误看成旁边的固定边界8，本次提供原尺寸作为澄清，若仍看不清请说证据不足。\nB 长日期标题：after38是否解决before37的12月31日拆开问题，日期与周四是否完整，输入与操作是否可见。C 常规日期：after39宽标题布局是否保持9月10日与周四完整、焦点输入和操作完整。大字模式保留文字缩放，布局改为宽标题，上下较宽空白允许作为非阻断建议；不能只凭空白多报告功能缺陷。\n列出每项结论、原图编号、一句理由；最后写剩余可见阻断项及非阻断建议。角注「原始截图为证据，不替代功能测试」。\n",
+    "references": [
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/35-stepper-out-of-range-light.jpg",
+        "sha256": "15dafdefa884bc86fb5f7d38d286583fe844c172e373c483ba156a2b01b54dd9"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/36-stepper-clamped-light.jpg",
+        "sha256": "fe07559e58ea2c30d8e3ab0b6ac4c2633f08ae2aba67f914753f64ad37d620d8"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/23-long-date-refinement.png",
+        "sha256": "b1c16f6130cf8acf8ef96a8bb7dbc33b698508b300c34562d46916f29fd2fcfa"
+      },
+      {
+        "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/24-date-refinement.png",
+        "sha256": "e7a7e803f56613c2d968764197e47b6cc871da210d834927601a10ddeda6f791"
+      }
+    ],
+    "original": "/Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-5d8e9df0-81b8-44cf-99d1-d0e45a3679e2.png",
+    "output": "reviews/07-boundaries-long-dates.png"
+  }
+]

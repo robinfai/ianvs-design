@@ -1,0 +1,121 @@
+[
+  {
+    "id": "01-connection-global",
+    "prompt": "Use case: ui-mockup\nAsset type: screenshot-based design audit board, Simplified Chinese.\nPrimary request: 依据全部 12 张真实 Flutter Ianvs Design 展厅截图，对「连接设置与全局控件」做独立设计评审，输出一张专业、清楚易读的批注评审板。保留实际界面的小截图或关键局部，旁边以编号列出优点、问题、严重级别和具体改进。至少检查：信息层级、对齐、留白、控件密度、明暗对比、默认/焦点/错误/加载/禁用/选中态、菜单锚点、动作可见性。仅依据截图，不能宣称代码或可访问性测试通过。注意截图含局部滚动状态，不把正常离屏内容当成渲染错误。对疑似问题明确标记“需验证”。\nInput images: 每张均为本轮实际截图参考，按顺序：01-connection-narrow-default, 02-connection-dark-default, 03-connection-startup-open, 04-connection-saving, 05-connection-saved, 06-connection-validation, 07-connection-acp, 08-global-theme-open, 09-connection-light, 10-global-density-open, 11-connection-comfortable, 12-connection-touch。\nComposition: 高分辨率横向评审板，清晰中文排版，左侧证据截图/关键裁切，右侧3-6条按影响排序的评语，底部给出待验证项。每张输入都应被审阅，但无需把所有缩略图挤在板上。现有界面用作证据，不重新设计或伪造现状。\nConstraints: 保持 Ianvs 现有石墨灰/蓝色与 macOS 紧凑 Material 3 语境；批注颜色与截图区分。标题“连接设置与全局控件 · 设计评审”；标记“ImageGen 视觉评审建议 · 非测试结论”。不得编造精确对比度、用户测试结论。\n注意：输入改为3张无损截图联系表，共12张截图，逐张带原始编号。联系表灰色空白是排版留白，不是产品界面。",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/01-connection-global-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/01-connection-global-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/01-connection-global-3.png"
+    ],
+    "output_hint": "Generated images are saved to /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a as /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-efc9d614-4347-45d4-8b33-e4955c4fee44.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "id": "02-actions",
+    "prompt": "Use case: ui-mockup\n请独立评审附图内全部4张 Ianvs Design 按钮页真实截图（13,14,16,17），生成一张中文带批注设计评审板。输入是截图联系表，灰色外框与文件名不是产品。检查 Filled/Tonal/Elevated/Outlined/Text/Icon/FAB/Segmented/Button 的层级、焦点、禁用、加载、选中、暗色可读性、一致性。看清不同截图的忙碌与完成变化，引用截图编号；左侧真实证据局部，右侧3-5条优先级明确的改进建议并保留优点。不得把截图中未显示的hover/pressed推测为缺陷，不得宣称可访问性测试通过。保留现有macOS紧凑Material 3语境，不重新设计现状。高分辨率横向排版、中文清晰。标题“按钮与操作 · 设计评审”；角注“ImageGen 视觉建议 · 非测试结论”。",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/02-actions-1.png"
+    ],
+    "output_hint": "Generated images are saved to /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a as /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-12a3cf19-5651-4bb4-8a0e-48f850bb72af.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "id": "03-inputs-fields-menus",
+    "prompt": "对附带的 Ianvs Design Flutter 组件库真实截图做中文设计评审，生成一张横向评审板，清晰中文，最多4条优先改进建议+2条优点，每条标注原截图编号。参考图是2×2证据拼版，截图像素未编辑。保持紧凑桌面工具的视觉语言。评审聚焦层级、对齐、间距、状态区分、文字换行、弹层锚点，不做营销重设计。只根据可见证据，不虚构交互行为或WCAG数值；未证明内容写待验证。不能把正常空闲按钮误判为缺失加载态，不能把屏幕滚动截面误判为内容丢失。图板请保留真实截图内容与编号作为依据，可用简洁放大标注，建议区不要伪造原界面。标题标注「ImageGen 视觉建议 · 非测试结论」。\n本组：03-inputs-fields-menus\n核对浅深主题、错误/焦点/禁用/选中样式的一致性。33实际上是InputChip选中，38才是删除；不要仅按文件名推断。",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/03-inputs-fields-menus-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/03-inputs-fields-menus-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/03-inputs-fields-menus-3.png"
+    ],
+    "output_hint": "Generated images are saved to /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a as /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-12c67e1c-8fff-4bb4-ba2b-4d6b5f8faa1e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "id": "04-inputs-selection",
+    "prompt": "对附带的 Ianvs Design Flutter 组件库真实截图做中文设计评审，生成一张横向评审板，清晰中文，最多4条优先改进建议+2条优点，每条标注原截图编号。参考图是2×2证据拼版，截图像素未编辑。保持紧凑桌面工具的视觉语言。评审聚焦层级、对齐、间距、状态区分、文字换行、弹层锚点，不做营销重设计。只根据可见证据，不虚构交互行为或WCAG数值；未证明内容写待验证。不能把正常空闲按钮误判为缺失加载态，不能把屏幕滚动截面误判为内容丢失。图板请保留真实截图内容与编号作为依据，可用简洁放大标注，建议区不要伪造原界面。标题标注「ImageGen 视觉建议 · 非测试结论」。\n本组：04-inputs-selection\n核对浅深主题、错误/焦点/禁用/选中样式的一致性。33实际上是InputChip选中，38才是删除；不要仅按文件名推断。",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/04-inputs-selection-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/04-inputs-selection-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/04-inputs-selection-3.png"
+    ],
+    "output_hint": "Generated images are saved to /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a as /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-2b18a2e9-9d1d-4fe3-a1bc-48d84cb7a60d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "id": "05-date-time",
+    "prompt": "对附带的 Ianvs Design Flutter 组件库真实截图做中文设计评审，生成一张横向评审板，清晰中文，最多4条优先改进建议+2条优点，每条标注原截图编号。参考图是2×2证据拼版，截图像素未编辑。保持紧凑桌面工具的视觉语言。评审聚焦层级、对齐、间距、状态区分、文字换行、弹层锚点，不做营销重设计。只根据可见证据，不虚构交互行为或WCAG数值；未证明内容写待验证。不能把正常空闲按钮误判为缺失加载态，不能把屏幕滚动截面误判为内容丢失。图板请保留真实截图内容与编号作为依据，可用简洁放大标注，建议区不要伪造原界面。标题标注「ImageGen 视觉建议 · 非测试结论」。\n本组：05-date-time\n重点核对36/37日期输入标题将周四拆行、40日期范围拆开9月14日，以及41/42上午选中为紫色而主要强调色为蓝色。",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/05-date-time-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/05-date-time-2.png"
+    ],
+    "output_hint": "Generated images are saved to /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a as /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-f3ef453c-3e2a-42cb-8573-b9f869e43fd4.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "id": "06-navigation",
+    "prompt": "请根据附带真实 Ianvs Design 截图做中文设计评审，输出简洁横向视觉评审板。原图为带编号的2×2拼版，每个页面和操作状态都请审阅。最多3条有截图依据的改进与2条优点。建议注明原截图编号。不要强行凑问题。版头明确「ImageGen 视觉建议 · 非测试结论」。保持紧凑桌面工具风格，评价信息层级、对齐、控件状态与响应式适配。不要推断截图未证明的行为，不要编造WCAG数值；滚动截面不等于内容丢失。不要将浅深主题本应不同的颜色判为不一致。不重画原界面冒充证据，可做明确标为建议的标注或文字卡。\n本组：06-navigation\n重点看48/49/55的NavigationDrawer：蓝色选中矩形位于容器中部，但选中项目图标和文字位于左侧，两者明显分离。52两个菜单同时可见，仅记观察并待验证原因。58是菜单关闭，不足以证明取消勾选。",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/06-navigation-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/06-navigation-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/06-navigation-3.png"
+    ],
+    "output_hint": "Generated images are saved to /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a as /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-9ef7ff71-08bd-4abf-8aed-abd0cc32cafe.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "id": "07-feedback",
+    "prompt": "请根据附带真实 Ianvs Design 截图做中文设计评审，输出简洁横向视觉评审板。原图为带编号的2×2拼版，每个页面和操作状态都请审阅。最多3条有截图依据的改进与2条优点。建议注明原截图编号。不要强行凑问题。版头明确「ImageGen 视觉建议 · 非测试结论」。保持紧凑桌面工具风格，评价信息层级、对齐、控件状态与响应式适配。不要推断截图未证明的行为，不要编造WCAG数值；滚动截面不等于内容丢失。不要将浅深主题本应不同的颜色判为不一致。不重画原界面冒充证据，可做明确标为建议的标注或文字卡。\n本组：07-feedback\n表格68部分选中/混合表头，69全选，70空状态操作返回示例提示。60 Snackbar包含撤销，61已撤销。63只是按钮点击反馈，未捕获Tooltip悬停气泡。允许认为反馈较完整。深色文字动作重试/撤销的视觉辨识度值得检查，无对比度实测。",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/07-feedback-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/07-feedback-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/07-feedback-3.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/07-feedback-4.png"
+    ],
+    "output_hint": "Generated images are saved to /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a as /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-fdf5c8dc-061d-4b8f-bb20-13799e7c168b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "id": "08-supplements",
+    "prompt": "undefined\n本组：08-supplements\n76输入99，77提交自动限制到32，78编辑后Esc还原32；可以讨论是否需要解释自动纠正，但不要称为数据丢失。81是加载中，84预览恢复。级联73选中、74清空、75父级、76叶级；不要把固定占位高度当成骨架布局缺失。",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/08-supplements-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/08-supplements-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/08-supplements-3.png"
+    ],
+    "output_hint": "Generated images are saved to /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a as /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-1180dfdc-5501-4e1a-9306-961bfafcda7a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "id": "09-workspace",
+    "prompt": "undefined\n本组：09-workspace\n85到88分别概览、文件、设置/添加文档、浅色主题；107/108是480px窄屏，内容切换按钮替代内侧栏。这里是组件库插槽示例，空白内容是示意，不是生产空页面。可评审窄屏切换内容按钮的信息清晰度，不能假设需要业务数据。",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/09-workspace-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/09-workspace-2.png"
+    ],
+    "output_hint": "Generated images are saved to /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a as /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-2c19b9fa-410e-4288-9761-185c96d9b775.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "id": "10-overlays",
+    "prompt": "undefined\n本组：10-overlays\n90默认焦点继续编辑，91 Esc取消保留草稿，92放弃清空，93AlertDialog，94/95SimpleDialog选择与结果，96/97底部面板与结果，99/100深色，119至121窄屏，130/131为1280×720下200%文字。131内容按钮完整但标题贴近顶边，可讨论呼吸空间。截图98可能处于主题切换过渡中，不要依据过渡边框定结论。对话框是居中模态，不要误写成贴近触发器的锚点菜单。",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/10-overlays-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/10-overlays-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/10-overlays-3.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/10-overlays-4.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/10-overlays-5.png"
+    ],
+    "output_hint": "Generated images are saved to /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a as /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-9ec3b863-bee5-47ab-a9bb-e7eab15dc18c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "id": "11-foundations-search",
+    "prompt": "undefined\n本组：11-foundations-search\n101/104为深浅色板，102/103为排版规范。105全局搜索date有匹配结果，106无匹配时提示出现在左侧栏底部，远离搜索输入框；评审其反馈位置。122为480px窄屏色板。色彩token按主题改变是正常，不要要求两个主题相同颜色。仅视觉审阅，不作WCAG认证。",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/11-foundations-search-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/11-foundations-search-2.png"
+    ],
+    "output_hint": "Generated images are saved to /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a as /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-2834228f-1698-4b07-9186-206f5edcdb1e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "id": "12-responsive",
+    "prompt": "undefined\n本组：12-responsive\n109到118为480×900窄屏，124到129为1280×720下200%文字。关注复制示例主按钮与密度控件占首屏高度较多、连接页操作需要滚动。滚动后可访问内容不算内容缺失。115抽屉选中背景略偏离图标，但完整宽屏偏离更明显（本组只评价可见图）。200%字段能纵向排布，128数字框可容纳值。不要在拼版周围灰色空白上找问题，灰色是证据拼版底，不是产品UI。",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/12-responsive-1.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/12-responsive-2.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/12-responsive-3.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/audit-2026-09-10/review-inputs/12-responsive-4.png"
+    ],
+    "output_hint": "Generated images are saved to /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a as /Users/robinfai/.codex/generated_images/01a08a30-73f1-7511-99d6-ba5332b9338a/exec-970ef392-4908-4fa4-bafb-4507c59f7f6f.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  }
+]

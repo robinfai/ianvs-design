@@ -1,0 +1,71 @@
+00:00 +0: loading /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart
+00:00 +0: /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart: large text keeps a long date and weekday intact
+00:00 +1: /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart: large text keeps a long date and weekday intact
+00:00 +2: /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart: large text keeps a long date and weekday intact
+00:01 +3: /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart: large text keeps a long date and weekday intact
+00:01 +4: /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart: large text keeps a long date and weekday intact
+00:01 +5: /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart: large text keeps a long date and weekday intact
+00:01 +6: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: choice labels share checkbox, radio and switch behavior
+00:01 +7: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: choice labels share checkbox, radio and switch behavior
+00:01 +8: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: choice labels share checkbox, radio and switch behavior
+00:01 +9: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: choice labels share checkbox, radio and switch behavior
+00:01 +10: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: choice labels share checkbox, radio and switch behavior
+00:01 +11: /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart: large text range input keeps both dates visible
+00:02 +12: /Users/robinfai/flutter_projects/ianvs-design/example/test/widget_test.dart: scenario changes clear stale validation and compare saved values
+00:02 +13: /Users/robinfai/flutter_projects/ianvs-design/example/test/widget_test.dart: scenario changes clear stale validation and compare saved values
+00:02 +14: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: input chip can be selected, deleted and restored
+00:02 +15: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: input chip can be selected, deleted and restored
+00:02 +16: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: input chip can be selected, deleted and restored
+00:02 +17: /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart: leaving a story dismisses its pending action message
+00:02 +18: /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart: leaving a story dismisses its pending action message
+00:02 +19: /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart: leaving a story dismisses its pending action message
+00:02 +20: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: copy sample sends the selected Dart example to the platform clipboard
+00:02 +21: /Users/robinfai/flutter_projects/ianvs-design/example/test/widget_test.dart: empty catalog feedback appears beside the search and clears it
+00:02 +22: /Users/robinfai/flutter_projects/ianvs-design/example/test/widget_test.dart: empty catalog feedback appears beside the search and clears it
+00:02 +23: /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart: pointer interaction dismisses the previous independent menu
+00:02 +24: /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart: pointer interaction dismisses the previous independent menu
+00:02 +25: /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart: pointer interaction dismisses the previous independent menu
+00:02 +26: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.light and return results
+00:02 +27: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.light and return results
+00:02 +28: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.light and return results
+00:03 +29: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.light and return results
+00:03 +30: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.light and return results
+00:03 +31: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.light and return results
+00:03 +32: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.light and return results
+00:03 +33: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.light and return results
+00:03 +34: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.light and return results
+00:03 +35: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.light and return results
+00:03 +36: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.light and return results
+00:03 +37: /Users/robinfai/flutter_projects/ianvs-design/example/test/catalog_test.dart: inputs renders ThemeMode.dark at Size(1487.0, 1058.0)
+00:03 +38: /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart: narrow workspace menu selects a named destination
+00:03 +39: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: dialogs protect draft and sheet returns a selection ThemeMode.light
+00:03 +40: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: dialogs protect draft and sheet returns a selection ThemeMode.light
+00:03 +41: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: dialogs protect draft and sheet returns a selection ThemeMode.light
+00:03 +42: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: dialogs protect draft and sheet returns a selection ThemeMode.light
+00:03 +43: /Users/robinfai/flutter_projects/ianvs-design/example/test/catalog_test.dart: feedback renders ThemeMode.dark at Size(1487.0, 1058.0)
+00:03 +44: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.dark and return results
+00:03 +45: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.dark and return results
+00:03 +46: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.dark and return results
+00:04 +47: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.dark and return results
+00:04 +48: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.dark and return results
+00:04 +49: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.dark and return results
+00:04 +50: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.dark and return results
+00:04 +51: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.dark and return results
+00:04 +52: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.dark and return results
+00:04 +53: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: date, range and time routes use ThemeMode.dark and return results
+00:04 +54: /Users/robinfai/flutter_projects/ianvs-design/example/test/catalog_test.dart: foundations renders ThemeMode.dark at Size(1487.0, 1058.0)
+00:04 +55: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: dialogs protect draft and sheet returns a selection ThemeMode.dark
+00:04 +56: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: dialogs protect draft and sheet returns a selection ThemeMode.dark
+00:04 +57: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: dialogs protect draft and sheet returns a selection ThemeMode.dark
+00:04 +58: /Users/robinfai/flutter_projects/ianvs-design/example/test/catalog_test.dart: inputs fits a narrow window at 200% text
+00:04 +59: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: theme, density and search update actual catalog
+00:04 +60: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: theme, density and search update actual catalog
+00:04 +61: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: theme, density and search update actual catalog
+00:04 +62: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: theme, density and search update actual catalog
+00:04 +63: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: theme, density and search update actual catalog
+00:04 +64: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: theme, density and search update actual catalog
+00:04 +65: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: theme, density and search update actual catalog
+00:04 +66: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: theme, density and search update actual catalog
+00:05 +67: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: theme, density and search update actual catalog
+00:05 +68: /Users/robinfai/flutter_projects/ianvs-design/example/test/interaction_test.dart: Material banner, anchored menu and tabs perform actions
+00:05 +69: All tests passed!

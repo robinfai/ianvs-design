@@ -1,0 +1,17 @@
+00:00 +0: loading /Users/robinfai/flutter_projects/ianvs-design/test/menu_consistency_test.dart
+00:00 +0: select hover stays inside outline including helper Brightness.dark IanvsDensity.compact
+00:00 +1: select and Material dropdown align in size and text Brightness.dark IanvsDensity.compact
+00:00 +2: select hover stays inside outline including helper Brightness.dark IanvsDensity.comfortable
+00:00 +3: select and Material dropdown align in size and text Brightness.dark IanvsDensity.comfortable
+00:00 +4: select hover stays inside outline including helper Brightness.dark IanvsDensity.touch
+00:00 +5: select and Material dropdown align in size and text Brightness.dark IanvsDensity.touch
+00:00 +6: menu families share actual selected surface and typography Brightness.dark
+00:00 +7: select hover stays inside outline including helper Brightness.light IanvsDensity.compact
+00:00 +8: select and Material dropdown align in size and text Brightness.light IanvsDensity.compact
+00:01 +9: select hover stays inside outline including helper Brightness.light IanvsDensity.comfortable
+00:01 +10: select and Material dropdown align in size and text Brightness.light IanvsDensity.comfortable
+00:01 +11: select hover stays inside outline including helper Brightness.light IanvsDensity.touch
+00:01 +12: select and Material dropdown align in size and text Brightness.light IanvsDensity.touch
+00:01 +13: menu families share actual selected surface and typography Brightness.light
+00:01 +14: choice menu skips disabled items and restores keyboard focus
+00:01 +15: All tests passed!

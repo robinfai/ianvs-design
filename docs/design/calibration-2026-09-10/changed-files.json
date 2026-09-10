@@ -1,0 +1,14 @@
+[
+  "example/lib/gallery/connection.dart",
+  "example/lib/gallery/gallery.dart",
+  "example/lib/gallery/stories.dart",
+  "example/lib/gallery/supplement_story.dart",
+  "example/test/widget_test.dart",
+  "lib/src/foundation/theme.dart",
+  "lib/src/patterns/dialog.dart",
+  "lib/src/patterns/workspace.dart",
+  "test/theme_test.dart",
+  "lib/src/foundation/calendar.dart",
+  "example/test/calibration_test.dart",
+  "lib/ianvs_design.dart"
+]

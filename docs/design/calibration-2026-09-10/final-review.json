@@ -1,0 +1,8 @@
+{
+  "status": "ImageGen 已通过本轮视觉验收（无可见阻断项）",
+  "sources": {
+    "07-boundaries-long-dates": "exec-5d8e9df0-81b8-44cf-99d1-d0e45a3679e2.png"
+  },
+  "non_blocking": ["大字单日期弹窗的纵向留白可在后续优化。"],
+  "scope": "仅本轮所提交截图中的可见设计状态；交互和计算通过独立测试验证。"
+}

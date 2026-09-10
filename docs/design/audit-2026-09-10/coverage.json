@@ -1,0 +1,87 @@
+{
+  "pages": 9,
+  "captured": 133,
+  "accepted": 126,
+  "excluded": 7,
+  "imagegen_groups": 12,
+  "imagegen_completed": 12,
+  "groups": [
+    {
+      "id": "01-connection-global",
+      "title": "连接设置与全局控件",
+      "screenshots": 12,
+      "review_complete": true
+    },
+    {
+      "id": "02-actions",
+      "title": "按钮",
+      "screenshots": 4,
+      "review_complete": true
+    },
+    {
+      "id": "03-inputs-fields-menus",
+      "title": "输入与菜单",
+      "screenshots": 11,
+      "review_complete": true
+    },
+    {
+      "id": "04-inputs-selection",
+      "title": "选择控件与Chip",
+      "screenshots": 9,
+      "review_complete": true
+    },
+    {
+      "id": "05-date-time",
+      "title": "日期与时间",
+      "screenshots": 8,
+      "review_complete": true
+    },
+    {
+      "id": "06-navigation",
+      "title": "导航",
+      "screenshots": 12,
+      "review_complete": true
+    },
+    {
+      "id": "07-feedback",
+      "title": "反馈",
+      "screenshots": 13,
+      "review_complete": true
+    },
+    {
+      "id": "08-supplements",
+      "title": "扩展组件与代码面板",
+      "screenshots": 11,
+      "review_complete": true
+    },
+    {
+      "id": "09-workspace",
+      "title": "工作区",
+      "screenshots": 6,
+      "review_complete": true
+    },
+    {
+      "id": "10-overlays",
+      "title": "确认、对话框与底部面板",
+      "screenshots": 17,
+      "review_complete": true
+    },
+    {
+      "id": "11-foundations-search",
+      "title": "基础规范与搜索",
+      "screenshots": 7,
+      "review_complete": true
+    },
+    {
+      "id": "12-responsive",
+      "title": "窄屏与大字模式",
+      "screenshots": 16,
+      "review_complete": true
+    }
+  ],
+  "limits": [
+    "未穷举组件实例与主题、密度、输入值的全部组合",
+    "Tooltip悬停气泡未捕获",
+    "未完成屏幕阅读器、对比度数值和完整键盘遍历验证"
+  ]
+}

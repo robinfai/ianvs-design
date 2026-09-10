@@ -1,0 +1,236 @@
+[
+  {
+    "name": "01-connection-dark-initial",
+    "note": "1440×1000，默认已保存、保存取消禁用，操作区固定，示例说明折叠。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/01-connection-dark-initial.jpg",
+    "accepted": true
+  },
+  {
+    "name": "02-connection-empty-error",
+    "note": "启动命令为空提交后的真实错误，右侧另为静态状态示例。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/02-connection-empty-error.jpg",
+    "accepted": true
+  },
+  {
+    "name": "03-connection-acp-valid",
+    "note": "切换ACP后填入npx，表单命令错误已清除；右侧校验错误为独立静态示例。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/03-connection-acp-valid.jpg",
+    "accepted": true
+  },
+  {
+    "name": "04-connection-saving",
+    "note": "保存执行中，状态文字和按钮加载指示，相关输入禁用。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/04-connection-saving.jpg",
+    "accepted": true
+  },
+  {
+    "name": "05-connection-saved",
+    "note": "保存完成，状态变为已保存。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/05-connection-saved.jpg",
+    "accepted": true
+  },
+  {
+    "name": "06-connection-narrow-light",
+    "note": "480×900浅色连接页，保存操作始终位于底部，静态示例折叠。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/06-connection-narrow-light.jpg",
+    "accepted": true
+  },
+  {
+    "name": "07-connection-narrow-touch-scroll",
+    "note": "480×900触控密度，滚动表单后保存状态与操作区保持可见。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/07-connection-narrow-touch-scroll.jpg",
+    "accepted": true
+  },
+  {
+    "name": "08-navigation-home",
+    "note": "浅色主页选中：背景、图标和标签位于同一行。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/08-navigation-home.jpg",
+    "accepted": true
+  },
+  {
+    "name": "09-navigation-project",
+    "note": "浅色项目选中，与上方NavigationBar和Rail同步。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/09-navigation-project.jpg",
+    "accepted": true
+  },
+  {
+    "name": "10-navigation-settings",
+    "note": "浅色设置选中，三个目的地的选中背景均覆盖对应行。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/10-navigation-settings.jpg",
+    "accepted": true
+  },
+  {
+    "name": "11-navigation-dark",
+    "note": "深色设置选中，图标、文字和背景对齐。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/11-navigation-dark.jpg",
+    "accepted": true
+  },
+  {
+    "name": "12-navigation-narrow",
+    "note": "480×900深色导航，选中背景覆盖图标和标签。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/12-navigation-narrow.jpg",
+    "accepted": true
+  },
+  {
+    "name": "13-date-entry-dark",
+    "note": "1440×1000暗色日期输入，完整日期与星期按语义单位换行。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/13-date-entry-dark.jpg",
+    "accepted": true
+  },
+  {
+    "name": "14-date-invalid",
+    "note": "无效日期格式仍显示错误；标题保持完整星期。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/14-date-invalid.jpg",
+    "accepted": true
+  },
+  {
+    "name": "15-range-entry-dark",
+    "note": "1440×1000日期范围输入，起止日期保持完整语义单位。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/15-range-entry-dark.jpg",
+    "accepted": true
+  },
+  {
+    "name": "16-time-clock-am",
+    "note": "上午选中使用蓝色语义，与小时和时钟保持一致。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/16-time-clock-am.jpg",
+    "accepted": true
+  },
+  {
+    "name": "17-time-entry-pm",
+    "note": "下午选中与输入模式，蓝色选中体系一致。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/17-time-entry-pm.jpg",
+    "accepted": true
+  },
+  {
+    "name": "18-search-empty",
+    "note": "1440×1000深色目录无匹配，提示和清空操作紧邻搜索框。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/18-search-empty.jpg",
+    "accepted": true
+  },
+  {
+    "name": "19-feedback-dark-actions",
+    "note": "深色反馈页：重试和查看项目文字操作颜色已校准。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/19-feedback-dark-actions.jpg",
+    "accepted": true
+  },
+  {
+    "name": "20-feedback-snackbar",
+    "note": "Snackbar撤销动作使用校准后的可读蓝色。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/20-feedback-snackbar.jpg",
+    "accepted": true
+  },
+  {
+    "name": "24-date-entry-scale200",
+    "note": "此前常规日期完整，但最终大字布局已进一步调整，以39为准。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/24-date-entry-scale200.jpg",
+    "accepted": false
+  },
+  {
+    "name": "25-range-entry-scale200",
+    "note": "中间失败：200%范围日期标题省略，以修复后的27为准。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/25-range-entry-scale200.jpg",
+    "accepted": false
+  },
+  {
+    "name": "21-actions-narrow",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/21-actions-narrow.jpg",
+    "note": "480×900深色按钮页：密度与复制合并为工具行，无跨页残留提示。",
+    "accepted": true
+  },
+  {
+    "name": "22-workspace-narrow-menu",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/22-workspace-narrow-menu.jpg",
+    "note": "480×900深色工作区：概览、文件、设置直接选择菜单展开。",
+    "accepted": true
+  },
+  {
+    "name": "23-workspace-narrow-selected",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/23-workspace-narrow-selected.jpg",
+    "note": "480×900深色工作区：选择设置后，正文与当前值同步。",
+    "accepted": true
+  },
+  {
+    "name": "26-confirm-scale200",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/26-confirm-scale200.jpg",
+    "note": "1280×720、200%文字：确认标题留白已校准，正文及两按钮完整，继续编辑为安全焦点。",
+    "accepted": true
+  },
+  {
+    "name": "27-range-entry-scale200-fixed",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/27-range-entry-scale200-fixed.jpg",
+    "note": "1280×720、200%文字：修正后范围9月10日–9月14日完整显示。",
+    "accepted": true
+  },
+  {
+    "name": "28-stepper-out-of-range",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/28-stepper-out-of-range.jpg",
+    "note": "1440×1000深色数字步进器输入100，显示范围8–32及边界调整说明。",
+    "accepted": true
+  },
+  {
+    "name": "29-stepper-clamped",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/29-stepper-clamped.jpg",
+    "note": "1440×1000深色数字步进器提交100后变为32，增加按钮禁用。",
+    "accepted": true
+  },
+  {
+    "name": "30-foundations-dark",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/30-foundations-dark.jpg",
+    "note": "1440×1000深色设计规范：共享主题、色板、字号层级复核。",
+    "accepted": true
+  },
+  {
+    "name": "31-search-empty-light",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/31-search-empty-light.jpg",
+    "note": "1440×1000浅色规范页空搜索，与before106同主题、页面、搜索值；就近空提示和清空按钮。",
+    "accepted": true
+  },
+  {
+    "name": "32-actions-narrow-light",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/32-actions-narrow-light.jpg",
+    "note": "480×900浅色按钮页，与before112同主题；工具行合并，复制为次要文字按钮。",
+    "accepted": true
+  },
+  {
+    "name": "33-workspace-menu-light",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/33-workspace-menu-light.jpg",
+    "note": "480×900浅色工作区：概览、文件、设置直接选择菜单展开。",
+    "accepted": true
+  },
+  {
+    "name": "34-workspace-selected-light",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/34-workspace-selected-light.jpg",
+    "note": "480×900浅色工作区：选择设置后，正文与当前值同步。",
+    "accepted": true
+  },
+  {
+    "name": "35-stepper-out-of-range-light",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/35-stepper-out-of-range-light.jpg",
+    "note": "1440×1000浅色步进器：最左终端字号输入99，右侧三个为独立边界与禁用示例。",
+    "accepted": true
+  },
+  {
+    "name": "36-stepper-clamped-light",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/36-stepper-clamped-light.jpg",
+    "note": "1440×1000浅色步进器：35的最左终端字号按Return后变为32，增加按钮禁用。",
+    "accepted": true
+  },
+  {
+    "name": "37-long-date-scale200",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/37-long-date-scale200.jpg",
+    "note": "中间失败：200%长日期12月31日被拆在日字之前；以38为准。",
+    "accepted": false
+  },
+  {
+    "name": "38-long-date-scale200-fixed",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/38-long-date-scale200-fixed.jpg",
+    "note": "1280×720、200%文字最终长日期：宽标题完整显示12月31日周四。",
+    "accepted": true
+  },
+  {
+    "name": "39-date-scale200-final",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/39-date-scale200-final.jpg",
+    "note": "1280×720、200%文字最终常规日期：宽标题完整显示9月10日周四。",
+    "accepted": true
+  }
+]

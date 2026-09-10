@@ -1,0 +1,392 @@
+[
+  {
+    "name": "01-connection-dark-initial",
+    "note": "1440×1000，默认已保存、保存取消禁用，操作区固定，示例说明折叠。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/01-connection-dark-initial.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "8f362f6ffe8b82a648848ee221983c88e47a1e5432687c65e830b20eeb0b02c4"
+  },
+  {
+    "name": "02-connection-empty-error",
+    "note": "启动命令为空提交后的真实错误，右侧另为静态状态示例。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/02-connection-empty-error.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "0fd498013c0b860ae34af2c540755aff2020075348f9fb9a3cb3be5bc19bc337"
+  },
+  {
+    "name": "03-connection-acp-valid",
+    "note": "切换ACP后填入npx，表单命令错误已清除；右侧校验错误为独立静态示例。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/03-connection-acp-valid.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "58b4a5da0f8b3f13b2ab3f9119edc2bd1ed70d26312455a595c35d9e87f0ddb2"
+  },
+  {
+    "name": "04-connection-saving",
+    "note": "保存执行中，状态文字和按钮加载指示，相关输入禁用。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/04-connection-saving.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "81217b5e0075ca8e69b47533ab2b70ac8603de9697bea0f37fc30f4d51d4a775"
+  },
+  {
+    "name": "05-connection-saved",
+    "note": "保存完成，状态变为已保存。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/05-connection-saved.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "1587ad0173ec740361dbfcf598a9e59995c49fd9532586f8ee412b2a7a4271eb"
+  },
+  {
+    "name": "06-connection-narrow-light",
+    "note": "480×900浅色连接页，保存操作始终位于底部，静态示例折叠。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/06-connection-narrow-light.jpg",
+    "accepted": true,
+    "width": 480,
+    "height": 900,
+    "format": "JPEG",
+    "sha256": "9720aa9956e6875926b1b5e5787dabdb61b5921cbd3d47a224abc0ffdfebf3a6"
+  },
+  {
+    "name": "07-connection-narrow-touch-scroll",
+    "note": "480×900触控密度，滚动表单后保存状态与操作区保持可见。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/07-connection-narrow-touch-scroll.jpg",
+    "accepted": true,
+    "width": 480,
+    "height": 900,
+    "format": "JPEG",
+    "sha256": "60b6242bbb54454bd718bdf82145ae1039659fd5c897c568da86b2b546228b76"
+  },
+  {
+    "name": "08-navigation-home",
+    "note": "浅色主页选中：背景、图标和标签位于同一行。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/08-navigation-home.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "79a9160d8b1691394dc1f4019223c0786b19b20e5d980064878b9c8a67b742aa"
+  },
+  {
+    "name": "09-navigation-project",
+    "note": "浅色项目选中，与上方NavigationBar和Rail同步。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/09-navigation-project.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "a6c709f55da95e3e5d0ebaaaa5b0f54c1f6d2ba8f4a6b08f8f88f94361d8ed5d"
+  },
+  {
+    "name": "10-navigation-settings",
+    "note": "浅色设置选中，三个目的地的选中背景均覆盖对应行。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/10-navigation-settings.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "04a7a9c53e76869e57462e05223b65b42848e304c65f48ba95886efc00304e34"
+  },
+  {
+    "name": "11-navigation-dark",
+    "note": "深色设置选中，图标、文字和背景对齐。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/11-navigation-dark.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "ccdb7d5347737fb2233ac5f1d613f344152638ee0b244bba2c1f284f28d48184"
+  },
+  {
+    "name": "12-navigation-narrow",
+    "note": "480×900深色导航，选中背景覆盖图标和标签。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/12-navigation-narrow.jpg",
+    "accepted": true,
+    "width": 480,
+    "height": 900,
+    "format": "JPEG",
+    "sha256": "4071e89ed4dd6560bd0c1c2058bb9c5b33d5e0477bed1aa5ffaabcab876d426e"
+  },
+  {
+    "name": "13-date-entry-dark",
+    "note": "1440×1000暗色日期输入，完整日期与星期按语义单位换行。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/13-date-entry-dark.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "c7e5e80976edf5807c80e65cfa0fbec1119a38496dd96af5909d2cbf2310525c"
+  },
+  {
+    "name": "14-date-invalid",
+    "note": "无效日期格式仍显示错误；标题保持完整星期。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/14-date-invalid.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "165442215fb55a0133e5bbb84dce13adba8b8bb2bfdcd0793a6362f35b6bb5b2"
+  },
+  {
+    "name": "15-range-entry-dark",
+    "note": "1440×1000日期范围输入，起止日期保持完整语义单位。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/15-range-entry-dark.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "472a61e47f74defd8a913dd5160ee1ce38a065f87c3d67b1805a3b4f102ee90a"
+  },
+  {
+    "name": "16-time-clock-am",
+    "note": "上午选中使用蓝色语义，与小时和时钟保持一致。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/16-time-clock-am.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "5bb403591529b21c16c8f7a6e038ceb23f3056a3e39bc81d2d9bd124afce89b8"
+  },
+  {
+    "name": "17-time-entry-pm",
+    "note": "下午选中与输入模式，蓝色选中体系一致。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/17-time-entry-pm.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "6b2d34cec6afbde7285d19c6749cf10e3c91371ca74756f5306086d63e446e8f"
+  },
+  {
+    "name": "18-search-empty",
+    "note": "1440×1000深色目录无匹配，提示和清空操作紧邻搜索框。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/18-search-empty.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "5c76fa2d666fe84388244180f56757bf2ebdce8dc18eeaf63168a7f90d071b04"
+  },
+  {
+    "name": "19-feedback-dark-actions",
+    "note": "深色反馈页：重试和查看项目文字操作颜色已校准。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/19-feedback-dark-actions.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "09da22ee60d95267d223d473d29c123a47b04c3176ac8b49b22043fd2df4d140"
+  },
+  {
+    "name": "20-feedback-snackbar",
+    "note": "Snackbar撤销动作使用校准后的可读蓝色。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/20-feedback-snackbar.jpg",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "ba56d9c649d52ad2cc2a3946bb8d5e3addca685ca90117adc5992fb478560d7e"
+  },
+  {
+    "name": "21-actions-narrow",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/21-actions-narrow.jpg",
+    "note": "480×900深色按钮页：密度与复制合并为工具行，无跨页残留提示。",
+    "accepted": true,
+    "width": 480,
+    "height": 900,
+    "format": "JPEG",
+    "sha256": "0d423b9ab6feeac149c17e15fced65eb59c187aa6e2f2588dcfffde596a12a59"
+  },
+  {
+    "name": "22-workspace-narrow-menu",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/22-workspace-narrow-menu.jpg",
+    "note": "480×900深色工作区：概览、文件、设置直接选择菜单展开。",
+    "accepted": true,
+    "width": 480,
+    "height": 900,
+    "format": "JPEG",
+    "sha256": "f0840af3b750515efb0a2666ffde3baaaa7bb3271b55115e0d3355fcf05026e4"
+  },
+  {
+    "name": "23-workspace-narrow-selected",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/23-workspace-narrow-selected.jpg",
+    "note": "480×900深色工作区：选择设置后，正文与当前值同步。",
+    "accepted": true,
+    "width": 480,
+    "height": 900,
+    "format": "JPEG",
+    "sha256": "427a111ed0e1241f1dc523cec50ced2ea131b01f33aedf2b2df8f65e7eb3774a"
+  },
+  {
+    "name": "24-date-entry-scale200",
+    "note": "此前常规日期完整，但最终大字布局已进一步调整，以39为准。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/24-date-entry-scale200.jpg",
+    "accepted": false,
+    "width": 1280,
+    "height": 720,
+    "format": "JPEG",
+    "sha256": "6048f39a11b78803f61b1deab19b76122bfa261d7a2b95e6bf5243e0b199ad69"
+  },
+  {
+    "name": "25-range-entry-scale200",
+    "note": "中间失败：200%范围日期标题省略，以修复后的27为准。",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/25-range-entry-scale200.jpg",
+    "accepted": false,
+    "width": 1280,
+    "height": 720,
+    "format": "JPEG",
+    "sha256": "ff8addeee9205a4c895ba6d94df94e97006b0544594dbdbc00481a36e6122615"
+  },
+  {
+    "name": "26-confirm-scale200",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/26-confirm-scale200.jpg",
+    "note": "1280×720、200%文字：确认标题留白已校准，正文及两按钮完整，继续编辑为安全焦点。",
+    "accepted": true,
+    "width": 1280,
+    "height": 720,
+    "format": "JPEG",
+    "sha256": "98cb631fa90bd72f8cf8dc6e1bf3c21e89d33a59dda69bafc411bca23836a7d1"
+  },
+  {
+    "name": "27-range-entry-scale200-fixed",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/27-range-entry-scale200-fixed.jpg",
+    "note": "1280×720、200%文字：修正后范围9月10日–9月14日完整显示。",
+    "accepted": true,
+    "width": 1280,
+    "height": 720,
+    "format": "JPEG",
+    "sha256": "4d5d478e8ca28b93c02be85f17c9be31d302939ebe7e60c5bae5cbbf16626da5"
+  },
+  {
+    "name": "28-stepper-out-of-range",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/28-stepper-out-of-range.jpg",
+    "note": "1440×1000深色数字步进器输入100，显示范围8–32及边界调整说明。",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "d848e5cea65ca0c8625a60e1d5e6e7c8dccd3562839b8aba740c89c6517877fa"
+  },
+  {
+    "name": "29-stepper-clamped",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/29-stepper-clamped.jpg",
+    "note": "1440×1000深色数字步进器提交100后变为32，增加按钮禁用。",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "cdd9c7be66c79a04ecee1afe6a11e5219369b274ed998e6e06f55dc19a6406dc"
+  },
+  {
+    "name": "30-foundations-dark",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/30-foundations-dark.jpg",
+    "note": "1440×1000深色设计规范：共享主题、色板、字号层级复核。",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "4f75144a2cfc0d2992c44539ea2720895d20e18292fc2d51ab4f4142b2fb148c"
+  },
+  {
+    "name": "31-search-empty-light",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/31-search-empty-light.jpg",
+    "note": "1440×1000浅色规范页空搜索，与before106同主题、页面、搜索值；就近空提示和清空按钮。",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "8d87b6c9a809ac0aa3c03c14248f2bf517c6ae426910f823fcb2a886a9040f3d"
+  },
+  {
+    "name": "32-actions-narrow-light",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/32-actions-narrow-light.jpg",
+    "note": "480×900浅色按钮页，与before112同主题；工具行合并，复制为次要文字按钮。",
+    "accepted": true,
+    "width": 480,
+    "height": 900,
+    "format": "JPEG",
+    "sha256": "b3f3a9f5c8b664a5ec23db1bf2d0129ef1fcfe131af8471a035bacb6ef88d4d5"
+  },
+  {
+    "name": "33-workspace-menu-light",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/33-workspace-menu-light.jpg",
+    "note": "480×900浅色工作区：概览、文件、设置直接选择菜单展开。",
+    "accepted": true,
+    "width": 480,
+    "height": 900,
+    "format": "JPEG",
+    "sha256": "2a2974622871bbf9aab92fe249b6c377be409be56d4c3b730be5b02fdd01358d"
+  },
+  {
+    "name": "34-workspace-selected-light",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/34-workspace-selected-light.jpg",
+    "note": "480×900浅色工作区：选择设置后，正文与当前值同步。",
+    "accepted": true,
+    "width": 480,
+    "height": 900,
+    "format": "JPEG",
+    "sha256": "59f07f5d903307d3716f7ca9ca92a13ed2733182032f9513ebe552d5a50fd36f"
+  },
+  {
+    "name": "35-stepper-out-of-range-light",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/35-stepper-out-of-range-light.jpg",
+    "note": "1440×1000浅色步进器：最左终端字号输入99，右侧三个为独立边界与禁用示例。",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "15dafdefa884bc86fb5f7d38d286583fe844c172e373c483ba156a2b01b54dd9"
+  },
+  {
+    "name": "36-stepper-clamped-light",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/36-stepper-clamped-light.jpg",
+    "note": "1440×1000浅色步进器：35的最左终端字号按Return后变为32，增加按钮禁用。",
+    "accepted": true,
+    "width": 1440,
+    "height": 1000,
+    "format": "JPEG",
+    "sha256": "fe07559e58ea2c30d8e3ab0b6ac4c2633f08ae2aba67f914753f64ad37d620d8"
+  },
+  {
+    "name": "37-long-date-scale200",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/37-long-date-scale200.jpg",
+    "note": "中间失败：200%长日期12月31日被拆在日字之前；以38为准。",
+    "accepted": false,
+    "width": 1280,
+    "height": 720,
+    "format": "JPEG",
+    "sha256": "0d2ef4d190456a53d55a84807afa4ce6c8aa769e2bca27c21f4315ccedb3050e"
+  },
+  {
+    "name": "38-long-date-scale200-fixed",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/38-long-date-scale200-fixed.jpg",
+    "note": "1280×720、200%文字最终长日期：宽标题完整显示12月31日周四。",
+    "accepted": true,
+    "width": 1280,
+    "height": 720,
+    "format": "JPEG",
+    "sha256": "4eef2932ff15139e4c3da929656d9df50be797407d32a9fcaab9725f2432bb2e"
+  },
+  {
+    "name": "39-date-scale200-final",
+    "path": "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/39-date-scale200-final.jpg",
+    "note": "1280×720、200%文字最终常规日期：宽标题完整显示9月10日周四。",
+    "accepted": true,
+    "width": 1280,
+    "height": 720,
+    "format": "JPEG",
+    "sha256": "fb879d77fe2c87bb03672adfdfc9a827627231fd285adf7880f4fcfe94cce1c7"
+  }
+]

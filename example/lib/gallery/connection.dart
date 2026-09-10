@@ -1,0 +1,441 @@
+import 'package:ianvs_design/ianvs_design.dart';
+import 'gallery.dart';
+
+class ConnectionStory extends StatefulWidget {
+  const ConnectionStory({
+    super.key,
+    required this.wide,
+    required this.density,
+    required this.onDensityChanged,
+    required this.onCopy,
+  });
+  final bool wide;
+  final IanvsDensity density;
+  final ValueChanged<IanvsDensity> onDensityChanged;
+  final VoidCallback onCopy;
+  @override
+  State<ConnectionStory> createState() => _ConnectionStoryState();
+}
+
+class _ConnectionStoryState extends State<ConnectionStory> {
+  final form = GlobalKey<FormState>();
+  final name = TextEditingController(text: 'Local Shell');
+  final command = TextEditingController(text: '/bin/zsh');
+  final directory = TextEditingController(text: '~/Projects/ianvs');
+  String scenario = '通用', startup = '登录 Shell';
+  bool restore = true, saving = false, validationAttempted = false;
+  List<Object> saved = [
+    'Local Shell',
+    '/bin/zsh',
+    '~/Projects/ianvs',
+    '登录 Shell',
+    true,
+  ];
+  @override
+  void dispose() {
+    name.dispose();
+    command.dispose();
+    directory.dispose();
+    super.dispose();
+  }
+
+  List<Object> get draft => [
+    name.text,
+    command.text,
+    directory.text,
+    startup,
+    restore,
+  ];
+  bool get dirty {
+    final current = draft;
+    return List.generate(
+      saved.length,
+      (i) => saved[i] != current[i],
+    ).any((x) => x);
+  }
+
+  void changed([Object? _]) => setState(() {});
+  void reset() {
+    form.currentState?.reset();
+    name.text = saved[0] as String;
+    command.text = saved[1] as String;
+    directory.text = saved[2] as String;
+    setState(() {
+      startup = saved[3] as String;
+      restore = saved[4] as bool;
+      validationAttempted = false;
+    });
+  }
+
+  Future<void> save() async {
+    setState(() => validationAttempted = true);
+    if (!form.currentState!.validate()) return;
+    setState(() => saving = true);
+    await Future<void>.delayed(const Duration(milliseconds: 450));
+    if (!mounted) return;
+    setState(() {
+      saved = draft;
+      validationAttempted = false;
+      saving = false;
+    });
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text('当前示例已保存')));
+  }
+
+  void chooseScenario(Set<String> next) {
+    setState(() {
+      scenario = next.first;
+      if (scenario == 'ACP') {
+        name.text = 'Codex';
+        command.text = 'npx';
+        startup = '本地进程';
+      } else {
+        name.text = 'Local Shell';
+        command.text = '/bin/zsh';
+        startup = '登录 Shell';
+      }
+    });
+    if (validationAttempted) form.currentState?.validate();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.ianvs;
+    final preview = Form(
+      key: form,
+      autovalidateMode: validationAttempted
+          ? AutovalidateMode.onUserInteraction
+          : AutovalidateMode.disabled,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text('连接设置', style: Theme.of(context).textTheme.headlineSmall),
+          const SizedBox(height: 4),
+          Text(
+            '同一套组件，适用于 Terminal 与 ACP。',
+            style: Theme.of(
+              context,
+            ).textTheme.bodyLarge?.copyWith(color: t.muted),
+          ),
+          const SizedBox(height: 18),
+          LayoutBuilder(
+            builder: (context, c) {
+              final segmentWidth =
+                  350 * MediaQuery.textScalerOf(context).scale(13) / 13;
+              final verticalSegments =
+                  c.maxWidth < segmentWidth &&
+                  MediaQuery.textScalerOf(context).scale(13) > 19.5;
+              final segments = SegmentedButton<String>(
+                direction: verticalSegments ? Axis.vertical : Axis.horizontal,
+                expandedInsets: verticalSegments ? null : EdgeInsets.zero,
+                showSelectedIcon: false,
+                segments: const [
+                  ButtonSegment(value: '通用', label: Text('通用')),
+                  ButtonSegment(value: 'Terminal', label: Text('Terminal')),
+                  ButtonSegment(value: 'ACP', label: Text('ACP')),
+                ],
+                selected: {scenario},
+                onSelectionChanged: saving ? null : chooseScenario,
+              );
+              return Wrap(
+                alignment: WrapAlignment.spaceBetween,
+                runSpacing: 12,
+                spacing: 12,
+                children: [
+                  SizedBox(
+                    width: c.maxWidth < segmentWidth
+                        ? c.maxWidth
+                        : segmentWidth,
+                    child: segments,
+                  ),
+                  DensityPicker(
+                    value: widget.density,
+                    onChanged: widget.onDensityChanged,
+                  ),
+                ],
+              );
+            },
+          ),
+          const SizedBox(height: 18),
+          const Divider(),
+          const SizedBox(height: 20),
+          IanvsFormSection(
+            title: const Text('本地连接'),
+            description: '表单模式',
+            spacing: 22,
+            children: [
+              IanvsFieldRow(
+                label: '名称',
+                child: IanvsTextField(
+                  key: const ValueKey('connection-name'),
+                  controller: name,
+                  enabled: !saving,
+                  onChanged: changed,
+                  textInputAction: TextInputAction.next,
+                  validator: (v) =>
+                      v == null || v.trim().isEmpty ? '请输入名称' : null,
+                ),
+              ),
+              IanvsFieldRow(
+                label: '启动命令',
+                child: IanvsTextField(
+                  key: const ValueKey('connection-command'),
+                  controller: command,
+                  enabled: !saving,
+                  onChanged: changed,
+                  textInputAction: TextInputAction.next,
+                  validator: (v) =>
+                      v == null || v.trim().isEmpty ? '请输入启动命令' : null,
+                ),
+              ),
+              IanvsFieldRow(
+                label: '工作目录',
+                child: IanvsTextField(
+                  key: const ValueKey('connection-directory'),
+                  controller: directory,
+                  enabled: !saving,
+                  onChanged: changed,
+                  textInputAction: TextInputAction.done,
+                ),
+              ),
+              IanvsFieldRow(
+                label: '启动方式',
+                child: IanvsSelect<String>(
+                  value: startup,
+                  enabled: !saving,
+                  options: const [
+                    IanvsOption('登录 Shell', '登录 Shell'),
+                    IanvsOption('交互 Shell', '交互 Shell'),
+                    IanvsOption('本地进程', '本地进程'),
+                  ],
+                  onChanged: (value) {
+                    startup = value!;
+                    changed();
+                  },
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 26),
+          const Divider(),
+          const SizedBox(height: 18),
+          IanvsFieldRow(
+            label: '启动时恢复工作区',
+            helper: '重新打开上次的标签页和面板。',
+            child: Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: Switch.adaptive(
+                value: restore,
+                activeTrackColor: t.accent,
+                onChanged: saving
+                    ? null
+                    : (v) {
+                        restore = v;
+                        changed();
+                      },
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+    final copyButton = TextButton.icon(
+      icon: const Icon(Icons.content_copy, size: 18),
+      onPressed: widget.onCopy,
+      label: const Text('复制示例'),
+    );
+    final scrollContent = SingleChildScrollView(
+      padding: EdgeInsets.fromLTRB(
+        widget.wide ? 40 : 20,
+        20,
+        widget.wide ? 32 : 20,
+        24,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          preview,
+          if (!widget.wide) ...[
+            const SizedBox(height: 20),
+            Align(alignment: AlignmentDirectional.centerEnd, child: copyButton),
+            const SizedBox(height: 12),
+            const ExpansionTile(
+              title: Text('组件状态预览'),
+              childrenPadding: EdgeInsets.all(16),
+              children: [StateInspector()],
+            ),
+          ],
+        ],
+      ),
+    );
+    return Column(
+      children: [
+        Expanded(
+          child: widget.wide
+              ? Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(child: scrollContent),
+                    const VerticalDivider(width: 1),
+                    SizedBox(
+                      width: 356,
+                      child: SingleChildScrollView(
+                        padding: const EdgeInsets.fromLTRB(22, 20, 26, 24),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional.centerEnd,
+                              child: copyButton,
+                            ),
+                            const SizedBox(height: 20),
+                            const StateInspector(),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              : scrollContent,
+        ),
+        Container(
+          key: const ValueKey('connection-actions'),
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          decoration: BoxDecoration(
+            color: t.canvas,
+            border: Border(top: BorderSide(color: t.separator)),
+          ),
+          child: Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            runSpacing: 12,
+            children: [
+              Semantics(
+                liveRegion: true,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      dirty ? Icons.circle : Icons.check_circle_outline,
+                      size: dirty ? 10 : 16,
+                      color: dirty ? t.warning : t.success,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      saving
+                          ? '正在保存…'
+                          : dirty
+                          ? '有未保存的更改'
+                          : '所有更改已保存',
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ],
+                ),
+              ),
+              Wrap(
+                spacing: 10,
+                runSpacing: 8,
+                children: [
+                  IanvsButton(
+                    variant: IanvsButtonVariant.secondary,
+                    style: OutlinedButton.styleFrom(
+                      minimumSize: const Size(90, 44),
+                    ),
+                    onPressed: dirty && !saving ? reset : null,
+                    child: const Text('取消'),
+                  ),
+                  IanvsButton(
+                    key: const ValueKey('connection-save'),
+                    style: FilledButton.styleFrom(
+                      minimumSize: const Size(114, 44),
+                    ),
+                    onPressed: dirty && !saving ? save : null,
+                    child: const Text('保存更改'),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class StateInspector extends StatelessWidget {
+  const StateInspector({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final t = context.ianvs;
+    final focusBorder = OutlineInputBorder(
+      borderRadius: BorderRadius.circular(t.controlRadius),
+      borderSide: BorderSide(color: t.focus, width: 2),
+    );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text('状态预览', style: Theme.of(context).textTheme.titleMedium),
+        const SizedBox(height: 20),
+        IanvsFieldRow(
+          label: '默认',
+          labelWidth: 100,
+          breakpoint: 280,
+          child: const IanvsTextField(
+            initialValue: 'Local Shell',
+            readOnly: true,
+          ),
+        ),
+        const SizedBox(height: 20),
+        IanvsFieldRow(
+          label: '键盘焦点',
+          labelWidth: 100,
+          breakpoint: 280,
+          child: IanvsTextField(
+            initialValue: 'Local Shell',
+            readOnly: true,
+            decoration: InputDecoration(
+              enabledBorder: focusBorder,
+              focusedBorder: focusBorder,
+            ),
+          ),
+        ),
+        const SizedBox(height: 20),
+        const IanvsFieldRow(
+          label: '校验错误',
+          labelWidth: 100,
+          breakpoint: 280,
+          child: IanvsTextField(
+            initialValue: '',
+            readOnly: true,
+            errorText: '请输入启动命令',
+          ),
+        ),
+        const SizedBox(height: 34),
+        const Divider(),
+        const SizedBox(height: 24),
+        for (final item in [
+          ('高度', '${t.controlHeight.toInt()}'),
+          ('圆角', '${t.controlRadius.toInt()}'),
+          (
+            '标签',
+            '${Theme.of(context).textTheme.labelLarge!.fontSize!.toInt()}',
+          ),
+          ('间距', '8 / 12 / 16 / 24'),
+        ])
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: Row(
+              children: [
+                SizedBox(width: 100, child: Text(item.$1)),
+                Expanded(
+                  child: Text(item.$2, style: TextStyle(color: t.muted)),
+                ),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+}

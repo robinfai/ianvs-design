@@ -1,0 +1,9 @@
+00:00 +0: loading /Users/robinfai/flutter_projects/ianvs-design/example/test/calibration_test.dart
+00:00 +0: large text keeps a long date and weekday intact
+00:01 +1: large text range input keeps both dates visible
+00:01 +2: leaving a story dismisses its pending action message
+00:01 +3: pointer interaction dismisses the previous independent menu
+00:02 +4: drawer indicator encloses each selected destination at 1440.0
+00:02 +5: drawer indicator encloses each selected destination at 480.0
+00:02 +6: narrow workspace menu selects a named destination
+00:02 +7: All tests passed!

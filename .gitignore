@@ -1,0 +1,10 @@
+.dart_tool/
+.flutter-plugins-dependencies
+build/
+**/build/
+**/.dart_tool/
+**/ephemeral/
+**/Pods/
+.DS_Store
+*.log
+!docs/**/verification/*.log

@@ -1,0 +1,1010 @@
+--- a/example/lib/gallery/connection.dart
++++ b/example/lib/gallery/connection.dart
+@@ -23,7 +23,7 @@
+   final command = TextEditingController(text: '/bin/zsh');
+   final directory = TextEditingController(text: '~/Projects/ianvs');
+   String scenario = '通用', startup = '登录 Shell';
+-  bool restore = true, dirty = true, saving = false;
++  bool restore = true, saving = false, validationAttempted = false;
+   List<Object> saved = [
+     'Local Shell',
+     '/bin/zsh',
+@@ -46,12 +46,15 @@
+     startup,
+     restore,
+   ];
+-  void changed([Object? _]) => setState(
+-    () => dirty = List.generate(
++  bool get dirty {
++    final current = draft;
++    return List.generate(
+       saved.length,
+-      (i) => saved[i] != draft[i],
+-    ).any((x) => x),
+-  );
++      (i) => saved[i] != current[i],
++    ).any((x) => x);
++  }
++
++  void changed([Object? _]) => setState(() {});
+   void reset() {
+     form.currentState?.reset();
+     name.text = saved[0] as String;
+@@ -60,18 +63,19 @@
+     setState(() {
+       startup = saved[3] as String;
+       restore = saved[4] as bool;
+-      dirty = false;
++      validationAttempted = false;
+     });
+   }
+ 
+   Future<void> save() async {
++    setState(() => validationAttempted = true);
+     if (!form.currentState!.validate()) return;
+     setState(() => saving = true);
+     await Future<void>.delayed(const Duration(milliseconds: 450));
+     if (!mounted) return;
+     setState(() {
+       saved = draft;
+-      dirty = false;
++      validationAttempted = false;
+       saving = false;
+     });
+     ScaffoldMessenger.of(
+@@ -91,8 +95,8 @@
+         command.text = '/bin/zsh';
+         startup = '登录 Shell';
+       }
+-      dirty = true;
+     });
++    if (validationAttempted) form.currentState?.validate();
+   }
+ 
+   @override
+@@ -100,6 +104,9 @@
+     final t = context.ianvs;
+     final preview = Form(
+       key: form,
++      autovalidateMode: validationAttempted
++          ? AutovalidateMode.onUserInteraction
++          : AutovalidateMode.disabled,
+       child: Column(
+         crossAxisAlignment: CrossAxisAlignment.stretch,
+         children: [
+@@ -230,10 +237,77 @@
+               ),
+             ),
+           ),
+-          const SizedBox(height: 28),
+-          const Divider(),
+-          const SizedBox(height: 16),
+-          Wrap(
++        ],
++      ),
++    );
++    final copyButton = TextButton.icon(
++      icon: const Icon(Icons.content_copy, size: 18),
++      onPressed: widget.onCopy,
++      label: const Text('复制示例'),
++    );
++    final scrollContent = SingleChildScrollView(
++      padding: EdgeInsets.fromLTRB(
++        widget.wide ? 40 : 20,
++        20,
++        widget.wide ? 32 : 20,
++        24,
++      ),
++      child: Column(
++        crossAxisAlignment: CrossAxisAlignment.stretch,
++        children: [
++          preview,
++          if (!widget.wide) ...[
++            const SizedBox(height: 20),
++            Align(alignment: AlignmentDirectional.centerEnd, child: copyButton),
++            const SizedBox(height: 12),
++            const ExpansionTile(
++              title: Text('组件状态预览'),
++              childrenPadding: EdgeInsets.all(16),
++              children: [StateInspector()],
++            ),
++          ],
++        ],
++      ),
++    );
++    return Column(
++      children: [
++        Expanded(
++          child: widget.wide
++              ? Row(
++                  crossAxisAlignment: CrossAxisAlignment.stretch,
++                  children: [
++                    Expanded(child: scrollContent),
++                    const VerticalDivider(width: 1),
++                    SizedBox(
++                      width: 356,
++                      child: SingleChildScrollView(
++                        padding: const EdgeInsets.fromLTRB(22, 20, 26, 24),
++                        child: Column(
++                          crossAxisAlignment: CrossAxisAlignment.stretch,
++                          children: [
++                            Align(
++                              alignment: AlignmentDirectional.centerEnd,
++                              child: copyButton,
++                            ),
++                            const SizedBox(height: 20),
++                            const StateInspector(),
++                          ],
++                        ),
++                      ),
++                    ),
++                  ],
++                )
++              : scrollContent,
++        ),
++        Container(
++          key: const ValueKey('connection-actions'),
++          width: double.infinity,
++          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
++          decoration: BoxDecoration(
++            color: t.canvas,
++            border: Border(top: BorderSide(color: t.separator)),
++          ),
++          child: Wrap(
+             alignment: WrapAlignment.spaceBetween,
+             crossAxisAlignment: WrapCrossAlignment.center,
+             runSpacing: 12,
+@@ -250,7 +324,11 @@
+                     ),
+                     const SizedBox(width: 10),
+                     Text(
+-                      dirty ? '有未保存的更改' : '所有更改已保存',
++                      saving
++                          ? '正在保存…'
++                          : dirty
++                          ? '有未保存的更改'
++                          : '所有更改已保存',
+                       style: Theme.of(context).textTheme.bodySmall,
+                     ),
+                   ],
+@@ -280,82 +358,6 @@
+               ),
+             ],
+           ),
+-        ],
+-      ),
+-    );
+-    if (!widget.wide) {
+-      return SingleChildScrollView(
+-        padding: const EdgeInsets.all(20),
+-        child: Column(
+-          crossAxisAlignment: CrossAxisAlignment.stretch,
+-          children: [
+-            Align(
+-              alignment: AlignmentDirectional.centerEnd,
+-              child: IanvsButton(
+-                style: FilledButton.styleFrom(minimumSize: const Size(114, 44)),
+-                icon: Icons.content_copy,
+-                onPressed: widget.onCopy,
+-                child: const Text('复制示例'),
+-              ),
+-            ),
+-            const SizedBox(height: 16),
+-            preview,
+-            const SizedBox(height: 32),
+-            const Divider(),
+-            const Padding(
+-              padding: EdgeInsets.only(top: 20),
+-              child: StateInspector(),
+-            ),
+-          ],
+-        ),
+-      );
+-    }
+-    return Row(
+-      crossAxisAlignment: CrossAxisAlignment.stretch,
+-      children: [
+-        Expanded(
+-          child: SingleChildScrollView(
+-            padding: const EdgeInsets.fromLTRB(40, 20, 32, 18),
+-            child: preview,
+-          ),
+-        ),
+-        SizedBox(
+-          width: 356,
+-          child: Column(
+-            children: [
+-              SizedBox(
+-                height: 90,
+-                child: Padding(
+-                  padding: const EdgeInsets.fromLTRB(20, 20, 26, 0),
+-                  child: Align(
+-                    alignment: AlignmentDirectional.topEnd,
+-                    child: IanvsButton(
+-                      style: FilledButton.styleFrom(
+-                        minimumSize: const Size(114, 44),
+-                      ),
+-                      icon: Icons.content_copy,
+-                      onPressed: widget.onCopy,
+-                      child: const Text('复制示例'),
+-                    ),
+-                  ),
+-                ),
+-              ),
+-              Expanded(
+-                child: DecoratedBox(
+-                  decoration: BoxDecoration(
+-                    border: Border(
+-                      left: BorderSide(color: t.separator),
+-                      top: BorderSide(color: t.separator),
+-                    ),
+-                  ),
+-                  child: const SingleChildScrollView(
+-                    padding: EdgeInsets.fromLTRB(22, 22, 26, 24),
+-                    child: StateInspector(),
+-                  ),
+-                ),
+-              ),
+-            ],
+-          ),
+         ),
+       ],
+     );
+--- a/example/lib/gallery/gallery.dart
++++ b/example/lib/gallery/gallery.dart
+@@ -124,12 +124,28 @@
+                   items: filtered.map((e) => e.item).toList(),
+                   selectedId: selected,
+                   onSelected: (id) {
++                    ScaffoldMessenger.of(context).clearSnackBars();
++                    ScaffoldMessenger.of(context).removeCurrentSnackBar();
+                     setState(() => selected = id);
+                     if (scaffold.currentState?.isDrawerOpen ?? false) {
+                       Navigator.of(context).pop();
+                     }
+                   },
+-                  footer: filtered.isEmpty ? const Text('没有匹配的组件') : null,
++                  emptyState: Column(
++                    crossAxisAlignment: CrossAxisAlignment.start,
++                    children: [
++                      const Text('没有匹配的组件'),
++                      const SizedBox(height: 8),
++                      TextButton(
++                        onPressed: () {
++                          search.clear();
++                          setState(() => query = '');
++                          searchFocus.requestFocus();
++                        },
++                        child: const Text('清空搜索'),
++                      ),
++                    ],
++                  ),
+                 ),
+               ),
+             ],
+@@ -147,6 +163,8 @@
+               final header = StoryHeader(
+                 entry: entry,
+                 onCopy: () => copy(entry.code),
++                density: widget.density,
++                onDensityChanged: widget.onDensityChanged,
+               );
+               if (selected == 'connection') {
+                 return Column(
+@@ -159,16 +177,15 @@
+                         onCopy: () => copy(entry.code),
+                       ),
+                     ),
+-                    if (large)
+-                      SizedBox(
+-                        height: constraints.maxHeight * .295,
+-                        child: code,
+-                      )
+-                    else
+-                      ExpansionTile(
+-                        title: const Text('使用示例 · 交互约定 · 设计变量'),
+-                        children: [SizedBox(height: 260, child: code)],
+-                      ),
++                    ExpansionTile(
++                      title: const Text('示例与设计说明'),
++                      children: [
++                        SizedBox(
++                          height: (constraints.maxHeight * .32).clamp(140, 260),
++                          child: code,
++                        ),
++                      ],
++                    ),
+                     const GalleryFooter(),
+                   ],
+                 );
+@@ -186,16 +203,6 @@
+                         children: [
+                           header,
+                           const SizedBox(height: 28),
+-                          Wrap(
+-                            alignment: WrapAlignment.end,
+-                            children: [
+-                              DensityPicker(
+-                                value: widget.density,
+-                                onChanged: widget.onDensityChanged,
+-                              ),
+-                            ],
+-                          ),
+-                          const SizedBox(height: 20),
+                           if (selected == 'supplements')
+                             const SupplementStory()
+                           else
+@@ -221,9 +228,17 @@
+ }
+ 
+ class StoryHeader extends StatelessWidget {
+-  const StoryHeader({super.key, required this.entry, required this.onCopy});
++  const StoryHeader({
++    super.key,
++    required this.entry,
++    required this.onCopy,
++    required this.density,
++    required this.onDensityChanged,
++  });
+   final CatalogEntry entry;
+   final VoidCallback onCopy;
++  final IanvsDensity density;
++  final ValueChanged<IanvsDensity> onDensityChanged;
+   @override
+   Widget build(BuildContext context) => LayoutBuilder(
+     builder: (context, constraints) => Wrap(
+@@ -231,8 +246,8 @@
+       runSpacing: 12,
+       children: [
+         SizedBox(
+-          width: constraints.maxWidth > 640
+-              ? constraints.maxWidth - 160
++          width: constraints.maxWidth > 740
++              ? constraints.maxWidth - 280
+               : constraints.maxWidth,
+           child: Column(
+             crossAxisAlignment: CrossAxisAlignment.start,
+@@ -251,10 +266,18 @@
+             ],
+           ),
+         ),
+-        IanvsButton(
+-          icon: Icons.content_copy,
+-          onPressed: onCopy,
+-          child: const Text('复制示例'),
++        Wrap(
++          spacing: 12,
++          runSpacing: 8,
++          crossAxisAlignment: WrapCrossAlignment.center,
++          children: [
++            DensityPicker(value: density, onChanged: onDensityChanged),
++            TextButton.icon(
++              icon: const Icon(Icons.content_copy, size: 18),
++              onPressed: onCopy,
++              label: const Text('复制示例'),
++            ),
++          ],
+         ),
+       ],
+     ),
+--- a/example/lib/gallery/stories.dart
++++ b/example/lib/gallery/stories.dart
+@@ -42,6 +42,34 @@
+     });
+     ScaffoldMessenger.of(context).showSnackBar(
+       SnackBar(content: Text(value), duration: const Duration(seconds: 2)),
++    );
++  }
++
++  Widget datePickerLayout(BuildContext context, Widget? child) {
++    final media = MediaQuery.of(context);
++    if (media.textScaler.scale(14) <= 21 ||
++        media.orientation == Orientation.portrait) {
++      return child!;
++    }
++    // Give large-text pickers a portrait panel whose local
++    // MediaQuery matches its actual constrained viewport.
++    // Material's landscape range header is only 152px wide.
++    final width = (media.size.height - 48).clamp(280.0, 640.0);
++    return Center(
++      child: SizedBox(
++        width: width,
++        child: MediaQuery(
++          data: media.copyWith(size: Size(width, media.size.height)),
++          child: Theme(
++            data: Theme.of(context).copyWith(
++              dialogTheme: Theme.of(context).dialogTheme.copyWith(
++                constraints: BoxConstraints(minWidth: width - 32),
++              ),
++            ),
++            child: child!,
++          ),
++        ),
++      ),
+     );
+   }
+ 
+@@ -473,6 +501,8 @@
+             onPressed: () async {
+               final v = await showDatePicker(
+                 context: context,
++                calendarDelegate: const IanvsGregorianCalendarDelegate(),
++                builder: datePickerLayout,
+                 initialDate: date,
+                 currentDate: DateTime(2026, 9, 10),
+                 firstDate: DateTime(2020),
+@@ -489,6 +519,8 @@
+             onPressed: () async {
+               final v = await showDateRangePicker(
+                 context: context,
++                calendarDelegate: const IanvsGregorianCalendarDelegate(),
++                builder: datePickerLayout,
+                 initialDateRange: dates,
+                 currentDate: DateTime(2026, 9, 10),
+                 firstDate: DateTime(2020),
+@@ -991,11 +1023,27 @@
+                               if (c.maxWidth <= 500)
+                                 Padding(
+                                   padding: const EdgeInsets.only(top: 16),
+-                                  child: OutlinedButton(
+-                                    onPressed: () => setState(
+-                                      () => navigation = (navigation + 1) % 3,
++                                  child: IanvsMenuButton<int>(
++                                    tooltip: '选择工作区内容',
++                                    value: navigation,
++                                    onSelected: (value) =>
++                                        setState(() => navigation = value),
++                                    options: const [
++                                      IanvsOption(0, '概览'),
++                                      IanvsOption(1, '文件'),
++                                      IanvsOption(2, '设置'),
++                                    ],
++                                    child: Row(
++                                      mainAxisSize: MainAxisSize.min,
++                                      children: [
++                                        Text(['概览', '文件', '设置'][navigation]),
++                                        const SizedBox(width: 12),
++                                        const Icon(
++                                          Icons.arrow_drop_down,
++                                          size: 18,
++                                        ),
++                                      ],
+                                     ),
+-                                    child: const Text('切换内容'),
+                                   ),
+                                 ),
+                             ],
+--- a/example/lib/gallery/supplement_story.dart
++++ b/example/lib/gallery/supplement_story.dart
+@@ -126,7 +126,7 @@
+       const SizedBox(height: 32),
+       IanvsFormSection(
+         title: const Text('数字步进'),
+-        description: '输入或方向键调整；Enter 提交，Esc 还原，达到边界后禁用对应按钮。',
++        description: '范围 8–32；超出范围会调整到最近边界。Enter 提交，Esc 还原，方向键调整。',
+         children: [
+           Wrap(
+             spacing: 24,
+--- a/example/test/widget_test.dart
++++ b/example/test/widget_test.dart
+@@ -36,10 +36,12 @@
+       matching: find.byType(TextFormField),
+     );
+     await tester.enterText(command, '');
++    await tester.pump();
+     await tester.tap(find.byKey(const ValueKey('connection-save')));
+     await tester.pump(const Duration(milliseconds: 100));
+     expect(find.text('请输入启动命令'), findsNWidgets(2));
+     await tester.enterText(command, '/bin/bash');
++    await tester.pump();
+     await tester.tap(find.byKey(const ValueKey('connection-save')));
+     await tester.pump();
+     await tester.pump(const Duration(milliseconds: 600));
+@@ -52,4 +54,94 @@
+     expect(find.text('所有更改已保存'), findsOneWidget);
+     expect(tester.takeException(), isNull);
+   });
++
++  testWidgets(
++    'scenario changes clear stale validation and compare saved values',
++    (tester) async {
++      tester.view.physicalSize = const Size(1440, 1000);
++      tester.view.devicePixelRatio = 1;
++      addTearDown(tester.view.resetPhysicalSize);
++      addTearDown(tester.view.resetDevicePixelRatio);
++      await tester.pumpWidget(const GalleryApp());
++      await tester.pumpAndSettle();
++      final command = find.descendant(
++        of: find.byKey(const ValueKey('connection-command')),
++        matching: find.byType(TextFormField),
++      );
++      expect(find.text('所有更改已保存'), findsOneWidget);
++      await tester.enterText(command, '');
++      await tester.pump();
++      await tester.tap(find.byKey(const ValueKey('connection-save')));
++      await tester.pumpAndSettle();
++      expect(
++        find.descendant(of: find.byType(Form), matching: find.text('请输入启动命令')),
++        findsOneWidget,
++      );
++      await tester.tap(find.text('ACP'));
++      await tester.pumpAndSettle();
++      expect(tester.widget<TextFormField>(command).controller!.text, 'npx');
++      expect(
++        find.descendant(of: find.byType(Form), matching: find.text('请输入启动命令')),
++        findsNothing,
++      );
++      expect(find.text('有未保存的更改'), findsOneWidget);
++      await tester.tap(find.text('Terminal'));
++      await tester.pumpAndSettle();
++      expect(find.text('所有更改已保存'), findsOneWidget);
++      await tester.tap(find.text('通用'));
++      await tester.pumpAndSettle();
++      expect(find.text('所有更改已保存'), findsOneWidget);
++      expect(tester.takeException(), isNull);
++    },
++  );
++
++  for (final size in [const Size(1440, 1000), const Size(480, 900)]) {
++    testWidgets(
++      'save actions stay visible while the connection form scrolls at $size',
++      (tester) async {
++        tester.view.physicalSize = size;
++        tester.view.devicePixelRatio = 1;
++        addTearDown(tester.view.resetPhysicalSize);
++        addTearDown(tester.view.resetDevicePixelRatio);
++        await tester.pumpWidget(
++          const GalleryApp(initialDensity: IanvsDensity.touch),
++        );
++        await tester.pumpAndSettle();
++        final actions = find.byKey(const ValueKey('connection-actions'));
++        final before = tester.getRect(actions);
++        expect(before.top, greaterThan(0));
++        expect(before.bottom, lessThan(size.height));
++        final command = find.byKey(const ValueKey('connection-command'));
++        await tester.drag(command, const Offset(0, -450));
++        await tester.pumpAndSettle();
++        expect(tester.getRect(actions), before);
++        expect(tester.takeException(), isNull);
++      },
++    );
++  }
++
++  testWidgets(
++    'empty catalog feedback appears beside the search and clears it',
++    (tester) async {
++      tester.view.physicalSize = const Size(1440, 1000);
++      tester.view.devicePixelRatio = 1;
++      addTearDown(tester.view.resetPhysicalSize);
++      addTearDown(tester.view.resetDevicePixelRatio);
++      await tester.pumpWidget(const GalleryApp());
++      await tester.pumpAndSettle();
++      final search = find.widgetWithText(TextFormField, '搜索组件');
++      await tester.enterText(search, 'nothing-matches');
++      await tester.pumpAndSettle();
++      expect(
++        tester.getTopLeft(find.text('没有匹配的组件')).dy -
++            tester.getBottomLeft(search).dy,
++        lessThan(60),
++      );
++      await tester.tap(find.text('清空搜索'));
++      await tester.pumpAndSettle();
++      expect(find.text('没有匹配的组件'), findsNothing);
++      expect(find.text('按钮'), findsOneWidget);
++      expect(tester.takeException(), isNull);
++    },
++  );
+ }
+--- a/lib/src/foundation/theme.dart
++++ b/lib/src/foundation/theme.dart
+@@ -31,6 +31,13 @@
+     final apple =
+         target == TargetPlatform.macOS || target == TargetPlatform.iOS;
+     final onAccent = foregroundFor(t.accent);
++    final actionColor = _readableActionColor(accent ?? t.focus, [
++      t.canvas,
++      t.chrome,
++      t.field,
++      t.raised,
++      t.selected,
++    ]);
+     final scheme =
+         ColorScheme.fromSeed(
+           seedColor: t.accent,
+@@ -250,7 +257,7 @@
+         style: button(fill: t.field, outlined: true),
+       ),
+       textButtonTheme: TextButtonThemeData(
+-        style: button(foreground: scheme.primary),
++        style: button(foreground: actionColor),
+       ),
+       iconButtonTheme: IconButtonThemeData(
+         style: button().copyWith(
+@@ -384,6 +391,21 @@
+         indicatorColor: t.selected,
+         indicatorShape: shape,
+         tileHeight: touch ? 56 : 44,
++        indicatorSize: Size(double.infinity, touch ? 48 : 36),
++        iconTheme: WidgetStateProperty.resolveWith(
++          (states) => IconThemeData(
++            color: states.contains(WidgetState.selected)
++                ? t.onSelected
++                : t.muted,
++          ),
++        ),
++        labelTextStyle: WidgetStateProperty.resolveWith(
++          (states) => typography.labelLarge?.copyWith(
++            color: states.contains(WidgetState.selected)
++                ? t.onSelected
++                : t.text,
++          ),
++        ),
+       ),
+       drawerTheme: DrawerThemeData(
+         backgroundColor: t.chrome,
+@@ -548,7 +570,7 @@
+       snackBarTheme: SnackBarThemeData(
+         backgroundColor: t.raised,
+         contentTextStyle: typography.bodyMedium,
+-        actionTextColor: t.focus,
++        actionTextColor: actionColor,
+         behavior: SnackBarBehavior.floating,
+         shape: panelShape,
+         elevation: 8,
+@@ -585,6 +607,15 @@
+         shape: panelShape,
+         hourMinuteShape: shape,
+         dayPeriodShape: shape,
++        dayPeriodColor: WidgetStateColor.resolveWith(
++          (states) =>
++              states.contains(WidgetState.selected) ? t.selected : t.field,
++        ),
++        dayPeriodTextColor: WidgetStateColor.resolveWith(
++          (states) =>
++              states.contains(WidgetState.selected) ? t.onSelected : t.text,
++        ),
++        dayPeriodBorderSide: BorderSide(color: t.border),
+         dialBackgroundColor: t.field,
+         dialHandColor: t.accent,
+         dialTextColor: t.text,
+@@ -602,6 +633,25 @@
+         thumbColor: WidgetStatePropertyAll(t.muted.withValues(alpha: .45)),
+       ),
+     );
++  }
++
++  /// Retains the action hue while meeting contrast on supported surfaces.
++  static Color _readableActionColor(Color candidate, List<Color> surfaces) {
++    final target = foregroundFor(surfaces.first);
++    for (var step = 0; step <= 100; step++) {
++      final color = Color.lerp(candidate, target, step / 100)!;
++      final luminance = color.computeLuminance();
++      if (surfaces.every((surface) {
++        final other = surface.computeLuminance();
++        return (luminance > other
++                ? (luminance + .05) / (other + .05)
++                : (other + .05) / (luminance + .05)) >=
++            4.5;
++      })) {
++        return color;
++      }
++    }
++    return target;
+   }
+ 
+   /// Chooses the higher-contrast foreground for a supplied accent/surface.
+--- a/lib/src/patterns/dialog.dart
++++ b/lib/src/patterns/dialog.dart
+@@ -16,6 +16,7 @@
+   @override
+   Widget build(BuildContext context) => AlertDialog(
+     title: title,
++    titlePadding: const EdgeInsets.fromLTRB(24, 28, 24, 12),
+     content: content,
+     actions: actions,
+     icon: icon,
+--- a/lib/src/patterns/workspace.dart
++++ b/lib/src/patterns/workspace.dart
+@@ -24,11 +24,15 @@
+     required this.onSelected,
+     this.header,
+     this.footer,
++    this.emptyState,
+   });
+   final List<IanvsSidebarItem> items;
+   final String selectedId;
+   final ValueChanged<String> onSelected;
+   final Widget? header, footer;
++
++  /// Content shown at the start of the results area when [items] is empty.
++  final Widget? emptyState;
+   @override
+   Widget build(BuildContext context) {
+     final t = context.ianvs;
+@@ -110,7 +114,14 @@
+           Expanded(
+             child: ListView(
+               padding: const EdgeInsets.fromLTRB(10, 8, 12, 16),
+-              children: children,
++              children: items.isEmpty && emptyState != null
++                  ? [
++                      Padding(
++                        padding: const EdgeInsets.all(12),
++                        child: emptyState,
++                      ),
++                    ]
++                  : children,
+             ),
+           ),
+           if (footer != null)
+--- a/test/theme_test.dart
++++ b/test/theme_test.dart
+@@ -80,6 +80,14 @@
+         (t.onSelected, t.selected),
+         (theme.colorScheme.onPrimary, theme.colorScheme.primary),
+         (t.danger, t.field),
++        for (final surface in [
++          t.canvas,
++          t.chrome,
++          t.field,
++          t.raised,
++          t.selected,
++        ])
++          (theme.textButtonTheme.style!.foregroundColor!.resolve({})!, surface),
+       ]) {
+         expect(contrast(pair.$1, pair.$2), greaterThanOrEqualTo(4.5));
+       }
+@@ -99,6 +107,17 @@
+           contrast(scheme.primary, scheme.onPrimary),
+           greaterThanOrEqualTo(4.5),
+         );
++        final custom = IanvsTheme.build(brightness: brightness, accent: accent);
++        final tokens = custom.extension<IanvsTokens>()!;
++        for (final surface in [tokens.canvas, tokens.raised, tokens.selected]) {
++          expect(
++            contrast(
++              custom.textButtonTheme.style!.foregroundColor!.resolve({})!,
++              surface,
++            ),
++            greaterThanOrEqualTo(4.5),
++          );
++        }
+       }
+     });
+   }
+--- /dev/null
++++ b/lib/src/foundation/calendar.dart
+@@ -0,0 +1,26 @@
++import 'package:flutter/material.dart';
++
++/// Gregorian dates with intact Chinese date and weekday units in narrow headers.
++/// Parsing, calendar arithmetic and non-Chinese formatting stay with Material.
++class IanvsGregorianCalendarDelegate extends GregorianCalendarDelegate {
++  const IanvsGregorianCalendarDelegate();
++
++  static String _keepUnits(String value) => value.replaceAllMapped(
++    RegExp(r'\d+年|\d+月\d+日|(?:星期|周)[一二三四五六日天]'),
++    (match) => match[0]!.split('').join('\u2060'),
++  );
++
++  @override
++  String formatMediumDate(DateTime date, MaterialLocalizations localizations) =>
++      _keepUnits(super.formatMediumDate(date, localizations));
++
++  @override
++  String formatShortMonthDay(
++    DateTime date,
++    MaterialLocalizations localizations,
++  ) => _keepUnits(super.formatShortMonthDay(date, localizations));
++
++  @override
++  String formatShortDate(DateTime date, MaterialLocalizations localizations) =>
++      _keepUnits(super.formatShortDate(date, localizations));
++}
+--- /dev/null
++++ b/example/test/calibration_test.dart
+@@ -0,0 +1,194 @@
++import 'dart:ui' show BoxHeightStyle;
++
++import 'package:flutter_test/flutter_test.dart';
++import 'package:flutter/rendering.dart';
++import 'package:flutter/services.dart';
++import 'package:ianvs_design/ianvs_design.dart';
++import 'package:ianvs_design_gallery/main.dart';
++
++void main() {
++  testWidgets('large text keeps a long date and weekday intact', (
++    tester,
++  ) async {
++    tester.view.physicalSize = const Size(1280, 720);
++    tester.view.devicePixelRatio = 1;
++    tester.platformDispatcher.textScaleFactorTestValue = 2;
++    addTearDown(tester.view.resetPhysicalSize);
++    addTearDown(tester.view.resetDevicePixelRatio);
++    addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
++    final font = FontLoader('GallerySans')
++      ..addFont(rootBundle.load('assets/fonts/NotoSansSC.ttf'));
++    await font.load();
++    await tester.pumpWidget(const GalleryApp(initialPage: 'inputs'));
++    await tester.pumpAndSettle();
++    await tester.ensureVisible(find.text('日期 9/10'));
++    await tester.tap(find.text('日期 9/10'));
++    await tester.pumpAndSettle();
++    await tester.tap(find.byTooltip('切换到输入模式'));
++    await tester.pumpAndSettle();
++    await tester.enterText(
++      find.descendant(
++        of: find.byType(DatePickerDialog),
++        matching: find.byType(TextField),
++      ),
++      '2026/12/31',
++    );
++    await tester.tap(find.text('确定'));
++    await tester.pumpAndSettle();
++    await tester.tap(find.text('日期 12/31'));
++    await tester.pumpAndSettle();
++    await tester.tap(find.byTooltip('切换到输入模式'));
++    await tester.pumpAndSettle();
++    final header = find.byWidgetPredicate(
++      (w) => w is Text && (w.data?.startsWith('1\u20602\u2060月') ?? false),
++    );
++    final paragraph = tester.renderObject<RenderParagraph>(
++      find.descendant(of: header, matching: find.byType(RichText)),
++    );
++    expect(paragraph.didExceedMaxLines, isFalse);
++    final dateEnd = paragraph.text.toPlainText().indexOf('日') + 1;
++    final boxes = paragraph.getBoxesForSelection(
++      TextSelection(baseOffset: 0, extentOffset: dateEnd),
++      boxHeightStyle: BoxHeightStyle.max,
++    );
++    expect(boxes.map((box) => box.top).toSet(), hasLength(1));
++    expect(tester.takeException(), isNull);
++  });
++
++  testWidgets('large text range input keeps both dates visible', (
++    tester,
++  ) async {
++    tester.view.physicalSize = const Size(1280, 720);
++    tester.view.devicePixelRatio = 1;
++    tester.platformDispatcher.textScaleFactorTestValue = 2;
++    addTearDown(tester.view.resetPhysicalSize);
++    addTearDown(tester.view.resetDevicePixelRatio);
++    addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
++    final font = FontLoader('GallerySans')
++      ..addFont(rootBundle.load('assets/fonts/NotoSansSC.ttf'));
++    await font.load();
++    await tester.pumpWidget(const GalleryApp(initialPage: 'inputs'));
++    await tester.pumpAndSettle();
++    final trigger = find.text('范围 9/10 – 9/14');
++    await tester.ensureVisible(trigger);
++    await tester.tap(trigger);
++    await tester.pumpAndSettle();
++    await tester.tap(find.byTooltip('切换到输入模式'));
++    await tester.pumpAndSettle();
++    final header = find.byWidgetPredicate(
++      (w) =>
++          w is Text &&
++          (w.data?.contains('\u2060') ?? false) &&
++          (w.data?.contains(' – ') ?? false),
++    );
++    expect(header, findsOneWidget);
++    final paragraph = tester.renderObject<RenderParagraph>(
++      find.descendant(of: header, matching: find.byType(RichText)),
++    );
++    expect(paragraph.didExceedMaxLines, isFalse);
++    expect(tester.takeException(), isNull);
++  });
++
++  testWidgets('leaving a story dismisses its pending action message', (
++    tester,
++  ) async {
++    tester.view.physicalSize = const Size(1440, 1000);
++    tester.view.devicePixelRatio = 1;
++    addTearDown(tester.view.resetPhysicalSize);
++    addTearDown(tester.view.resetDevicePixelRatio);
++    await tester.pumpWidget(const GalleryApp(initialPage: 'feedback'));
++    await tester.pump();
++    await tester.tap(find.text('显示 Snackbar'));
++    await tester.pump(const Duration(milliseconds: 500));
++    expect(find.byType(SnackBar), findsOneWidget);
++    await tester.tap(find.text('工作区'));
++    await tester.pumpAndSettle();
++    expect(find.byType(SnackBar), findsNothing);
++    expect(tester.takeException(), isNull);
++  });
++  testWidgets('pointer interaction dismisses the previous independent menu', (
++    tester,
++  ) async {
++    tester.view.physicalSize = const Size(1440, 1000);
++    tester.view.devicePixelRatio = 1;
++    addTearDown(tester.view.resetPhysicalSize);
++    addTearDown(tester.view.resetDevicePixelRatio);
++    await tester.pumpWidget(const GalleryApp(initialPage: 'navigation'));
++    await tester.pumpAndSettle();
++    final quick = find.widgetWithText(OutlinedButton, '快捷菜单');
++    final file = find.widgetWithText(SubmenuButton, '文件');
++    await tester.ensureVisible(file);
++    await tester.pumpAndSettle();
++    await tester.tap(quick);
++    await tester.pumpAndSettle();
++    expect(find.widgetWithText(MenuItemButton, '重命名'), findsOneWidget);
++    await tester.tap(file);
++    await tester.pumpAndSettle();
++    expect(find.widgetWithText(MenuItemButton, '重命名'), findsNothing);
++    expect(tester.takeException(), isNull);
++  });
++  for (final width in [1440.0, 480.0]) {
++    testWidgets(
++      'drawer indicator encloses each selected destination at $width',
++      (tester) async {
++        tester.view.physicalSize = Size(width, 1000);
++        tester.view.devicePixelRatio = 1;
++        addTearDown(tester.view.resetPhysicalSize);
++        addTearDown(tester.view.resetDevicePixelRatio);
++        await tester.pumpWidget(const GalleryApp(initialPage: 'navigation'));
++        await tester.pumpAndSettle();
++        final drawer = find.byType(NavigationDrawer);
++        await tester.ensureVisible(drawer);
++        await tester.pumpAndSettle();
++        for (final label in ['主页', '项目', '设置']) {
++          final destination = find.descendant(
++            of: drawer,
++            matching: find.text(label),
++          );
++          await tester.tap(destination);
++          await tester.pumpAndSettle();
++          final index = ['主页', '项目', '设置'].indexOf(label);
++          final indicators = find.descendant(
++            of: drawer,
++            matching: find.byType(NavigationIndicator),
++          );
++          final indicator = tester.getRect(indicators.at(index));
++          expect(indicator.contains(tester.getCenter(destination)), isTrue);
++          final icons = find.descendant(
++            of: drawer,
++            matching: find.byType(Icon),
++          );
++          expect(indicator.contains(tester.getCenter(icons.at(index))), isTrue);
++          expect(
++            indicator.width,
++            greaterThan(tester.getSize(drawer).width - 30),
++          );
++          expect(tester.takeException(), isNull);
++        }
++      },
++    );
++  }
++
++  testWidgets('narrow workspace menu selects a named destination', (
++    tester,
++  ) async {
++    tester.view.physicalSize = const Size(480, 900);
++    tester.view.devicePixelRatio = 1;
++    addTearDown(tester.view.resetPhysicalSize);
++    addTearDown(tester.view.resetDevicePixelRatio);
++    await tester.pumpWidget(const GalleryApp(initialPage: 'workspace'));
++    await tester.pumpAndSettle();
++    final trigger = find.byTooltip('选择工作区内容');
++    await tester.ensureVisible(trigger);
++    await tester.tap(trigger);
++    await tester.pumpAndSettle();
++    await tester.tap(find.widgetWithText(MenuItemButton, '设置'));
++    await tester.pumpAndSettle();
++    expect(find.text('项目设置'), findsOneWidget);
++    expect(
++      find.descendant(of: trigger, matching: find.text('设置')),
++      findsOneWidget,
++    );
++    expect(tester.takeException(), isNull);
++  });
++}
+--- a/lib/ianvs_design.dart
++++ b/lib/ianvs_design.dart
+@@ -4,6 +4,7 @@
+ export 'package:flutter/material.dart';
+ export 'src/foundation/tokens.dart';
+ export 'src/foundation/theme.dart';
++export 'src/foundation/calendar.dart';
+ export 'src/components/button.dart';
+ export 'src/components/fields.dart';
+ export 'src/components/search_field.dart';

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "01-connection",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/01-layout.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/02-validation.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/03-narrow.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/04-scroll.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/05-connection-states.png"
+    ]
+  },
+  {
+    "id": "02-navigation",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/06-navigation-project.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/07-navigation-dark.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/08-navigation-narrow.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/09-navigation-destinations.png"
+    ]
+  },
+  {
+    "id": "03-dates-time",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/10-date-entry.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/11-range-entry.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/12-time-clock.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/13-time-input.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/14-date-large-text.png"
+    ]
+  },
+  {
+    "id": "04-catalog-workspace",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/15-search-empty.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/16-toolbar-narrow.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/17-workspace-direct-menu.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/18-stepper-boundaries.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/22-foundations.png"
+    ]
+  },
+  {
+    "id": "05-feedback-dialog",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/19-feedback-actions.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/20-feedback-snackbar.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/21-confirm-large-text.png"
+    ]
+  },
+  {
+    "id": "06-feedback-supplement",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/19-feedback-dark-actions.jpg",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/26-confirm-scale200.jpg"
+    ]
+  },
+  {
+    "id": "07-boundaries-long-dates",
+    "references": [
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/35-stepper-out-of-range-light.jpg",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/screenshots/36-stepper-clamped-light.jpg",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/23-long-date-refinement.png",
+      "/Users/robinfai/flutter_projects/ianvs-design/docs/design/calibration-2026-09-10/comparisons/24-date-refinement.png"
+    ]
+  }
+]

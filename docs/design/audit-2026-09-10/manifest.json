@@ -1,0 +1,1206 @@
+[
+  {
+    "name": "01-connection-narrow-default",
+    "note": "默认浏览器视口；连接设置初始状态",
+    "verified": true,
+    "width": 836,
+    "height": 942,
+    "text_scale": 1,
+    "sha256": "3faa81fbc0229b24cedb8e2857704d2000b422e72be39882b701c311576c44e6"
+  },
+  {
+    "name": "02-connection-dark-default",
+    "note": "1440×1000 桌面宽屏；连接设置默认、静态错误与禁用/焦点示例",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "b1152971d17fbf9a663cd9d33f6b9cb27368675ab3514b527a2dbfc0a7f948b9"
+  },
+  {
+    "name": "03-connection-startup-open",
+    "note": "启动方式展开，选中行与其他选项",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "fd1dc07fe537367eee485bbc698addb8e4e15f1109e9d683a86ba030be67d7b2"
+  },
+  {
+    "name": "04-connection-saving",
+    "note": "真实保存中：输入/分段/开关/取消禁用，保存显示加载",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "9e3d9710a320964478fa14a37ca594d3ebd9c7868448217de79404066d205ab9"
+  },
+  {
+    "name": "05-connection-saved",
+    "note": "保存完成状态",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "21497b0ab5e6113f302363bb7a8da0d74b8e99ca70f688f4f5a3619492aa3646"
+  },
+  {
+    "name": "06-connection-validation",
+    "note": "真实提交校验错误",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "ad451649ff23f755e4f8d74e74504bc49d99cd3248f7d7111fa98e61912fde56"
+  },
+  {
+    "name": "07-connection-acp",
+    "note": "ACP 场景已选择",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "c75483870a6fdb5922e0884efe1121b00d4aac107c044fe194d044c1a9109cda"
+  },
+  {
+    "name": "08-global-theme-open",
+    "note": "外观模式菜单与当前选中项",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "f0e0639ad20d447b194016c39bd03afc646c60e7bc4e8715690a342f235d4944"
+  },
+  {
+    "name": "09-connection-light",
+    "note": "连接设置浅色，错误与选中态",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "58d69276f022fe0f9b99352874a18283eb17b8c2d022fe12ced06b7c83ff67e2"
+  },
+  {
+    "name": "10-global-density-open",
+    "note": "密度菜单展开",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "80e25665c8f27eb26c11a524e00e4ced3746602cb5ad76db411a3a13ce3c5544"
+  },
+  {
+    "name": "11-connection-comfortable",
+    "note": "舒适密度，控件增高与内容滚动",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "598f0fcea93d12d013f90605edba1b0b5f9eafcb3ca9ff694442597a679661f9"
+  },
+  {
+    "name": "12-connection-touch",
+    "note": "触控密度 48px",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "463f91ea899ec2ebb2b2b3146924df6fe14ec4eb0f77bf9d760af213cfac83c4"
+  },
+  {
+    "name": "13-actions-light-default",
+    "note": "所有常规按钮、图标按钮、FAB与禁用/静态加载",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "eb0998ea2afd3e4520b7b5b92ffd107bf553081b31b4809a607c2f6f4e07d40e"
+  },
+  {
+    "name": "14-actions-async-busy",
+    "note": "异步按钮真实忙碌状态",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "56858dcd2f89be9d49249b58931c759d6ec7b5f183a665ce1be9ebd932136899"
+  },
+  {
+    "name": "15-actions-async-result",
+    "note": "异步执行中第二帧；完成证据见 16",
+    "verified": false,
+    "exclusion_reason": "重复加载帧，完成态见16。",
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "e7e65114269d7b907464c98af789881c21472dc4c71b7c0cab527116d5c9c6f4"
+  },
+  {
+    "name": "16-actions-selection",
+    "note": "收藏取消、单选切换、多选并存",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "cedb3b0d40d87c8cf7730b09c9d76741f1b2c5f529741cab94c520a1f6332356"
+  },
+  {
+    "name": "17-actions-dark",
+    "note": "按钮深色：完成与多选状态",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "c7a990c043d727e723e207c4d2ebe97f93983e069ed0bc7c4cebae9f3f96053d"
+  },
+  {
+    "name": "18-inputs-dark-top",
+    "note": "输入字段默认、密码隐藏、多行、禁用",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "6b8ddc3c6b7d1283a6770a3c378b12172c327e67be340a194742dd1ebfa26c75"
+  },
+  {
+    "name": "19-inputs-error-password",
+    "note": "真实必填校验错误、密码显示",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "dc37a0331ae0874621a08a1642b6c0f991109702ba46ce5a2eac832092481e51"
+  },
+  {
+    "name": "20-inputs-saved",
+    "note": "输入有效值并提交结果",
+    "verified": false,
+    "exclusion_reason": "当时点击未触发提交；实际成功见20b。",
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "d7714472fa5d87d7a49313eedf9f76aacd714c12f46cd8554edcaf4362163c50"
+  },
+  {
+    "name": "21-inputs-search-open",
+    "note": "搜索建议展开，未输入",
+    "verified": false,
+    "exclusion_reason": "当时未打开搜索菜单；有效展开见21b。",
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "bcfbadded641ea916f55a0f391f586f1cddf442a3111c5e42de746b785d4b150"
+  },
+  {
+    "name": "20b-inputs-save-confirmed",
+    "note": "有效值再次点击校验并保存，确认结果",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "c489e982741fa671d28ae53ef77c4903e8a3df9a6f18b0f50105df28b86edf50"
+  },
+  {
+    "name": "21b-inputs-search-open",
+    "note": "搜索建议展开，实际可见结果",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "5c7ba74cdb627a83a63bccde03961df9c0cb377ea20b92cbcdfac4c46f32c7d7"
+  },
+  {
+    "name": "22-inputs-search-empty",
+    "note": "搜索zz-no-match，无匹配连接菜单。",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "bdcdaa14e1efdad4035cb621c441fad95b06ddcc8ce0fc810d4ddb1de3e9cb4b"
+  },
+  {
+    "name": "23-inputs-search-keyboard",
+    "note": "Loc 筛选与键盘高亮第二项",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "5d286ea716b8aaa947010bf767fa8aae3838c4d7a7f5b43ca1e86d9ceaa04a47"
+  },
+  {
+    "name": "24-inputs-search-selected",
+    "note": "搜索选定 Local Server 并关闭菜单",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "276ba14e48e2e31aa9eeb2b1619b0ef53116c579c43c2d462935340e585fbd1e"
+  },
+  {
+    "name": "25-inputs-autocomplete-open",
+    "note": "Autocomplete 展开与多条建议",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "3681d4742cce7208b617b13b0e653835926d01128a1f3c4262b617ba466688e9"
+  },
+  {
+    "name": "26-inputs-select-open",
+    "note": "受控 Select：选中、未选与禁用选项",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "82f262bd4c2fba6a9e658b1a309c423b1755972ba0c978e27fd29f3656c8aff0"
+  },
+  {
+    "name": "27-inputs-dropdown-open",
+    "note": "Material DropdownMenu 展开",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "fb45d8a33318755d883a8f755320764e1e50902b55e2384a8e65ce21ce2944aa"
+  },
+  {
+    "name": "28-inputs-controls-default",
+    "note": "输入页下部：滑块、Chip、日期和代码。",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "976ae4d23c2db68a65bd08b7986ecea035dcb19d4bde301b4ff7f24bb87ee31a"
+  },
+  {
+    "name": "29-inputs-selection-default",
+    "note": "选择控件与滑块完整默认状态",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "00eb8e66e232f49bf7d391a842d3a150f204ca379915cd7e6ccee922e8fe2a26"
+  },
+  {
+    "name": "30-inputs-selection-changed",
+    "note": "复选取消、三态未选、远程Radio、开关关闭、Slider与Range变化",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "b7a0e32431fa074be081926bebfc0e700947fe61278ddbe58068706b0e595d06"
+  },
+  {
+    "name": "31-inputs-chips-default",
+    "note": "Chip 默认和日期入口",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "b03a142ebb3f3eb5a31ab23ea25e1b1c7138b6567eb5ebba354197fae194a887"
+  },
+  {
+    "name": "32-inputs-chips-selected",
+    "note": "FilterChip多选本地和远程，ChoiceChip选择舒适。",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "0330c7af1dbef4b73b1fab60bfaffe8d9900ab9afa10777e37a7759eb32f5388"
+  },
+  {
+    "name": "33-inputs-chip-deleted",
+    "note": "实际为InputChip选中；删除状态见38，文件名为采集时暂定名。",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "b7d000ff02666a4e532aae1c75689b8a941f6f6a3d21f5b49285a1ead996b99d"
+  },
+  {
+    "name": "34-inputs-date-picker",
+    "note": "日期选择器月视图，默认选中与今天",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "11656182b4e180808285952367f27b3e01fc17574daafc9e4420a3149adc0061"
+  },
+  {
+    "name": "35-inputs-date-year",
+    "note": "日期年份选择",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "7d95e0e27e0f918f12009c9409930d15afa95a70d7594185b1436cc2a93780ae"
+  },
+  {
+    "name": "36-inputs-date-entry",
+    "note": "日期文本输入模式",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "fda9788d1a65a14f623e6fe1ee2275cdc20b73e7039e25a5c90510d8127e6325"
+  },
+  {
+    "name": "37-inputs-date-invalid",
+    "note": "无效日期输入错误提示",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "07eb8f622d8953cb73bb548cb316ac38ced7ad6dc0c0cfcc40915af7d7ebb24b"
+  },
+  {
+    "name": "38-inputs-chip-removed",
+    "note": "InputChip 实际删除，显示恢复标签",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "be23a23075b9ac0ad36b95401f0a4aab2a6761a1d73967b56a770c990a9e3f74"
+  },
+  {
+    "name": "39-inputs-date-range",
+    "note": "日期范围：起止日期和连续区间",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "699d280d01c43d75069ebcba884e32301a49a959d3fa11a83ed6051cc67fdab7"
+  },
+  {
+    "name": "40-inputs-range-entry",
+    "note": "日期范围输入模式",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "ec26ef77a321aeee3c86cdd4dc865f93841532fbc1de40ccfab4d7afc19fb050"
+  },
+  {
+    "name": "41-inputs-time-clock",
+    "note": "时间选择器时钟与上午下午",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "d6a448f1eafc9705db7fd1e41b7ee447e6bc7a5fa81f99313c457b8b607b3c7b"
+  },
+  {
+    "name": "42-inputs-time-entry",
+    "note": "时间文本输入模式",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "7817a879507a0379ad9e06b033332b9b08e53f477b877d29510d172df7dc4586"
+  },
+  {
+    "name": "43-inputs-light-bottom",
+    "note": "浅色滑块、Chip与日期入口",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "a967535964644dd568cc716660a9cc9798af9a6fbeb7a0f8813ff8c4e86ff164"
+  },
+  {
+    "name": "44-inputs-light-middle",
+    "note": "浅色选择控件",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "764ba7f3f8a1569681e2af495ea3be364c903437dfbf443143ebb64c1b1d3662"
+  },
+  {
+    "name": "45-inputs-light-top",
+    "note": "浅色文本字段与搜索选择器",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "88799169368da07da22491f6b11131aa32b9828164b9f61eb68b46b99a871d89"
+  },
+  {
+    "name": "46-navigation-light-top",
+    "note": "导航页 AppBar、BottomAppBar、NavigationBar与Rail",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "c53613718db8d5c703017e6aaf2ff5a5c7a8ab32a0cd43083439697b5183b750"
+  },
+  {
+    "name": "47-navigation-selected",
+    "note": "NavigationBar与Rail同步切换项目",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "da3b0560e7c7634034fe5f8738cd13ddc00e55718c3c1fb073a3c87eebd16523"
+  },
+  {
+    "name": "48-navigation-lower-default",
+    "note": "Drawer、Tabs、三类菜单默认",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "13c478a160ed742f0a14b49d3f19bc4c943ff49d7859573da2e1b4cf5a5dfd9d"
+  },
+  {
+    "name": "49-navigation-tabs-spec",
+    "note": "TabBar 切换规范内容，Drawer选中背景可见",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "6b65b79cb4ff8b60eba9a4e90e2d89caf34a506f6f6d12088dc8881b0c344954"
+  },
+  {
+    "name": "50-navigation-anchor-menu",
+    "note": "锚定菜单，含图标和禁用项",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "d4aaa5c00212efffcc3c70cedeb790a55bc22f761ad153e44a18cc154a458e92"
+  },
+  {
+    "name": "51-navigation-quick-menu",
+    "note": "快捷菜单展开",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "417b8edc81ae9738b06d2b75f04f9a8f2772c3025d2f6394393bd7f0424a1f94"
+  },
+  {
+    "name": "52-navigation-menubar-file",
+    "note": "MenuBar 文件菜单",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "7f67f39635e0cbacf3624b51eda6856e83e9f25e8d6c9b9f866af04f75672e0e"
+  },
+  {
+    "name": "53-navigation-view-menu",
+    "note": "实际为快捷菜单选择重命名后的反馈；复选菜单见57。",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "590a63c74d5dc6a695aa61c97bf97817ddcc50fe55d63f2cb6352948dc9a9288"
+  },
+  {
+    "name": "54-navigation-view-unchecked",
+    "note": "视图菜单切换与关闭结果",
+    "verified": false,
+    "exclusion_reason": "重复快捷菜单操作反馈，未证明复选菜单状态。",
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "1911d1e4cae1b664a83f47f69a09b812430f31454617f71ba77c362606eb6ffe"
+  },
+  {
+    "name": "55-navigation-dark-lower",
+    "note": "导航页深色下半部",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "a63889cca1cabd80060ece2f34944cedfa7428c4bace7b2f42ac52d1af634f75"
+  },
+  {
+    "name": "56-navigation-dark-top",
+    "note": "导航页深色上半部",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "826feabf66a850eb3eb4260a738df9954f34489b154eb70ac833ac6992e86294"
+  },
+  {
+    "name": "57-navigation-checkbox-menu",
+    "note": "视图菜单打开：显示隐藏文件选中",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "396579057dff39629cf416fc3cafe039b238c4d1f007970b08e33578e5ec683b"
+  },
+  {
+    "name": "58-navigation-checkbox-toggled",
+    "note": "点击复选菜单后菜单关闭；未捕获重开后的取消勾选态。",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "54562b9dbd800db2964eea85f80cf205f3375a8a9d162e758ec57528a694e9be"
+  },
+  {
+    "name": "59-feedback-dark-top",
+    "note": "状态提示、Badge、Banner和进度默认",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "5d6d638e9369e07a46a619a10ba4e99650ea01c23a81dcdf67338ac4bbc24b2b"
+  },
+  {
+    "name": "60-feedback-snackbar",
+    "note": "Snackbar 带撤销动作",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "6e49144cf2d4c2155a2e68e6bc0b80abd5abc3f2631c20f369cecb6770efa846"
+  },
+  {
+    "name": "61-feedback-undo",
+    "note": "撤销后恢复通知计数",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "9b18f70aaab002bd4e51bd66141ab131ffbf31fad3a552c744a1df9b83b50058"
+  },
+  {
+    "name": "62-feedback-material-banner",
+    "note": "MaterialBanner 持续提示与知道了",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "ec3230b9354d8d64746f56f8e9f6507b3d51e58574ddfee01bf763f14b9fec67"
+  },
+  {
+    "name": "63-feedback-tooltip-trigger",
+    "note": "提示按钮点击反馈；未捕获悬停气泡。",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "edb5190fe93040dbed942640f27a5c7b3f7e1387b8c713fe9af7538f3e95b743"
+  },
+  {
+    "name": "64-feedback-tooltip-visible",
+    "note": "提示按钮悬停说明可见",
+    "verified": false,
+    "exclusion_reason": "未捕获到Tooltip气泡，不作为悬停证据。",
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "acb568941d884ac7f059e02888027c4085384c32a13513748a6a32495a9477f2"
+  },
+  {
+    "name": "65-feedback-list-table",
+    "note": "Card、ListTile、选择行、折叠区与DataTable",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "edb35407bc6f2c23d854c732ca910104367488f45313c098cab1a69dbebd4094"
+  },
+  {
+    "name": "66-feedback-list-expanded",
+    "note": "同步关闭、远程存储、高级设置展开",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "152a1da3d797c5e4a9a406b29ceed57984b559ea7fd404e25e982db62896f974"
+  },
+  {
+    "name": "67-feedback-table-empty",
+    "note": "数据表格和空状态完整截图",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "89751fabbfd3b2fa932bafc609d9b57703bb37c5ba1a7b829cff655e687a07d3"
+  },
+  {
+    "name": "68-feedback-table-sorted-selected",
+    "note": "名称降序、选中第一行、表头混合态",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "694a0247018204e61474a1c488e047693cd514c2bf31cc2f25c3aa33db44b5a8"
+  },
+  {
+    "name": "69-feedback-table-select-all",
+    "note": "全选表格",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "1965c1409d07aa3c91b151ba1f538a46b8a7f005ed2c96fc9885bc2c8e4cc3a1"
+  },
+  {
+    "name": "70-feedback-empty-action",
+    "note": "空状态主操作反馈：示例创建结果",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "1b90eeb6111e957fce53bbf43c27606c6f9762a6c55198dd006e6d8d93fd2718"
+  },
+  {
+    "name": "71-feedback-light-lower",
+    "note": "反馈页浅色：列表、表格全选、空状态",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "a5eae2a0dc571c0987342231d224a7d2942282b76fccce3bbdc87f88280a7896"
+  },
+  {
+    "name": "72-feedback-light-top",
+    "note": "反馈页浅色：Banner、进度与卡片",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "9f727d41ae01f27eeca995ad2073013d933bc6bfd379cc967f7382382875de0e"
+  },
+  {
+    "name": "73-supplements-light-default",
+    "note": "扩展组件浅色默认：级联选择、步进输入、骨架屏",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "b34929551cbad219607d04b00d2d12334d498de21aa099ca5acc46971cd5afa6"
+  },
+  {
+    "name": "74-cascader-empty",
+    "note": "清空级联选择，返回全部层级",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "d58967568329ca19e70dab2ca5a67ffa03df20264adf54c55c1e3a4af2ace86d"
+  },
+  {
+    "name": "75-cascader-remote",
+    "note": "选择远程，显示SSH叶节点",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "2f0c8b84783502c8db31872e2451830c8d6ca1df47439a7b00f1efecfdf78f87"
+  },
+  {
+    "name": "76-stepper-edit-out-of-range",
+    "note": "数字步进编辑超范围99，提交前",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "481272925e0521310517efe11e060782023ac49710e53850bfcc7de82c465e78"
+  },
+  {
+    "name": "77-stepper-clamped",
+    "note": "提交后限制到上界32，加号禁用",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "f2c1cb3add85cbe9f82d5b4beb8eab3fe78086b7d42e2579bfe6b14ee0a2d1ea"
+  },
+  {
+    "name": "78-stepper-escape",
+    "note": "Esc还原已提交32",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "7646d5f2a3ddafc9722a9fc70e8d10f097eff99fd0c67639cd54a94b280ac449"
+  },
+  {
+    "name": "79-supplements-dark-top",
+    "note": "扩展组件深色：选中路径、数字上下界及禁用",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "f7fdce21707f1ea7faad7d997fd176eeda5a6a77ee2200bc4271ee2cfa4270b8"
+  },
+  {
+    "name": "80-skeleton-preview",
+    "note": "骨架加载示意与已加载内容对照",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "a2963f4f4400682f9fc05a7fd8417b490ae6eeeed40c20146fbe9ae44016a8ca"
+  },
+  {
+    "name": "81-skeleton-reloading",
+    "note": "模拟重新加载中，按钮带加载指示并禁用，预览切换为骨架。",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "218d39afcc940ec80be89737ff9b3afda4705a6cbc2cf0317f3a31804988a000"
+  },
+  {
+    "name": "82-skeleton-restored",
+    "note": "重新加载完成，内容恢复",
+    "verified": false,
+    "exclusion_reason": "仍处于加载中；内容恢复见84。",
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "657fac8a9d6f7efc3f81e2d8931238959e14f4868a82ff16b25188e39d08d611"
+  },
+  {
+    "name": "83-code-interaction-tab",
+    "note": "代码面板交互约定标签",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "769bb21e31c2373191dea23d4f660ac84cb80ad6532643c20da1077b92f046ed"
+  },
+  {
+    "name": "84-code-tokens-copy",
+    "note": "设计变量标签与复制代码反馈",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "4b9553459a25630591b97c260305fbe92a8d1935ae38124230f2b64abf3c2630"
+  },
+  {
+    "name": "85-workspace-dark-default",
+    "note": "工作区深色默认与框架层级",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "adc16aab2c78be2b9fac94ccdb4aa7ba9c8d44c97174bd736da66ad3deeb4b4a"
+  },
+  {
+    "name": "86-workspace-files",
+    "note": "工作区切换文件导航与文件内容标题",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "a8cce8ba4e4623ac96dd9b99b8cd36e76c6b051d8b50e7ff40397abcb7a5a0ec"
+  },
+  {
+    "name": "87-workspace-settings-new",
+    "note": "工作区设置导航与新建文档反馈",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "c58bda54853d29ee5d98d1dadeb17cf7ebcf38cce5aae02ab185230282f8723f"
+  },
+  {
+    "name": "88-workspace-light",
+    "note": "工作区浅色：工具栏、导航与内容分层",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "9eb6228faeec7098fd1d9d75301ad0cbc380d6b74d1ab147469241e0c3950b01"
+  },
+  {
+    "name": "89-overlays-light-default",
+    "note": "确认与退出浅色默认及草稿输入",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "d2df69c38ed4f55be661dd05fe395f01f16196f0381af758e7fe505deed3287b"
+  },
+  {
+    "name": "90-confirm-light-open",
+    "note": "浅色放弃更改确认，对继续编辑设置初始焦点",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "64e07dcabeaa0e9085ab49fd254fe5ef7dd44dd579084ee00aca0e5e08c7aa2e"
+  },
+  {
+    "name": "91-confirm-cancel-retains",
+    "note": "Escape取消，草稿内容保留",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "b8bcb4de67ab5af68405ee851715a4d0b2563b725055aa41336e2e6501fc1095"
+  },
+  {
+    "name": "92-confirm-discarded",
+    "note": "确认放弃，草稿清空与反馈",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "db1873397cafcf76c583318d14cede7fa7b1241414e6dd6827cb0bb46fdad4c7"
+  },
+  {
+    "name": "93-alert-light",
+    "note": "浅色AlertDialog说明与关闭",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "273edbf7894c69016e440aca8239cfccfc5630e01641b83821aa48e3027b5ca0"
+  },
+  {
+    "name": "94-simple-dialog-light",
+    "note": "SimpleDialog启动方式选项",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "a9524ffea7274ca52e291ac1436603324639d22328f703547d505317b81e8578"
+  },
+  {
+    "name": "95-simple-selected",
+    "note": "SimpleDialog选择ACP后的反馈",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "5fbb1f63e434fe4cabf1a6b315fc87f7ca2c70e4d3c01dd4f3b6b3cbf70902b4"
+  },
+  {
+    "name": "96-bottom-sheet-light",
+    "note": "浅色底部面板打开，三类创建选项和取消",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "75ed1816a10399a09b26dfbad3a9a0227faaf14a165e0f5b14b90d9274efcb36"
+  },
+  {
+    "name": "97-bottom-sheet-selected",
+    "note": "选择空白项目，底部面板关闭并返回结果",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "fe695a9e5af9c3dfa00165e59626b67dc2ca0d055494d189e915e3417280b0ce"
+  },
+  {
+    "name": "98-overlays-dark-default",
+    "note": "确认与退出深色默认",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "fc2b63f5389f54722229a8178d414623af0867b43a7ba24ed796d2e9c7136fa2"
+  },
+  {
+    "name": "99-confirm-dark-open",
+    "note": "深色确认弹窗与默认安全焦点",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "816378bd61407247e9e4601cbf350cd2e635737585686362b89eecba70c17559"
+  },
+  {
+    "name": "100-bottom-sheet-dark",
+    "note": "深色底部面板",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "464ba5c0035cab37e02cf64e0ff1893d353ef718e5656870477d3567fb1a2a8b"
+  },
+  {
+    "name": "101-foundations-dark-top",
+    "note": "基础规范深色：色板与排版",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "169838155734f76f447f68afcd79c7f6d4bae3e20fe22f220051b274c2eb053c"
+  },
+  {
+    "name": "102-foundations-dark-lower",
+    "note": "基础规范深色：字号、尺寸、动效、交互",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "750d2e6d2ed480a4f4bf8c3b0966d45eb6356211e07ce0b724a1f37f9637d3af"
+  },
+  {
+    "name": "103-foundations-light-lower",
+    "note": "基础规范浅色：排版与尺寸",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "63eaee2e54b7f50a07986c41cf0109bd57e6d10ecf4c9d3dbbb8c261d183e01d"
+  },
+  {
+    "name": "104-foundations-light-top",
+    "note": "基础规范浅色：完整色板",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "0f62039f0aed704de96381e7c593a2d41596efed070a0b1a15955b49168f89db"
+  },
+  {
+    "name": "105-global-search-matches",
+    "note": "快捷键聚焦搜索，date过滤组件目录",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "589a2edc7d78a56ab18eb89c97d86ccc1effd2608f7d929622ac51d21e1ca8c7"
+  },
+  {
+    "name": "106-global-search-empty",
+    "note": "目录搜索无匹配与清除入口",
+    "verified": true,
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "b9ffde7af33ecfa69ebae0976c0c68444cb3f83b6df8d6a81afb36adf89bb7ef"
+  },
+  {
+    "name": "107-workspace-narrow",
+    "note": "480px窄屏工作区，侧栏隐藏",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "70007c1ab4137789c7d369a70dda13098a5ed9b6750dc2e51917a2b8a03ab51e"
+  },
+  {
+    "name": "108-workspace-narrow-switched",
+    "note": "窄屏切换内容替代内层侧栏",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "9129ab0b43dd231c599cf5aaffd4fcfffac0da7928bef196aacacc647928d515"
+  },
+  {
+    "name": "109-global-drawer-open",
+    "note": "窄屏组件目录抽屉打开",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "10a4b5f9a8218029183c97a3760b87c3d34165fa1b0775e26630d317b2ed0d70"
+  },
+  {
+    "name": "110-connection-narrow",
+    "note": "480px连接设置，纵向表单与代码分区",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "270e987779aaffba6a48c0f6dddaeca4456f87dcec55bea804de105cfc45e479"
+  },
+  {
+    "name": "111-connection-narrow-save",
+    "note": "窄屏滚动后保存与取消可见",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "c546c0aaabf8415491dd3370e1928d69a127d0bc4354c93e76c2af2deb2fd785"
+  },
+  {
+    "name": "112-actions-narrow",
+    "note": "480px按钮页，按钮换行及分段布局",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "88eaab9289f2f506141ee16fff63f95899f6757ce6fe1689f254f2041b920792"
+  },
+  {
+    "name": "113-inputs-narrow",
+    "note": "480px输入页，标签纵向排布",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "383c4ab5bacbf78a6d8576e69528228b85d1233a3e9bac717cdd76c149e46112"
+  },
+  {
+    "name": "114-navigation-narrow",
+    "note": "480px导航页，顶栏/底栏/导航栏",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "d9fa9da2c6bc3627729e0e8540d4b0bbae35b2409eb0acf5d3801abbaa88fbe8"
+  },
+  {
+    "name": "115-navigation-narrow-lower",
+    "note": "窄屏NavigationDrawer、Tabs和菜单",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "2f6bb00b160c65b598a59b000c551e89d3bfdfd0d7b5c48ebf97296afadf6fb1"
+  },
+  {
+    "name": "116-feedback-narrow",
+    "note": "480px反馈页：状态按钮换行、Banner",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "a943c2b66f384e4acc9732c8423b4dab09861016ff355947c3c59fa2279f7053"
+  },
+  {
+    "name": "117-supplements-narrow",
+    "note": "480px扩展组件：级联选择、步进折行",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "e15f8eb7f612b6a81ceeb577dd94d0ba9fb5eeb48f31145eb9929f8586843e85"
+  },
+  {
+    "name": "118-supplements-narrow-skeleton",
+    "note": "480px骨架屏与内容预览纵向排列",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "cf649ca8bd60bda7e625a2e14e1394270dcf7f119498bda92955fdf1f686dd4b"
+  },
+  {
+    "name": "119-overlays-narrow",
+    "note": "480px弹层入口布局",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "0496168dcc2bfcf62a571961ba91c9f7d392acdcdf952b81b797e03a59c5ecaa"
+  },
+  {
+    "name": "120-confirm-narrow",
+    "note": "480px确认弹窗",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "b6a53d04eabaed5a506048e9a26031cc9138c6a523859555f78390761a2cef3f"
+  },
+  {
+    "name": "121-bottom-sheet-narrow",
+    "note": "480px底部面板，全宽适配",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "994ea658e87731443cfe4a6af2df319a97bef245b81678a1a821cf7068db1d3e"
+  },
+  {
+    "name": "122-foundations-narrow",
+    "note": "480px基础色板换行和文字层级",
+    "verified": true,
+    "width": 480,
+    "height": 900,
+    "text_scale": 1,
+    "sha256": "42d3fe6c3f160493d5e240b5b26f38d47b70c841100932b7f7ee12baf3856f05"
+  },
+  {
+    "name": "123-inputs-scale-200",
+    "note": "1440px、200%文字缩放：输入页",
+    "verified": false,
+    "exclusion_reason": "截图辅助函数仍指向原标签，属于普通基础规范重复截图；真实缩放见124。",
+    "width": 1440,
+    "height": 1000,
+    "text_scale": 1,
+    "sha256": "adaca011589ca26dfba4a3e61c89c6a46104dd9d94a98ebb0ed6cef4a5fe0bbc"
+  },
+  {
+    "name": "124-inputs-scale-200",
+    "note": "1280×720、200%文字缩放：输入页默认。",
+    "verified": true,
+    "width": 1280,
+    "height": 720,
+    "text_scale": 2,
+    "sha256": "51e0e4380d27e27eb5dee72517ac52217513556e155f06453f0b7dcd3b8fbdac"
+  },
+  {
+    "name": "125-connection-scale-200",
+    "note": "1280×720、200%文字：连接设置",
+    "verified": true,
+    "width": 1280,
+    "height": 720,
+    "text_scale": 2,
+    "sha256": "674ad5660be1c1e8893a96c228aaeb4a8e253538b208c4a4231c4bf862a6556e"
+  },
+  {
+    "name": "126-connection-scale-200-lower",
+    "note": "200%文字：滚动后的连接表单字段。",
+    "verified": true,
+    "width": 1280,
+    "height": 720,
+    "text_scale": 2,
+    "sha256": "228d926ee0226b970ea3a3243014530f6817eb5bf9f176e6ea8c480cfc9281da"
+  },
+  {
+    "name": "127-supplements-scale-200",
+    "note": "200%文字：级联选择标题和路径",
+    "verified": true,
+    "width": 1280,
+    "height": 720,
+    "text_scale": 2,
+    "sha256": "08bcc1e94b7968a054be7a3fa2871639ad0706073999acfd47c5deee8aabf81d"
+  },
+  {
+    "name": "128-supplements-scale-200-lower",
+    "note": "200%文字：级联路径与数字步进。",
+    "verified": true,
+    "width": 1280,
+    "height": 720,
+    "text_scale": 2,
+    "sha256": "ff208b93a47c5713e36824e56671e8983cd2bf5ea118f36e82f2747f682c4c52"
+  },
+  {
+    "name": "129-supplements-scale-200-skeleton",
+    "note": "200%文字：骨架与预览内容",
+    "verified": true,
+    "width": 1280,
+    "height": 720,
+    "text_scale": 2,
+    "sha256": "a2a0e23c26c93b38649b1f25cc9b685d82443c3ea3d296706df8d7bcc5ecb224"
+  },
+  {
+    "name": "130-overlays-scale-200",
+    "note": "200%文字：确认与退出入口",
+    "verified": true,
+    "width": 1280,
+    "height": 720,
+    "text_scale": 2,
+    "sha256": "f8c42086c7007733904122e6abe8826d927b7a921fad48f76f02fe29eab67e63"
+  },
+  {
+    "name": "131-confirm-scale-200",
+    "note": "1280×720、200%文字：确认弹窗内容和按钮均完整",
+    "verified": true,
+    "width": 1280,
+    "height": 720,
+    "text_scale": 2,
+    "sha256": "03167ed1202d19264b9395266e981b38972c58435b988661374562e60d21fae8"
+  }
+]

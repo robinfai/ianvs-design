@@ -1,0 +1,62 @@
+import 'package:flutter/material.dart';
+import '../components/button.dart';
+
+/// Dialog content uses a bounded, scrollable Material route and returns a value.
+class IanvsDialog extends StatelessWidget {
+  const IanvsDialog({
+    super.key,
+    required this.title,
+    required this.content,
+    this.actions = const [],
+    this.icon,
+  });
+  final Widget title, content;
+  final List<Widget> actions;
+  final Widget? icon;
+  @override
+  Widget build(BuildContext context) => AlertDialog(
+    title: title,
+    titlePadding: const EdgeInsets.fromLTRB(24, 28, 24, 12),
+    content: content,
+    actions: actions,
+    icon: icon,
+    scrollable: true,
+    insetPadding: const EdgeInsets.all(20),
+    constraints: const BoxConstraints(maxWidth: 520),
+  );
+}
+
+/// Cancel is the safe initial focus. Escape/barrier dismissal returns false.
+Future<bool> showIanvsConfirmDialog({
+  required BuildContext context,
+  required String title,
+  required String message,
+  String? confirmLabel,
+  String? cancelLabel,
+  bool destructive = false,
+}) async {
+  final localizations = MaterialLocalizations.of(context);
+  return await showDialog<bool>(
+        context: context,
+        builder: (context) => IanvsDialog(
+          title: Text(title),
+          content: Text(message),
+          actions: [
+            IanvsButton(
+              variant: IanvsButtonVariant.secondary,
+              autofocus: true,
+              onPressed: () => Navigator.of(context).pop(false),
+              child: Text(cancelLabel ?? localizations.cancelButtonLabel),
+            ),
+            IanvsButton(
+              variant: destructive
+                  ? IanvsButtonVariant.danger
+                  : IanvsButtonVariant.primary,
+              onPressed: () => Navigator.of(context).pop(true),
+              child: Text(confirmLabel ?? localizations.okButtonLabel),
+            ),
+          ],
+        ),
+      ) ??
+      false;
+}

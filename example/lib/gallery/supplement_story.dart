@@ -1,0 +1,228 @@
+import 'package:ianvs_design/ianvs_design.dart';
+
+const cascadeOptions = [
+  IanvsCascadeOption(
+    value: 'local',
+    label: '本地',
+    children: [
+      IanvsCascadeOption(
+        value: 'shell',
+        label: 'Shell',
+        children: [
+          IanvsCascadeOption(value: 'login', label: '登录 Shell'),
+          IanvsCascadeOption(value: 'interactive', label: '交互 Shell'),
+          IanvsCascadeOption(
+            value: 'restricted',
+            label: '受限 Shell',
+            enabled: false,
+          ),
+        ],
+      ),
+      IanvsCascadeOption(
+        value: 'agent',
+        label: 'ACP',
+        children: [
+          IanvsCascadeOption(value: 'codex', label: 'Codex'),
+          IanvsCascadeOption(value: 'claude', label: 'Claude Code'),
+        ],
+      ),
+    ],
+  ),
+  IanvsCascadeOption(
+    value: 'remote',
+    label: '远程',
+    children: [IanvsCascadeOption(value: 'ssh', label: 'SSH')],
+  ),
+];
+
+class SupplementStory extends StatefulWidget {
+  const SupplementStory({super.key});
+  @override
+  State<SupplementStory> createState() => _SupplementStoryState();
+}
+
+class _SupplementStoryState extends State<SupplementStory> {
+  List<String> path = ['local', 'shell', 'login'];
+  int size = 13, minimum = 8, maximum = 32;
+  bool loading = false;
+  String pathLabel() {
+    var options = cascadeOptions;
+    final labels = <String>[];
+    for (final value in path) {
+      final option = options.firstWhere((o) => o.value == value);
+      labels.add(option.label);
+      options = option.children;
+    }
+    return labels.isEmpty ? '尚未选择' : labels.join(' / ');
+  }
+
+  Widget sample(String label, Widget child) => Column(
+    mainAxisSize: MainAxisSize.min,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(label, style: Theme.of(context).textTheme.bodySmall),
+      const SizedBox(height: 8),
+      child,
+    ],
+  );
+  Widget loaded() => Container(
+    height: 144 * MediaQuery.textScalerOf(context).scale(14) / 14,
+    decoration: BoxDecoration(
+      border: Border.all(color: context.ianvs.border),
+      borderRadius: BorderRadius.circular(6),
+    ),
+    child: Material(
+      color: Colors.transparent,
+      child: const Column(
+        children: [
+          ListTile(
+            leading: Icon(Icons.terminal),
+            title: Text('本地 Shell'),
+            subtitle: Text('/bin/zsh'),
+          ),
+          ListTile(
+            leading: Icon(Icons.folder_outlined),
+            title: Text('Ianvs 工作区'),
+            subtitle: Text('3 个项目'),
+          ),
+        ],
+      ),
+    ),
+  );
+  @override
+  Widget build(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      IanvsFormSection(
+        title: const Text('级联选择'),
+        description: '逐级选择，回溯路径；选择新的父级会清空下级。',
+        children: [
+          Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 520),
+              child: IanvsCascader<String>(
+                options: cascadeOptions,
+                value: path,
+                listHeight: 180,
+                onChanged: (value) => setState(() => path = value),
+              ),
+            ),
+          ),
+          Wrap(
+            spacing: 16,
+            runSpacing: 8,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Semantics(liveRegion: true, child: Text('当前路径：${pathLabel()}')),
+              TextButton(
+                onPressed: () => setState(() => path = []),
+                child: const Text('清空选择'),
+              ),
+            ],
+          ),
+        ],
+      ),
+      const SizedBox(height: 32),
+      IanvsFormSection(
+        title: const Text('数字步进'),
+        description: '范围 8–32；超出范围会调整到最近边界。Enter 提交，Esc 还原，方向键调整。',
+        children: [
+          Wrap(
+            spacing: 24,
+            runSpacing: 16,
+            children: [
+              sample(
+                '终端字号',
+                IanvsNumberStepper(
+                  label: '终端字号',
+                  value: size,
+                  min: 8,
+                  max: 32,
+                  onChanged: (v) => setState(() => size = v),
+                ),
+              ),
+              sample(
+                '最小边界 8',
+                IanvsNumberStepper(
+                  label: '最小边界',
+                  value: minimum,
+                  min: 8,
+                  max: 32,
+                  onChanged: (v) => setState(() => minimum = v),
+                ),
+              ),
+              sample(
+                '最大边界 32',
+                IanvsNumberStepper(
+                  label: '最大边界',
+                  value: maximum,
+                  min: 8,
+                  max: 32,
+                  onChanged: (v) => setState(() => maximum = v),
+                ),
+              ),
+              sample(
+                '禁用状态',
+                const IanvsNumberStepper(
+                  label: '禁用字号',
+                  value: 13,
+                  min: 8,
+                  max: 32,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+      const SizedBox(height: 32),
+      IanvsFormSection(
+        title: const Text('骨架屏'),
+        description: '保留布局，延迟 200 ms 显示，避免短请求闪烁。',
+        children: [
+          LayoutBuilder(
+            builder: (context, c) {
+              final width = c.maxWidth >= 620 ? 280.0 : c.maxWidth;
+              return Wrap(
+                spacing: 24,
+                runSpacing: 16,
+                children: [
+                  SizedBox(
+                    width: width,
+                    child: sample(
+                      '加载中',
+                      IanvsSkeleton(
+                        animate: false,
+                        delay: Duration.zero,
+                        child: loaded(),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: width,
+                    child: sample(
+                      '内容预览',
+                      IanvsSkeleton(loading: loading, child: loaded()),
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
+          Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: IanvsButton(
+              variant: IanvsButtonVariant.secondary,
+              onPressed: () async {
+                setState(() => loading = true);
+                await Future<void>.delayed(const Duration(milliseconds: 1200));
+                if (mounted) setState(() => loading = false);
+              },
+              child: const Text('模拟重新加载'),
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
+}

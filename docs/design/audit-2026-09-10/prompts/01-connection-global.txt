@@ -1,0 +1,7 @@
+Use case: ui-mockup
+Asset type: screenshot-based design audit board, Simplified Chinese.
+Primary request: 依据全部 12 张真实 Flutter Ianvs Design 展厅截图，对「连接设置与全局控件」做独立设计评审，输出一张专业、清楚易读的批注评审板。保留实际界面的小截图或关键局部，旁边以编号列出优点、问题、严重级别和具体改进。至少检查：信息层级、对齐、留白、控件密度、明暗对比、默认/焦点/错误/加载/禁用/选中态、菜单锚点、动作可见性。仅依据截图，不能宣称代码或可访问性测试通过。注意截图含局部滚动状态，不把正常离屏内容当成渲染错误。对疑似问题明确标记“需验证”。
+Input images: 每张均为本轮实际截图参考，按顺序：01-connection-narrow-default, 02-connection-dark-default, 03-connection-startup-open, 04-connection-saving, 05-connection-saved, 06-connection-validation, 07-connection-acp, 08-global-theme-open, 09-connection-light, 10-global-density-open, 11-connection-comfortable, 12-connection-touch。
+Composition: 高分辨率横向评审板，清晰中文排版，左侧证据截图/关键裁切，右侧3-6条按影响排序的评语，底部给出待验证项。每张输入都应被审阅，但无需把所有缩略图挤在板上。现有界面用作证据，不重新设计或伪造现状。
+Constraints: 保持 Ianvs 现有石墨灰/蓝色与 macOS 紧凑 Material 3 语境；批注颜色与截图区分。标题“连接设置与全局控件 · 设计评审”；标记“ImageGen 视觉评审建议 · 非测试结论”。不得编造精确对比度、用户测试结论。
+注意：输入改为3张无损截图联系表，共12张截图，逐张带原始编号。联系表灰色空白是排版留白，不是产品界面。
