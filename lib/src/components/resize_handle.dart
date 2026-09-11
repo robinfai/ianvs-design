@@ -51,7 +51,7 @@ class IanvsResizeHandle extends StatefulWidget {
 class _IanvsResizeHandleState extends State<IanvsResizeHandle> {
   FocusNode? _ownedFocus;
   FocusNode get _focus => widget.focusNode ?? (_ownedFocus ??= FocusNode());
-  bool _focused = false, _hovered = false;
+  bool _focused = false, _hovered = false, _focusFromPointer = false;
   double? _dragValue, _lastRequested;
   bool get _enabled => widget.onChanged != null && widget.min < widget.max;
   double get _value => widget.value.clamp(widget.min, widget.max);
@@ -92,7 +92,11 @@ class _IanvsResizeHandleState extends State<IanvsResizeHandle> {
 
   void _start(DragStartDetails details) {
     _focus.requestFocus();
-    _dragValue = _value;
+    setState(() => _dragValue = _value);
+  }
+
+  void _end() {
+    if (_dragValue != null) setState(() => _dragValue = null);
   }
 
   void _drag(DragUpdateDetails details) {
@@ -106,6 +110,7 @@ class _IanvsResizeHandleState extends State<IanvsResizeHandle> {
 
   KeyEventResult _key(FocusNode node, KeyEvent event) {
     if (!_enabled || event is KeyUpEvent) return KeyEventResult.ignored;
+    if (_focusFromPointer) setState(() => _focusFromPointer = false);
     // Leave application shortcuts that use modifiers to the host.
     final keyboard = HardwareKeyboard.instance;
     if (keyboard.isControlPressed ||
@@ -146,7 +151,9 @@ class _IanvsResizeHandleState extends State<IanvsResizeHandle> {
     final horizontal = widget.axis == Axis.horizontal;
     final increase = (_value + widget.step).clamp(widget.min, widget.max);
     final decrease = (_value - widget.step).clamp(widget.min, widget.max);
-    final color = _enabled && _focused
+    final highlighted =
+        _enabled && (_dragValue != null || (_focused && !_focusFromPointer));
+    final color = highlighted
         ? t.focus
         : _enabled && _hovered
         ? t.border
@@ -168,7 +175,10 @@ class _IanvsResizeHandleState extends State<IanvsResizeHandle> {
       child: Focus(
         focusNode: _focus,
         canRequestFocus: _enabled,
-        onFocusChange: (value) => setState(() => _focused = value),
+        onFocusChange: (value) => setState(() {
+          _focused = value;
+          if (!value) _focusFromPointer = false;
+        }),
         onKeyEvent: _key,
         child: MouseRegion(
           cursor: !_enabled
@@ -178,36 +188,44 @@ class _IanvsResizeHandleState extends State<IanvsResizeHandle> {
               : SystemMouseCursors.resizeRow,
           onEnter: (_) => setState(() => _hovered = true),
           onExit: (_) => setState(() => _hovered = false),
-          child: GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            excludeFromSemantics: true,
-            onTap: _enabled ? () => _focus.requestFocus() : null,
-            onDoubleTap: _enabled && widget.resetValue != null ? _reset : null,
-            onHorizontalDragStart: _enabled && horizontal ? _start : null,
-            onHorizontalDragUpdate: _enabled && horizontal ? _drag : null,
-            onHorizontalDragEnd: _enabled && horizontal
-                ? (_) => _dragValue = null
+          child: Listener(
+            // Desktop mouse events leave Flutter's focus highlight mode in
+            // traditional mode. Track pointer focus locally, without removing
+            // the actual focus needed by keyboard and accessibility actions.
+            onPointerDown: _enabled
+                ? (_) => setState(() => _focusFromPointer = true)
                 : null,
-            onHorizontalDragCancel: _enabled && horizontal
-                ? () => _dragValue = null
-                : null,
-            onVerticalDragStart: _enabled && !horizontal ? _start : null,
-            onVerticalDragUpdate: _enabled && !horizontal ? _drag : null,
-            onVerticalDragEnd: _enabled && !horizontal
-                ? (_) => _dragValue = null
-                : null,
-            onVerticalDragCancel: _enabled && !horizontal
-                ? () => _dragValue = null
-                : null,
-            child: SizedBox(
-              width: horizontal ? widget.hitExtent : double.infinity,
-              height: horizontal ? double.infinity : widget.hitExtent,
-              child: Center(
-                child: ColoredBox(
-                  color: color,
-                  child: SizedBox(
-                    width: horizontal ? (_focused ? 2 : 1) : double.infinity,
-                    height: horizontal ? double.infinity : (_focused ? 2 : 1),
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              excludeFromSemantics: true,
+              onTap: _enabled ? () => _focus.requestFocus() : null,
+              onDoubleTap: _enabled && widget.resetValue != null
+                  ? _reset
+                  : null,
+              onHorizontalDragStart: _enabled && horizontal ? _start : null,
+              onHorizontalDragUpdate: _enabled && horizontal ? _drag : null,
+              onHorizontalDragEnd: _enabled && horizontal
+                  ? (_) => _end()
+                  : null,
+              onHorizontalDragCancel: _enabled && horizontal ? _end : null,
+              onVerticalDragStart: _enabled && !horizontal ? _start : null,
+              onVerticalDragUpdate: _enabled && !horizontal ? _drag : null,
+              onVerticalDragEnd: _enabled && !horizontal ? (_) => _end() : null,
+              onVerticalDragCancel: _enabled && !horizontal ? _end : null,
+              child: SizedBox(
+                width: horizontal ? widget.hitExtent : double.infinity,
+                height: horizontal ? double.infinity : widget.hitExtent,
+                child: Center(
+                  child: ColoredBox(
+                    color: color,
+                    child: SizedBox(
+                      width: horizontal
+                          ? (highlighted ? 2 : 1)
+                          : double.infinity,
+                      height: horizontal
+                          ? double.infinity
+                          : (highlighted ? 2 : 1),
+                    ),
                   ),
                 ),
               ),

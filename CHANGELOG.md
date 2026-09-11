@@ -2,6 +2,7 @@
 
 ## 0.4.0 — 未发布
 
+- 修复 `IanvsResizeHandle` 鼠标拖动、取消和双击重置后残留蓝色粗线；鼠标操作结束恢复中性分隔线，保留实际焦点，Tab 或方向键操作仍显示键盘焦点。
 - 新增 `IanvsChoiceTile<T>`：接入 Flutter RadioGroup/RawRadio，整行单选，右侧小勾和固定占位，中性悬停反馈与键盘焦点描边；保留互斥语义、方向键/Tab/Space、禁用与减少动画。
 - 单选行默认使用 bodyMedium/bodySmall，桌面 compact 单行最小32点、compact touch最小48点，长标题/说明自然换行增高；展厅替换存储单选列表示例。
 - `IanvsSettingsRow` 增加密度对应的最小行高与内部纵向留白，可通过 `contentPadding` 覆盖；保留可选择文字和原生 Switch 行为。

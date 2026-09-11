@@ -1,9 +1,197 @@
-import 'dart:ui' show SemanticsAction;
+import 'dart:ui' show PointerDeviceKind, SemanticsAction;
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ianvs_design/ianvs_design.dart';
 
 void main() {
+  group('macOS pointer and keyboard focus feedback', () {
+    for (final axis in Axis.values) {
+      for (final reverse in [false, true]) {
+        for (final cancel in [false, true]) {
+          testWidgets(
+            'mouse drag $axis reverse=$reverse cancel=$cancel clears highlight',
+            (tester) async {
+              var value = 260.0;
+              final focus = FocusNode();
+              addTearDown(focus.dispose);
+              final theme = reverse ? IanvsTheme.dark() : IanvsTheme.light();
+              final tokens = theme.extension<IanvsTokens>()!;
+              await tester.pumpWidget(
+                MaterialApp(
+                  theme: theme,
+                  home: Scaffold(
+                    body: StatefulBuilder(
+                      builder: (context, setState) => Flex(
+                        direction: axis,
+                        children: [
+                          IanvsResizeHandle(
+                            value: value,
+                            min: 100,
+                            max: 400,
+                            axis: axis,
+                            reverse: reverse,
+                            focusNode: focus,
+                            semanticLabel: 'Panel size',
+                            onChanged: (next) => setState(() => value = next),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              );
+              final handle = find.byType(IanvsResizeHandle);
+              final line = find.descendant(
+                of: handle,
+                matching: find.byType(ColoredBox),
+              );
+              double thickness() => axis == Axis.horizontal
+                  ? tester.getSize(line).width
+                  : tester.getSize(line).height;
+              Color color() => tester.widget<ColoredBox>(line).color;
+
+              // Keep the default desktop strategy: mouse events do not switch
+              // Flutter's traditional focus highlights off on macOS.
+              expect(
+                FocusManager.instance.highlightStrategy,
+                FocusHighlightStrategy.automatic,
+              );
+              await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+              await tester.pump();
+              expect(focus.hasFocus, isTrue);
+              expect(color(), tokens.focus);
+              expect(thickness(), 2);
+
+              final mouse = await tester.createGesture(
+                kind: PointerDeviceKind.mouse,
+              );
+              await mouse.addPointer(location: tester.getCenter(handle));
+              await mouse.down(tester.getCenter(handle));
+              final delta = axis == Axis.horizontal
+                  ? const Offset(24, 0)
+                  : const Offset(0, 24);
+              await mouse.moveBy(delta);
+              await mouse.moveBy(delta);
+              await tester.pump();
+              expect(value, reverse ? lessThan(260) : greaterThan(260));
+              expect(color(), tokens.focus);
+              expect(thickness(), 2);
+              if (cancel) {
+                await mouse.cancel();
+              } else {
+                await mouse.up();
+              }
+              await tester.pump();
+              expect(focus.hasFocus, isTrue);
+              expect(
+                FocusManager.instance.highlightMode,
+                FocusHighlightMode.traditional,
+              );
+              expect(color(), isNot(tokens.focus));
+              expect(thickness(), 1);
+
+              await mouse.moveTo(tester.getCenter(handle));
+              await tester.pump();
+              expect(color(), tokens.border);
+              expect(thickness(), 1);
+              await mouse.moveTo(const Offset(700, 500));
+              await tester.pump();
+              expect(color(), tokens.separator);
+              expect(thickness(), 1);
+
+              final previous = value;
+              await tester.sendKeyEvent(
+                axis == Axis.horizontal
+                    ? LogicalKeyboardKey.arrowRight
+                    : LogicalKeyboardKey.arrowDown,
+              );
+              await tester.pump();
+              expect(value, previous + (reverse ? -20 : 20));
+              expect(color(), tokens.focus);
+              expect(thickness(), 2);
+              await mouse.removePointer();
+            },
+            variant: TargetPlatformVariant.only(TargetPlatform.macOS),
+          );
+        }
+      }
+    }
+
+    testWidgets(
+      'mouse click and double-click reset keep focus without blue',
+      (tester) async {
+        var value = 300.0;
+        final focus = FocusNode();
+        addTearDown(focus.dispose);
+        final theme = IanvsTheme.light();
+        final tokens = theme.extension<IanvsTokens>()!;
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: theme,
+            home: Scaffold(
+              body: StatefulBuilder(
+                builder: (context, setState) => Row(
+                  children: [
+                    IanvsResizeHandle(
+                      value: value,
+                      min: 220,
+                      max: 320,
+                      resetValue: 260,
+                      focusNode: focus,
+                      semanticLabel: 'Panel size',
+                      onChanged: (next) => setState(() => value = next),
+                    ),
+                    const Focus(child: SizedBox(width: 20, height: 20)),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+        final handle = find.byType(IanvsResizeHandle);
+        final line = find.descendant(
+          of: handle,
+          matching: find.byType(ColoredBox),
+        );
+        void expectNeutral() {
+          expect(focus.hasFocus, isTrue);
+          expect(tester.widget<ColoredBox>(line).color, isNot(tokens.focus));
+          expect(tester.getSize(line).width, 1);
+        }
+
+        await tester.tap(handle, kind: PointerDeviceKind.mouse);
+        await tester.pump(const Duration(milliseconds: 350));
+        await tester.pumpAndSettle();
+        expectNeutral();
+        expect(value, 300);
+        // Traversal away and back must restore keyboard-visible focus.
+        await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+        await tester.pump();
+        expect(focus.hasFocus, isFalse);
+        await tester.sendKeyDownEvent(LogicalKeyboardKey.shiftLeft);
+        await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+        await tester.sendKeyUpEvent(LogicalKeyboardKey.shiftLeft);
+        await tester.pump();
+        expect(focus.hasFocus, isTrue);
+        expect(tester.widget<ColoredBox>(line).color, tokens.focus);
+        expect(tester.getSize(line).width, 2);
+
+        await tester.tap(handle, kind: PointerDeviceKind.mouse);
+        await tester.pump(const Duration(milliseconds: 50));
+        await tester.tap(handle, kind: PointerDeviceKind.mouse);
+        await tester.pumpAndSettle();
+        expect(value, 260);
+        expectNeutral();
+        await tester.sendKeyEvent(LogicalKeyboardKey.arrowRight);
+        await tester.pump();
+        expect(value, 280);
+        expect(tester.widget<ColoredBox>(line).color, tokens.focus);
+        expect(tester.getSize(line).width, 2);
+      },
+      variant: TargetPlatformVariant.only(TargetPlatform.macOS),
+    );
+  });
+
   for (final axis in Axis.values) {
     for (final reverse in [false, true]) {
       testWidgets(
