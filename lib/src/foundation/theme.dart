@@ -32,6 +32,8 @@ abstract final class IanvsTheme {
     if (accent != null) t = t.copyWith(accent: accent);
     final touch = density == IanvsDensity.touch;
     final target = platform ?? defaultTargetPlatform;
+    final iosTouch = touch && target == TargetPlatform.iOS;
+    final nativeIos = target == TargetPlatform.iOS && !kIsWeb;
     final apple =
         target == TargetPlatform.macOS || target == TargetPlatform.iOS;
     final onAccent = foregroundFor(t.accent);
@@ -79,17 +81,24 @@ abstract final class IanvsTheme {
           onInverseSurface: t.canvas,
         );
     final family =
-        fontFamily ?? (apple && !kIsWeb ? '.AppleSystemUIFont' : 'Arial');
+        fontFamily ??
+        (nativeIos
+            ? Typography.blackCupertino.bodyMedium!.fontFamily
+            : apple && !kIsWeb
+            ? '.AppleSystemUIFont'
+            : 'Arial');
     final fallbacks =
         fontFamilyFallback ??
         const ['PingFang SC', 'Noto Sans SC', 'Helvetica Neue', 'sans-serif'];
-    final bodySize = touch ? 16.0 : 13.0;
+    final bodySize = iosTouch ? 17.0 : (touch ? 16.0 : 13.0);
     TextStyle text(
       double size, [
       FontWeight weight = FontWeight.w400,
       Color? color,
     ]) => TextStyle(
-      fontFamily: family,
+      fontFamily: fontFamily == null && nativeIos && size >= 20
+          ? Typography.blackCupertino.titleLarge!.fontFamily
+          : family,
       fontFamilyFallback: fallbacks,
       fontSize: size,
       height: 1.4,
@@ -104,15 +113,23 @@ abstract final class IanvsTheme {
       headlineLarge: text(26, FontWeight.w600),
       headlineMedium: text(24, FontWeight.w600),
       headlineSmall: text(22, FontWeight.w600),
-      titleLarge: text(20, FontWeight.w600),
-      titleMedium: text(touch ? 18 : 16, FontWeight.w600),
-      titleSmall: text(14, FontWeight.w600),
+      titleLarge: text(iosTouch ? 22 : 20, FontWeight.w600),
+      titleMedium: text(iosTouch ? 17 : (touch ? 18 : 16), FontWeight.w600),
+      titleSmall: text(iosTouch ? 17 : 14, FontWeight.w600),
       bodyLarge: text(touch ? 17 : 14),
       bodyMedium: text(bodySize),
-      bodySmall: text(touch ? 14 : 12, FontWeight.w400, t.muted),
+      bodySmall: text(
+        iosTouch ? 15 : (touch ? 14 : 12),
+        FontWeight.w400,
+        t.muted,
+      ),
       labelLarge: text(bodySize, FontWeight.w500),
-      labelMedium: text(touch ? 14 : 12),
-      labelSmall: text(touch ? 12 : 11, FontWeight.w400, t.muted),
+      labelMedium: text(iosTouch ? 15 : (touch ? 14 : 12)),
+      labelSmall: text(
+        iosTouch ? 13 : (touch ? 12 : 11),
+        FontWeight.w400,
+        t.muted,
+      ),
     );
     final shape = RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(t.controlRadius),
@@ -151,8 +168,16 @@ abstract final class IanvsTheme {
       ),
       hintStyle: text(bodySize, FontWeight.w400, t.subtle),
       labelStyle: text(bodySize, FontWeight.w400, t.muted),
-      helperStyle: text(touch ? 14 : 12, FontWeight.w400, t.muted),
-      errorStyle: text(touch ? 14 : 12, FontWeight.w400, t.danger),
+      helperStyle: text(
+        iosTouch ? 13 : (touch ? 14 : 12),
+        FontWeight.w400,
+        t.muted,
+      ),
+      errorStyle: text(
+        iosTouch ? 13 : (touch ? 14 : 12),
+        FontWeight.w400,
+        t.danger,
+      ),
       errorMaxLines: 3,
       helperMaxLines: 3,
       prefixIconColor: t.muted,

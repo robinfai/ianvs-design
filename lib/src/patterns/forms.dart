@@ -78,17 +78,43 @@ class IanvsFormSection extends StatelessWidget {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: DefaultTextStyle(
-                style: Theme.of(context).textTheme.titleMedium!,
-                child: title,
-              ),
-            ),
-            ?trailing,
-          ],
+        LayoutBuilder(
+          builder: (context, constraints) {
+            final heading = DefaultTextStyle(
+              style: Theme.of(context).textTheme.titleMedium!,
+              child: title,
+            );
+            if (trailing == null) return heading;
+            final stack =
+                constraints.maxWidth < 480 ||
+                MediaQuery.textScalerOf(context).scale(13) > 19.5;
+            if (stack) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  heading,
+                  const SizedBox(height: 8),
+                  Align(
+                    alignment: AlignmentDirectional.centerStart,
+                    child: trailing,
+                  ),
+                ],
+              );
+            }
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(child: heading),
+                const SizedBox(width: 12),
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxWidth: constraints.maxWidth / 2,
+                  ),
+                  child: trailing,
+                ),
+              ],
+            );
+          },
         ),
         if (description != null) ...[
           const SizedBox(height: 4),

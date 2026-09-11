@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1 — 2026-09-11
+
+- 修复 `IanvsFormSection` 长标题与 trailing 操作在窄屏或大字号下的横向溢出：窄屏分行，宽屏限制操作最大宽度，保持现有 API。
+- iOS 原生字体改用 Flutter 的 Cupertino Text/Display 字体入口；宿主自定义字体继续优先。
+- iOS + touch 模式采用17点正文/操作、15点次要文字和13点注释/输入帮助文字；保留 TextScaler、48点控件和56点列表行，桌面 compact 及 Android 排版不变。
+- 新增 iOS 深浅色、1–3倍文字、长中英文标签、触达区域和键盘遮挡下对话框操作的离屏验证。
+
 ## 0.2.0 — 2026-09-10
 
 - 新增 `IanvsTypography` 主题扩展与 `context.ianvsTypography.code`，统一代码、路径和工具输出的等宽排版；支持平台字体默认值、宿主字体覆盖、明暗插值及触控密度。

@@ -15,7 +15,7 @@
 | `IanvsMenuButton<T>` | 外观、密度与快捷菜单 | value / onSelected 受控；文字或图标触发器、禁用选项、方向键、关闭后返回焦点 |
 | `IanvsAutocompleteOptions<T>` | 自动补全的主题选项面板 | 配合标准 Autocomplete.optionsViewBuilder；保留输入焦点和方向键选择，默认最大宽360 / 高280，内容按行高增长 |
 | `IanvsFieldRow` | 对齐的表单标签与字段 | 默认标签宽170；内容小于480或字号大于1.5倍时纵向排列；helper 可换行 |
-| `IanvsFormSection` | 标题、说明与成组字段 | 不创建业务 Form；内部提供焦点遍历分组 |
+| `IanvsFormSection` | 标题、说明与成组字段 | 不创建业务 Form；内部提供焦点遍历分组；窄屏/大字时标题和 trailing 分行，宽屏限制 trailing 宽度 |
 | `IanvsControlLabel` | 复选、单选、开关的可选择文字标签 | 单击执行与控件相同的操作；拖选、双击选词、长按和复制不触发；onTap 为 null 时禁用；controlBuilder 接收原生控件的 FocusNode |
 | `IanvsSettingsRow` | 设置说明与开关 | value/onChanged 受控；标题和说明遵循 ControlLabel 的点击/文字选择规则；窄窗与放大字号自适应 |
 | `IanvsSidebar` / `IanvsSidebarItem` | 分组导航 | selectedId/onSelected；支持 header/footer/badge；选择与焦点状态分开 |
