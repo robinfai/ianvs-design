@@ -4,7 +4,7 @@ Ianvs Design 提供同系列应用共享的主题和基础交互；连接、会�
 
 ## 主题与依赖
 
-在目标应用实际的 pubspec 中加入 `ianvs_design: ^0.3.0`。库与宿主联合开发时可临时使用指向本仓库的 path override，正式交付使用 pub.dev 版本。
+在目标应用实际的 pubspec 中加入 `ianvs_design: ^0.3.1`。库与宿主联合开发时可临时使用指向本仓库的 path override，正式交付使用 pub.dev 版本。
 
 ```dart
 ThemeData createTheme(Brightness brightness, ThemeData appBase) {
@@ -159,7 +159,9 @@ final theme = IanvsTheme.build(
 |---|---|
 | `controlHeight` | 44，控件外观最小值 |
 | Material 按钮 | 外观最小44，padded 交互布局至少48 |
-| 普通 `IanvsTextField` / `IanvsSelect` | 最小44；交互图标可撑到48，文字和帮助/错误内容可继续增高 |
+| 普通 `TextField` / `TextFormField` / `InputDecorator` / `IanvsTextField` / `IanvsSelect` | 输入表面最小48；文字和帮助/错误内容可继续增高 |
+| 普通输入的前后图标区域 | 最小48×48，不裁剪 padded 图标按钮 |
+| 原生 Flutter `DropdownMenu` | 默认56，包含框架自带的箭头外边距 |
 | `rowHeight` / 普通单行 `ListTile` | 最小48；菜单选项也使用48最小值 |
 | `titleLarge` / `titleMedium` / `titleSmall` | 18 / 17 / 15 |
 | `bodyLarge` / `bodyMedium` / `labelLarge` | 16 |
@@ -169,6 +171,10 @@ final theme = IanvsTheme.build(
 | 堆叠 `IanvsFieldRow` 标签 | `labelMedium`，标签到字段4点 |
 
 `controlHeight` 是最小外观尺寸，不是宿主裁剪按钮交互区域的依据。保留 `MaterialTapTargetSize.padded` 和标准 `VisualDensity`；不要用固定44点父容器截掉 Material 按钮的48点交互布局。输入框、按钮及列表允许文本撑高，不应附加 `maxHeight` 或锁定 TextScaler。输入内嵌标签、图标、多行和错误说明会使整体高于表中的最小值。
+
+0.3.1 起普通输入统一使用 `Theme.of(context).inputDecorationTheme.constraints` 的48点下限，前后图标约束最小宽高同为48；不要再用 `controlHeight` 覆盖输入约束。紧凑主题的 `isDense` 为 false，但显式内边距仍为10点：这使 Flutter 在存在 helper/error 时也为输入表面保留48点。宿主的 InputDecorator 应通过 `applyDefaults(theme.inputDecorationTheme)` 沿用主题，不再强制 `isDense: true`。组件显式 decoration/constraints 仍然优先，覆盖后尺寸由宿主负责。
+
+Flutter 原生 DropdownMenu 为箭头额外添加四周4点边距；本库在该组件主题中保留足够空间，避免把48点按钮裁到40点以下。其默认高度为56，箭头容器宽56，输入主题的通用前后图标区域仍为48。`IanvsSelect` 和普通 InputDecorator 没有这层框架边距，可保持48点表单节奏。
 
 `IanvsFieldRow` 只在窄屏或大字号的堆叠布局中收紧标签；宽屏正常字号的并排标签保留原有样式。字段间距仍由 `IanvsFormSection(spacing: 12)` 等现有参数控制，分组间距和内容优先级由宿主决定。导航栏/底栏高度没有整体缩小；固定高度的宿主导航和专用阅读文字仍应按具体内容适配。代码/终端等宽样式保持独立，未随本选项缩小。
 

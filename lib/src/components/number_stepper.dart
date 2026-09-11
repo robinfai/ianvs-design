@@ -159,9 +159,9 @@ class _IanvsNumberStepperState extends State<IanvsNumberStepper> {
                       _focus.unfocus();
                     },
                     decoration: InputDecoration(
-                      constraints: t.isCompactTouch
-                          ? const BoxConstraints(minHeight: 44)
-                          : null,
+                      constraints: Theme.of(
+                        context,
+                      ).inputDecorationTheme.constraints,
                       contentPadding: const EdgeInsets.symmetric(
                         horizontal: 4,
                         vertical: 6,

@@ -80,6 +80,7 @@ class IanvsTextField extends StatelessWidget {
     decoration: (decoration ?? const InputDecoration()).copyWith(
       constraints:
           decoration?.constraints ??
+          Theme.of(context).inputDecorationTheme.constraints ??
           BoxConstraints(minHeight: context.ianvs.controlHeight),
       labelText: labelText ?? decoration?.labelText,
       hintText: hintText ?? decoration?.hintText,
@@ -227,7 +228,9 @@ class _IanvsSelectState<T> extends FormFieldState<T> {
                 isHovering: widget.enabled && _hovered,
                 isEmpty: value == null,
                 decoration: InputDecoration(
-                  constraints: BoxConstraints(minHeight: t.controlHeight),
+                  constraints:
+                      Theme.of(context).inputDecorationTheme.constraints ??
+                      BoxConstraints(minHeight: t.controlHeight),
                   labelText: config.labelText,
                   helperText: config.helperText,
                   errorText: errorText,

@@ -198,7 +198,7 @@ void main() {
                 greaterThan(tester.getRect(label).right),
               );
             }
-            expect(tester.getSize(field).height, greaterThanOrEqualTo(44));
+            expect(tester.getSize(field).height, greaterThanOrEqualTo(48));
             expect(
               tester.getSize(find.byKey(const Key('password'))).height,
               greaterThanOrEqualTo(48),

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.1 — 2026-09-11
+
+- 修复紧凑触控下普通 Material 输入、静态图标、交互图标和 Ianvs 封装输入高度不一致的问题；统一输入主题与前后图标区域48点最小尺寸。
+- 帮助/错误文字不再侵占48点输入表面；保留16点正文、13点堆叠标签及4点标签间距，大字号与多行继续增高，显式 decoration 约束仍优先。
+- 原生 Flutter DropdownMenu 为自带箭头边距保留空间，默认56点，避免裁剪内部48点按钮；IanvsSelect 保持48点表单节奏。
+- 新增真实 RenderBox 装饰组合和输入表面测量，覆盖深浅色、1–3倍文字、图标点击、多行与宿主约束覆盖。
+
 ## 0.3.0 — 2026-09-11
 
 - 新增可选 `IanvsTouchVisualDensity.compact`，通过 `IanvsTheme.build/light/dark` 的 `touchVisualDensity` 参数启用；输入模式仍为 touch，默认 standard 和原平台行为保持兼容。

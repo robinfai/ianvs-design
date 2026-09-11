@@ -178,10 +178,16 @@ abstract final class IanvsTheme {
       borderRadius: BorderRadius.circular(t.controlRadius),
       borderSide: BorderSide(color: t.border),
     );
+    final inputHeight = compactTouch
+        ? kMinInteractiveDimension
+        : t.controlHeight;
     final input = InputDecorationThemeData(
+      constraints: compactTouch ? BoxConstraints(minHeight: inputHeight) : null,
       filled: true,
       fillColor: t.field,
-      isDense: true,
+      // Keep the editable surface at 48 even when helper/error text consumes
+      // part of the decoration's total minimum height.
+      isDense: !compactTouch,
       contentPadding: EdgeInsets.symmetric(
         horizontal: 12,
         vertical: compactTouch
@@ -217,12 +223,12 @@ abstract final class IanvsTheme {
       prefixIconColor: t.muted,
       suffixIconColor: t.muted,
       prefixIconConstraints: BoxConstraints(
-        minWidth: t.controlHeight,
-        minHeight: t.controlHeight,
+        minWidth: inputHeight,
+        minHeight: inputHeight,
       ),
       suffixIconConstraints: BoxConstraints(
-        minWidth: t.controlHeight,
-        minHeight: t.controlHeight,
+        minWidth: inputHeight,
+        minHeight: inputHeight,
       ),
     );
     WidgetStateProperty<Color?> overlay(Color color) =>
@@ -596,10 +602,11 @@ abstract final class IanvsTheme {
       dropdownMenuTheme: DropdownMenuThemeData(
         inputDecorationTheme: input.copyWith(
           suffixIconConstraints: BoxConstraints(
-            minWidth: 50,
-            maxWidth: 50,
-            minHeight: t.controlHeight,
-            maxHeight: t.controlHeight,
+            // DropdownMenu adds 4 points around its arrow button on each side.
+            minWidth: compactTouch ? 56 : 50,
+            maxWidth: compactTouch ? 56 : 50,
+            minHeight: inputHeight,
+            maxHeight: compactTouch ? double.infinity : inputHeight,
           ),
         ),
         textStyle: typography.bodyLarge,
