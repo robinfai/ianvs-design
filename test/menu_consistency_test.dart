@@ -158,7 +158,7 @@ void main() {
     }
 
     testWidgets(
-      'menu families share actual selected surface and typography $brightness',
+      'menu families share typography and distinguish selection from focus $brightness',
       (tester) async {
         Widget families() => Column(
           children: [
@@ -212,11 +212,14 @@ void main() {
           final material = tester.widget<Material>(
             find.descendant(of: row, matching: find.byType(Material)).first,
           );
-          expect(
-            material.color,
-            t.selected,
-            reason: '$kind selected background',
-          );
+          if (kind == 'Material') {
+            // DropdownMenu simulates focus while its text field keeps focus;
+            // it does not report WidgetState.selected for the highlighted row.
+            expect(material.color, isNot(Colors.transparent));
+            expect(material.color, isNot(t.selected));
+          } else {
+            expect(material.color, t.selected, reason: '$kind selection');
+          }
           expect(tester.getSize(row).height, 40);
           if (kind == 'Menu') {
             expect(tester.getSize(row).width, greaterThanOrEqualTo(152));

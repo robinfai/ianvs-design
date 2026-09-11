@@ -120,7 +120,8 @@ Autocomplete<String>(
 ## 下拉与菜单的统一规则
 
 - 表单选择用 `IanvsSelect`；外观、密度和快捷操作用 `IanvsMenuButton`；可编辑的 Material 下拉使用标准 `DropdownMenu`；过滤建议使用 `IanvsAutocompleteOptions`。
-- 菜单面板统一圆角6、边框1、内边距4、elevation4。选项最小行高依密度为40 / 48 / 56，正文14 / 14 / 17；选中、悬停和键盘高亮采用同一组选中前景 / 背景，键盘焦点额外显示2像素轮廓。禁用项不高亮。
+- 菜单面板统一圆角6、边框1、内边距4、elevation4。选项最小行高依密度为40 / 48 / 56，正文14 / 14 / 17。已选项使用选中前景 / 背景；悬停、键盘焦点和按压分别使用正文色5% / 8% / 10%的中性背景，正文与图标保持普通前景。鼠标展开子菜单时，即使同时获得焦点也优先采用悬停反馈。菜单项不描边，禁用项不高亮。
+- 原生 DropdownMenu 通过模拟焦点显示当前候选行，因此使用中性焦点背景；IanvsSelect / IanvsMenuButton 的已选项保留选中底色和勾选标记。
 - Select 的 hover 由 InputDecorator 在轮廓内部绘制，外层 InkWell 不叠加墨水色。输入内边距继承主题，避免与 DropdownMenu 高度不同。
 - Select、DropdownMenu 采用最大360宽、最大320高的菜单。触发器自身宽度独立：表单中使用同样的 `IanvsFieldRow`，标准 DropdownMenu 设置 `expandedInsets: EdgeInsets.zero`，不使用默认的内容固有宽度；外部标签存在时省略浮动标签。
 - 自动补全保持输入框焦点；选中行和悬停行通过共用菜单样式绘制。列表过长时键盘高亮会滚动进入视口。

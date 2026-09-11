@@ -4,16 +4,12 @@ import 'tokens.dart';
 /// Shared state resolution for Material menus and Ianvs option panels.
 abstract final class IanvsMenuStyle {
   static ButtonStyle item(IanvsTokens t, {bool selected = false}) {
-    bool active(Set<WidgetState> states) =>
-        !states.contains(WidgetState.disabled) &&
-        (selected ||
-            states.contains(WidgetState.selected) ||
-            states.contains(WidgetState.hovered) ||
-            states.contains(WidgetState.focused));
+    bool isSelected(Set<WidgetState> states) =>
+        selected || states.contains(WidgetState.selected);
     final foreground = WidgetStateProperty.resolveWith<Color>(
       (states) => states.contains(WidgetState.disabled)
           ? t.subtle
-          : active(states)
+          : isSelected(states)
           ? t.onSelected
           : t.text,
     );
@@ -28,21 +24,28 @@ abstract final class IanvsMenuStyle {
           borderRadius: BorderRadius.circular(t.controlRadius),
         ),
       ),
-      backgroundColor: WidgetStateProperty.resolveWith(
-        (states) => active(states) ? t.selected : Colors.transparent,
-      ),
+      backgroundColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.disabled)) return Colors.transparent;
+        if (isSelected(states)) return t.selected;
+        if (states.contains(WidgetState.pressed)) {
+          return t.text.withValues(alpha: .10);
+        }
+        // SubmenuButton also gains focus when the mouse opens it. Resolve
+        // hover first so that this combined state keeps the softer feedback.
+        if (states.contains(WidgetState.hovered)) {
+          return t.text.withValues(alpha: .05);
+        }
+        if (states.contains(WidgetState.focused)) {
+          return t.text.withValues(alpha: .08);
+        }
+        return Colors.transparent;
+      }),
       foregroundColor: foreground,
       iconColor: foreground,
       iconSize: const WidgetStatePropertyAll(16),
       // The background owns feedback; never stack a second grey ink overlay.
       overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-      side: WidgetStateProperty.resolveWith(
-        (states) =>
-            !states.contains(WidgetState.disabled) &&
-                states.contains(WidgetState.focused)
-            ? BorderSide(color: t.focus, width: 2)
-            : BorderSide.none,
-      ),
+      side: const WidgetStatePropertyAll(BorderSide.none),
       elevation: const WidgetStatePropertyAll(0),
       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       visualDensity: VisualDensity.standard,
