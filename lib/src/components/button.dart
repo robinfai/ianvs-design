@@ -78,7 +78,9 @@ class _IanvsButtonState extends State<IanvsButton> {
           ),
           const SizedBox(width: 8),
         ] else if (widget.icon != null) ...[
-          ExcludeSemantics(child: Icon(widget.icon, size: 16)),
+          ExcludeSemantics(
+            child: Icon(widget.icon, size: t.isCompactTouch ? 20 : 16),
+          ),
           const SizedBox(width: 8),
         ],
         Flexible(child: widget.child),

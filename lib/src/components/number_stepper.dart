@@ -105,8 +105,11 @@ class _IanvsNumberStepperState extends State<IanvsNumberStepper> {
     ].reduce((a, b) => a > b ? a : b);
     final fieldWidth = (MediaQuery.textScalerOf(context).scale(9) * digits + 24)
         .clamp(48.0, 200.0);
+    final buttonWidth = t.isCompactTouch
+        ? kMinInteractiveDimension
+        : t.controlHeight;
     return SizedBox(
-      width: t.controlHeight * 2 + fieldWidth + 8,
+      width: buttonWidth * 2 + fieldWidth + 8,
       child: TextFieldTapRegion(
         child: Row(
           children: [
@@ -155,8 +158,11 @@ class _IanvsNumberStepperState extends State<IanvsNumberStepper> {
                       _commit();
                       _focus.unfocus();
                     },
-                    decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(
+                    decoration: InputDecoration(
+                      constraints: t.isCompactTouch
+                          ? const BoxConstraints(minHeight: 44)
+                          : null,
+                      contentPadding: const EdgeInsets.symmetric(
                         horizontal: 4,
                         vertical: 6,
                       ),

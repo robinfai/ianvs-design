@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 /// Explicit input density. Width alone never implies touch input.
 enum IanvsDensity { compact, comfortable, touch }
 
+/// Visual spacing for touch input; never changes the input mode or tap padding.
+enum IanvsTouchVisualDensity { standard, compact }
+
 /// Shared spacing in logical pixels. Prefer semantic layout over fixed heights.
 abstract final class IanvsSpacing {
   static const double xs = 4,
@@ -47,6 +50,7 @@ class IanvsTokens extends ThemeExtension<IanvsTokens> {
     this.panelRadius = 10,
     this.rowHeight = 40,
     this.density = IanvsDensity.compact,
+    this.touchVisualDensity = IanvsTouchVisualDensity.standard,
   });
 
   final Color canvas;
@@ -65,11 +69,18 @@ class IanvsTokens extends ThemeExtension<IanvsTokens> {
   final Color success;
   final Color warning;
   final Color danger;
+
+  /// Minimum visual height. Padded Material buttons may occupy more hit space.
   final double controlHeight;
   final double controlRadius;
   final double panelRadius;
   final double rowHeight;
   final IanvsDensity density;
+  final IanvsTouchVisualDensity touchVisualDensity;
+
+  bool get isCompactTouch =>
+      density == IanvsDensity.touch &&
+      touchVisualDensity == IanvsTouchVisualDensity.compact;
 
   static const dark = IanvsTokens();
   static const light = IanvsTokens(
@@ -95,17 +106,24 @@ class IanvsTokens extends ThemeExtension<IanvsTokens> {
       Theme.of(context).extension<IanvsTokens>() ??
       (Theme.of(context).brightness == Brightness.dark ? dark : light);
 
-  IanvsTokens withDensity(IanvsDensity value) => copyWith(
+  IanvsTokens withDensity(
+    IanvsDensity value, {
+    IanvsTouchVisualDensity touchVisualDensity =
+        IanvsTouchVisualDensity.standard,
+  }) => copyWith(
     density: value,
+    touchVisualDensity: touchVisualDensity,
     controlHeight: switch (value) {
       IanvsDensity.compact => 32,
       IanvsDensity.comfortable => 40,
-      IanvsDensity.touch => 48,
+      IanvsDensity.touch =>
+        touchVisualDensity == IanvsTouchVisualDensity.compact ? 44 : 48,
     },
     rowHeight: switch (value) {
       IanvsDensity.compact => 40,
       IanvsDensity.comfortable => 48,
-      IanvsDensity.touch => 56,
+      IanvsDensity.touch =>
+        touchVisualDensity == IanvsTouchVisualDensity.compact ? 48 : 56,
     },
   );
 
@@ -132,6 +150,7 @@ class IanvsTokens extends ThemeExtension<IanvsTokens> {
     double? panelRadius,
     double? rowHeight,
     IanvsDensity? density,
+    IanvsTouchVisualDensity? touchVisualDensity,
   }) => IanvsTokens(
     canvas: canvas ?? this.canvas,
     chrome: chrome ?? this.chrome,
@@ -154,6 +173,7 @@ class IanvsTokens extends ThemeExtension<IanvsTokens> {
     panelRadius: panelRadius ?? this.panelRadius,
     rowHeight: rowHeight ?? this.rowHeight,
     density: density ?? this.density,
+    touchVisualDensity: touchVisualDensity ?? this.touchVisualDensity,
   );
 
   @override
@@ -181,6 +201,9 @@ class IanvsTokens extends ThemeExtension<IanvsTokens> {
       panelRadius: lerpDouble(panelRadius, other.panelRadius, t)!,
       rowHeight: lerpDouble(rowHeight, other.rowHeight, t)!,
       density: t < .5 ? density : other.density,
+      touchVisualDensity: t < .5
+          ? touchVisualDensity
+          : other.touchVisualDensity,
     );
   }
 }

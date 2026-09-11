@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0 — 2026-09-11
+
+- 新增可选 `IanvsTouchVisualDensity.compact`，通过 `IanvsTheme.build/light/dark` 的 `touchVisualDensity` 参数启用；输入模式仍为 touch，默认 standard 和原平台行为保持兼容。
+- 紧凑触控采用44点控件外观、48点列表最小高度、16点正文/输入、18/17点标题、13点辅助文字和20点普通图标；Material 按钮保留 padded 触达布局，大字号可自然撑高。
+- `IanvsFieldRow` 在紧凑触控堆叠布局中使用13点标签与4点标签间距；整数步进器为按钮触达布局留足宽度，并提供44点输入最小高度。
+- 补充窄屏、横屏、键盘区域、深浅色、1–3倍文字、控件实际尺寸和语义触达回归。
+
 ## 0.2.1 — 2026-09-11
 
 - 修复 `IanvsFormSection` 长标题与 trailing 操作在窄屏或大字号下的横向溢出：窄屏分行，宽屏限制操作最大宽度，保持现有 API。

@@ -10,7 +10,7 @@
 
 ```yaml
 dependencies:
-  ianvs_design: ^0.2.1
+  ianvs_design: ^0.3.0
 ```
 
 ```dart
@@ -89,6 +89,8 @@ final theme = IanvsTheme.build(
 macOS / iOS 默认系统字体。Web 字体需由宿主提供并传入 `fontFamily` / `fontFamilyFallback`；展厅内附的 Noto Sans SC 和 Roboto Mono 仅属于 example，不会打包进库使用者的应用。
 
 iPhone 请显式使用 `IanvsTheme.build(platform: TargetPlatform.iOS, density: IanvsDensity.touch)`：正文及主操作17点、次要文字15点、注释和输入帮助文字13点。原生 iOS 使用 Flutter Cupertino Text/Display 字体入口，保留系统 TextScaler。控件48点、列表行56点是最小值；页面边距、SafeArea、键盘与主操作布局由宿主管理。
+
+需要更紧凑的触控界面时，再传 `touchVisualDensity: IanvsTouchVisualDensity.compact`。输入/正文16点、面板标题18/17点、辅助与堆叠字段标签13点；字段最小44点、列表最小48点，按钮外观最小44点而 padded 交互布局仍至少48点。字号放大后自然增高，`density` 仍为 touch。默认 `standard` 保留原有行为；该选项在非 touch 模式不生效。[接入细节](docs/integration.md#紧凑触控视觉)
 
 基础颜色通过 `ColorScheme` 获取，额外表面、状态色与尺寸通过 `Theme.of(context).extension<IanvsTokens>()!` 或 `context.ianvs` 获取。`IanvsTheme.build(base: ...)` 可保留宿主的其他 ThemeExtension；请提供 Material 3 的 base。覆盖 token 后若还需改变标准 Material 控件，应同步覆盖对应的 ThemeData 样式。
 

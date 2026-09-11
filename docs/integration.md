@@ -4,7 +4,7 @@ Ianvs Design 提供同系列应用共享的主题和基础交互；连接、会�
 
 ## 主题与依赖
 
-在目标应用实际的 pubspec 中加入 `ianvs_design: ^0.2.1`。库与宿主联合开发时可临时使用指向本仓库的 path override，正式交付使用 pub.dev 版本。
+在目标应用实际的 pubspec 中加入 `ianvs_design: ^0.3.0`。库与宿主联合开发时可临时使用指向本仓库的 path override，正式交付使用 pub.dev 版本。
 
 ```dart
 ThemeData createTheme(Brightness brightness, ThemeData appBase) {
@@ -139,3 +139,37 @@ Scaffold(
 ```
 
 需要固定主操作时由宿主组合可滚动正文和操作区，并验证键盘出现后的剩余空间；底部弹层可通过 `showModalBottomSheet(isScrollControlled: true, useSafeArea: true, ...)` 配合宿主的 `viewInsets` 内边距。不要在已经缩小正文的 Scaffold 内重复计算相同键盘 inset。库的 IanvsDialog 已使用可滚动 AlertDialog 和自适应操作排列，不承担 SSH、同步、业务路由或持久化。
+
+## 紧凑触控视觉
+
+从 0.3.0 起，视觉紧凑程度可以独立于输入模式选择：
+
+```dart
+final theme = IanvsTheme.build(
+  platform: TargetPlatform.iOS,
+  brightness: Brightness.light,
+  density: IanvsDensity.touch,
+  touchVisualDensity: IanvsTouchVisualDensity.compact,
+);
+```
+
+`IanvsTheme.light/dark` 同样接受 `touchVisualDensity`。默认值是 `standard`，非 touch 模式忽略视觉选项；Android 等其他平台可显式选择这个通用触控样式，现有默认值不变。`context.ianvs.density` 仍为 `touch`，已有移动导航判断继续工作。需要读取选择时使用 `context.ianvs.touchVisualDensity` 或 `context.ianvs.isCompactTouch`，不要把视觉选项当作设备检测。
+
+| 项目 | 紧凑触控默认值 |
+|---|---|
+| `controlHeight` | 44，控件外观最小值 |
+| Material 按钮 | 外观最小44，padded 交互布局至少48 |
+| 普通 `IanvsTextField` / `IanvsSelect` | 最小44；交互图标可撑到48，文字和帮助/错误内容可继续增高 |
+| `rowHeight` / 普通单行 `ListTile` | 最小48；菜单选项也使用48最小值 |
+| `titleLarge` / `titleMedium` / `titleSmall` | 18 / 17 / 15 |
+| `bodyLarge` / `bodyMedium` / `labelLarge` | 16 |
+| `bodySmall` / `labelMedium` / `labelSmall` | 13 |
+| 普通图标与按钮图标 | 20；专用指示图标保留组件自身尺寸 |
+| 输入垂直内边距 | 10 |
+| 堆叠 `IanvsFieldRow` 标签 | `labelMedium`，标签到字段4点 |
+
+`controlHeight` 是最小外观尺寸，不是宿主裁剪按钮交互区域的依据。保留 `MaterialTapTargetSize.padded` 和标准 `VisualDensity`；不要用固定44点父容器截掉 Material 按钮的48点交互布局。输入框、按钮及列表允许文本撑高，不应附加 `maxHeight` 或锁定 TextScaler。输入内嵌标签、图标、多行和错误说明会使整体高于表中的最小值。
+
+`IanvsFieldRow` 只在窄屏或大字号的堆叠布局中收紧标签；宽屏正常字号的并排标签保留原有样式。字段间距仍由 `IanvsFormSection(spacing: 12)` 等现有参数控制，分组间距和内容优先级由宿主决定。导航栏/底栏高度没有整体缩小；固定高度的宿主导航和专用阅读文字仍应按具体内容适配。代码/终端等宽样式保持独立，未随本选项缩小。
+
+自动化回归涵盖375/402点竖屏、844×375横屏、深浅色、1–3倍文字以及300点键盘区域。它验证 Flutter 的约束、尺寸和操作；真实 iPhone 字体显示、VoiceOver 与业务流程仍需宿主集成验证。

@@ -8,15 +8,33 @@ import 'typography.dart';
 ///
 /// All Material APIs remain available. Pass [base] to preserve unrelated theme
 /// extensions, and [accent] to customize the brand without hardcoded foregrounds.
+/// `touchVisualDensity` changes visual metrics only when density is touch;
+/// Material tap padding and the input mode remain unchanged.
 abstract final class IanvsTheme {
-  static ThemeData light({IanvsDensity density = IanvsDensity.compact}) =>
-      build(brightness: Brightness.light, density: density);
-  static ThemeData dark({IanvsDensity density = IanvsDensity.compact}) =>
-      build(brightness: Brightness.dark, density: density);
+  static ThemeData light({
+    IanvsDensity density = IanvsDensity.compact,
+    IanvsTouchVisualDensity touchVisualDensity =
+        IanvsTouchVisualDensity.standard,
+  }) => build(
+    brightness: Brightness.light,
+    density: density,
+    touchVisualDensity: touchVisualDensity,
+  );
+  static ThemeData dark({
+    IanvsDensity density = IanvsDensity.compact,
+    IanvsTouchVisualDensity touchVisualDensity =
+        IanvsTouchVisualDensity.standard,
+  }) => build(
+    brightness: Brightness.dark,
+    density: density,
+    touchVisualDensity: touchVisualDensity,
+  );
 
   static ThemeData build({
     Brightness brightness = Brightness.light,
     IanvsDensity density = IanvsDensity.compact,
+    IanvsTouchVisualDensity touchVisualDensity =
+        IanvsTouchVisualDensity.standard,
     Color? accent,
     TargetPlatform? platform,
     ThemeData? base,
@@ -28,9 +46,10 @@ abstract final class IanvsTheme {
   }) {
     var t =
         (brightness == Brightness.dark ? IanvsTokens.dark : IanvsTokens.light)
-            .withDensity(density);
+            .withDensity(density, touchVisualDensity: touchVisualDensity);
     if (accent != null) t = t.copyWith(accent: accent);
     final touch = density == IanvsDensity.touch;
+    final compactTouch = t.isCompactTouch;
     final target = platform ?? defaultTargetPlatform;
     final iosTouch = touch && target == TargetPlatform.iOS;
     final nativeIos = target == TargetPlatform.iOS && !kIsWeb;
@@ -90,7 +109,9 @@ abstract final class IanvsTheme {
     final fallbacks =
         fontFamilyFallback ??
         const ['PingFang SC', 'Noto Sans SC', 'Helvetica Neue', 'sans-serif'];
-    final bodySize = iosTouch ? 17.0 : (touch ? 16.0 : 13.0);
+    final bodySize = compactTouch
+        ? 16.0
+        : (iosTouch ? 17.0 : (touch ? 16.0 : 13.0));
     TextStyle text(
       double size, [
       FontWeight weight = FontWeight.w400,
@@ -113,20 +134,31 @@ abstract final class IanvsTheme {
       headlineLarge: text(26, FontWeight.w600),
       headlineMedium: text(24, FontWeight.w600),
       headlineSmall: text(22, FontWeight.w600),
-      titleLarge: text(iosTouch ? 22 : 20, FontWeight.w600),
-      titleMedium: text(iosTouch ? 17 : (touch ? 18 : 16), FontWeight.w600),
-      titleSmall: text(iosTouch ? 17 : 14, FontWeight.w600),
-      bodyLarge: text(touch ? 17 : 14),
+      titleLarge: text(
+        compactTouch ? 18 : (iosTouch ? 22 : 20),
+        FontWeight.w600,
+      ),
+      titleMedium: text(
+        compactTouch || iosTouch ? 17 : (touch ? 18 : 16),
+        FontWeight.w600,
+      ),
+      titleSmall: text(
+        compactTouch ? 15 : (iosTouch ? 17 : 14),
+        FontWeight.w600,
+      ),
+      bodyLarge: text(compactTouch ? 16 : (touch ? 17 : 14)),
       bodyMedium: text(bodySize),
       bodySmall: text(
-        iosTouch ? 15 : (touch ? 14 : 12),
+        compactTouch ? 13 : (iosTouch ? 15 : (touch ? 14 : 12)),
         FontWeight.w400,
         t.muted,
       ),
       labelLarge: text(bodySize, FontWeight.w500),
-      labelMedium: text(iosTouch ? 15 : (touch ? 14 : 12)),
+      labelMedium: text(
+        compactTouch ? 13 : (iosTouch ? 15 : (touch ? 14 : 12)),
+      ),
       labelSmall: text(
-        iosTouch ? 13 : (touch ? 12 : 11),
+        compactTouch || iosTouch ? 13 : (touch ? 12 : 11),
         FontWeight.w400,
         t.muted,
       ),
@@ -152,7 +184,9 @@ abstract final class IanvsTheme {
       isDense: true,
       contentPadding: EdgeInsets.symmetric(
         horizontal: 12,
-        vertical: touch ? 13 : (density == IanvsDensity.comfortable ? 10 : 6),
+        vertical: compactTouch
+            ? 10
+            : (touch ? 13 : (density == IanvsDensity.comfortable ? 10 : 6)),
       ),
       border: outline,
       enabledBorder: outline,
@@ -169,12 +203,12 @@ abstract final class IanvsTheme {
       hintStyle: text(bodySize, FontWeight.w400, t.subtle),
       labelStyle: text(bodySize, FontWeight.w400, t.muted),
       helperStyle: text(
-        iosTouch ? 13 : (touch ? 14 : 12),
+        compactTouch || iosTouch ? 13 : (touch ? 14 : 12),
         FontWeight.w400,
         t.muted,
       ),
       errorStyle: text(
-        iosTouch ? 13 : (touch ? 14 : 12),
+        compactTouch || iosTouch ? 13 : (touch ? 14 : 12),
         FontWeight.w400,
         t.danger,
       ),
@@ -206,6 +240,7 @@ abstract final class IanvsTheme {
       Color? foreground,
       bool outlined = false,
     }) => ButtonStyle(
+      iconSize: compactTouch ? const WidgetStatePropertyAll(20) : null,
       minimumSize: WidgetStatePropertyAll(
         Size(t.controlHeight, t.controlHeight),
       ),
@@ -279,7 +314,10 @@ abstract final class IanvsTheme {
       highlightColor: t.text.withValues(alpha: .10),
       disabledColor: t.subtle,
       dividerColor: t.separator,
-      iconTheme: IconThemeData(color: t.muted, size: touch ? 22 : 18),
+      iconTheme: IconThemeData(
+        color: t.muted,
+        size: compactTouch ? 20 : (touch ? 22 : 18),
+      ),
       inputDecorationTheme: input,
       filledButtonTheme: FilledButtonThemeData(
         style: button().copyWith(
@@ -480,7 +518,10 @@ abstract final class IanvsTheme {
         selectedTileColor: t.selected,
         shape: shape,
         minTileHeight: t.rowHeight,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: compactTouch ? 0 : 4,
+        ),
         dense: !touch,
       ),
       expansionTileTheme: ExpansionTileThemeData(

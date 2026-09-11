@@ -1,7 +1,7 @@
 name: ianvs_design_gallery
 description: Interactive reference gallery for Ianvs Design.
 publish_to: none
-version: 0.2.1+3
+version: 0.3.0+4
 environment:
   sdk: '>=3.12.0 <4.0.0'
 dependencies:

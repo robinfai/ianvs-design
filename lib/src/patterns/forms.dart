@@ -36,9 +36,20 @@ class IanvsFieldRow extends StatelessWidget {
             constraints.maxWidth < breakpoint ||
             MediaQuery.textScalerOf(context).scale(13) > 19.5;
         if (stack) {
+          final compactTouch = context.ianvs.isCompactTouch;
           return Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [labelWidget, const SizedBox(height: 8), content],
+            children: [
+              if (compactTouch)
+                DefaultTextStyle(
+                  style: Theme.of(context).textTheme.labelMedium!,
+                  child: labelWidget,
+                )
+              else
+                labelWidget,
+              SizedBox(height: compactTouch ? 4 : 8),
+              content,
+            ],
           );
         }
         return Row(

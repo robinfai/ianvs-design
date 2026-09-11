@@ -107,6 +107,7 @@ Autocomplete<String>(
 - Cascader 可用 Tab / Enter 逐级选择，↑↓ 在选项间遍历；面包屑可回溯。禁用分支不可进入。
 - IanvsMotion.resolve(context) 提供减少动画时的零时长；宿主自定义动画应使用它。标准 Material 动效仍遵循 Flutter 与平台行为。
 - 触控界面显式使用 touch 密度；桌面紧凑32px是有意的桌面规范，不代表移动端命中目标。
+- `touchVisualDensity: IanvsTouchVisualDensity.compact` 可在保留 touch 输入模式及 padded 触达布局时收紧字体与外观。`IanvsFieldRow` 堆叠标签自动使用13点文字与4点间距，普通列表和菜单最小48点；详见接入文档。
 
 ## 标准 Material 的集成边界
 
