@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0 — 未发布
+
+- 新增 `IanvsChoiceTile<T>`：接入 Flutter RadioGroup/RawRadio，整行单选，右侧小勾和固定占位，中性悬停反馈与键盘焦点描边；保留互斥语义、方向键/Tab/Space、禁用与减少动画。
+- 单选行默认使用 bodyMedium/bodySmall，桌面 compact 单行最小32点、compact touch最小48点，长标题/说明自然换行增高；展厅替换存储单选列表示例。
+- `IanvsSettingsRow` 增加密度对应的最小行高与内部纵向留白，可通过 `contentPadding` 覆盖；保留可选择文字和原生 Switch 行为。
+- 补充单选受控状态、RTL、键盘、语义、深浅色、1–3倍文字和设置行/表单1–2倍文字布局回归。macOS全局文字层级保持兼容。
+
 ## 0.3.1 — 2026-09-11
 
 - 修复紧凑触控下普通 Material 输入、静态图标、交互图标和 Ianvs 封装输入高度不一致的问题；统一输入主题与前后图标区域48点最小尺寸。

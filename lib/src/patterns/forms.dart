@@ -149,22 +149,43 @@ class IanvsSettingsRow extends StatelessWidget {
     this.description,
     required this.value,
     required this.onChanged,
+    this.contentPadding,
   });
   final String title;
   final String? description;
   final bool value;
   final ValueChanged<bool>? onChanged;
+
+  /// Internal row padding; defaults to vertical 4/6/8 for compact/comfortable/
+  /// touch, with 4 for compact touch. Use zero when the host supplies padding.
+  final EdgeInsetsGeometry? contentPadding;
   @override
-  Widget build(BuildContext context) => IanvsControlLabel(
-    label: title,
-    description: description,
-    trailing: true,
-    onTap: onChanged == null ? null : () => onChanged!(!value),
-    controlBuilder: (focusNode) => Switch.adaptive(
-      value: value,
-      focusNode: focusNode,
-      onChanged: onChanged,
-      activeTrackColor: context.ianvs.accent,
+  Widget build(BuildContext context) => ConstrainedBox(
+    constraints: BoxConstraints(minHeight: context.ianvs.rowHeight),
+    child: Padding(
+      padding:
+          contentPadding ??
+          EdgeInsets.symmetric(
+            vertical: context.ianvs.isCompactTouch
+                ? 4
+                : switch (context.ianvs.density) {
+                    IanvsDensity.compact => 4,
+                    IanvsDensity.comfortable => 6,
+                    IanvsDensity.touch => 8,
+                  },
+          ),
+      child: IanvsControlLabel(
+        label: title,
+        description: description,
+        trailing: true,
+        onTap: onChanged == null ? null : () => onChanged!(!value),
+        controlBuilder: (focusNode) => Switch.adaptive(
+          value: value,
+          focusNode: focusNode,
+          onChanged: onChanged,
+          activeTrackColor: context.ianvs.accent,
+        ),
+      ),
     ),
   );
 }

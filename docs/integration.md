@@ -4,7 +4,7 @@ Ianvs Design 提供同系列应用共享的主题和基础交互；连接、会�
 
 ## 主题与依赖
 
-在目标应用实际的 pubspec 中加入 `ianvs_design: ^0.3.1`。库与宿主联合开发时可临时使用指向本仓库的 path override，正式交付使用 pub.dev 版本。
+已发布版本可使用 `ianvs_design: ^0.3.1`。本文标注0.4.0的单选行和设置行改进目前仅在Git主线提供，尚未发布到pub.dev；接入这些功能时使用Git依赖并固定完整提交SHA。库与宿主联合开发时可临时使用指向本仓库的path override，交付前应移除本机路径依赖。
 
 ```dart
 ThemeData createTheme(Brightness brightness, ThemeData appBase) {
@@ -139,6 +139,34 @@ Scaffold(
 ```
 
 需要固定主操作时由宿主组合可滚动正文和操作区，并验证键盘出现后的剩余空间；底部弹层可通过 `showModalBottomSheet(isScrollControlled: true, useSafeArea: true, ...)` 配合宿主的 `viewInsets` 内边距。不要在已经缩小正文的 Scaffold 内重复计算相同键盘 inset。库的 IanvsDialog 已使用可滚动 AlertDialog 和自适应操作排列，不承担 SSH、同步、业务路由或持久化。
+
+## 单选列表与设置行组合（0.4.0）
+
+普通单选列表使用组级状态，避免宿主再叠加蓝色选中背景、左色条或单独的选中徽章：
+
+```dart
+RadioGroup<String>(
+  groupValue: storage,
+  onChanged: (value) => setState(() => storage = value!),
+  child: const Column(
+    children: [
+      IanvsChoiceTile(value: 'local', title: Text('本地存储')),
+      IanvsChoiceTile(value: 'remote', title: Text('远程存储'),
+        subtitle: Text('在关联设备之间同步文件')),
+    ],
+  ),
+);
+```
+
+`IanvsChoiceTile<T>` 支持 `value/title/subtitle/enabled/focusNode/autofocus/contentPadding`；title/subtitle是说明内容，不应嵌套独立交互按钮或带手势的链接。值在同组内应唯一。默认标题取bodyMedium、描述取bodySmall，两者间距4点，内边距水平12/纵向4。桌面compact单行最小32，comfortable最小40；touch取至少44与rowHeight中较大值，因此compact touch最小48、standard touch最小56。自定义内边距或长文字会继续撑高，组件不硬裁文字。
+
+右侧20点标记槽内绘制18点勾，未选中保留同尺寸空白；RTL使用逻辑尾侧。整行使用Flutter公开[RawRadio](https://api.flutter.dev/flutter/widgets/RawRadio-class.html)，组内方向键、Tab/Shift+Tab、Space和互斥语义由[RadioGroup](https://api.flutter.dev/flutter/widgets/RadioGroup-class.html)管理。父级未接受值变化时不会提前显示选中；focusNode由提供者持有。勾即时变化，中性hover/press与focus outline按减少动画设置更新。
+
+`IanvsSettingsRow` 可直接连续放入Column：compact/comfortable/touch默认每侧纵向padding为4/6/8，compact touch每侧4，最小高度取rowHeight（40/48/56；compact touch为48）。这是最小值，原生Switch与多行文字加上内边距可能更高。文字组与Switch居中对齐，description保留bodySmall及主题1.4行高的换行排版，继续支持跨标题和描述的文字选择。宿主已提供行内留白时传`contentPadding: EdgeInsets.zero`，最小行高仍保留。
+
+连续设置行若放进FormSection，使用`spacing: 0`；普通字段通常使用`spacing: 12`，不要同时给每个FieldRow重复包10/12/16点外部空隙。说明文字选择FieldRow.helper或字段helperText其中一层即可，FieldRow.helper自身提供6点间距。FieldRow在窄屏或大于150%文字时转为上下布局，恰好150%的宽屏仍允许并排；FormSection的标题和操作也会相应重排。
+
+macOS全局层级保持正文13、次要12、FormSection标题16、Dialog标题20。Material语义角色不机械对应所有Apple标题编号；应用自己的页面标题、导航、原生窗口按钮避让和组间间距由宿主处理。
 
 ## 紧凑触控视觉
 

@@ -924,8 +924,22 @@ class _MaterialStoriesState extends State<MaterialStories> {
             onChanged: (v) => setState(() => radio = v!),
             child: const Column(
               children: [
-                RadioListTile<String>(value: '本地', title: Text('本地存储')),
-                RadioListTile<String>(value: '远程', title: Text('远程存储')),
+                IanvsChoiceTile<String>(
+                  value: '本地',
+                  title: Text('本地存储'),
+                  subtitle: Text('将文件保存在此设备上'),
+                ),
+                IanvsChoiceTile<String>(
+                  value: '远程',
+                  title: Text('远程存储'),
+                  subtitle: Text('在关联设备间同步文件'),
+                ),
+                IanvsChoiceTile<String>(
+                  value: '归档',
+                  title: Text('归档存储'),
+                  subtitle: Text('此工作区暂不可用'),
+                  enabled: false,
+                ),
               ],
             ),
           ),

@@ -8,6 +8,7 @@ export 'src/foundation/typography.dart';
 export 'src/foundation/calendar.dart';
 export 'src/components/button.dart';
 export 'src/components/control_label.dart';
+export 'src/components/choice_tile.dart';
 export 'src/components/fields.dart';
 export 'src/components/search_field.dart';
 export 'src/components/menu_button.dart';

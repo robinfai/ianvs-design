@@ -17,7 +17,8 @@
 | `IanvsFieldRow` | 对齐的表单标签与字段 | 默认标签宽170；内容小于480或字号大于1.5倍时纵向排列；helper 可换行 |
 | `IanvsFormSection` | 标题、说明与成组字段 | 不创建业务 Form；内部提供焦点遍历分组；窄屏/大字时标题和 trailing 分行，宽屏限制 trailing 宽度 |
 | `IanvsControlLabel` | 复选、单选、开关的可选择文字标签 | 单击执行与控件相同的操作；拖选、双击选词、长按和复制不触发；onTap 为 null 时禁用；controlBuilder 接收原生控件的 FocusNode |
-| `IanvsSettingsRow` | 设置说明与开关 | value/onChanged 受控；标题和说明遵循 ControlLabel 的点击/文字选择规则；窄窗与放大字号自适应 |
+| `IanvsChoiceTile<T>` | 整行单选列表 | RadioGroup持有groupValue/onChanged；右侧小勾、中性hover、焦点描边，桌面compact最小32、compact touch最小48；title/subtitle为Widget，可换行 |
+| `IanvsSettingsRow` | 设置说明与开关 | value/onChanged受控；沿用ControlLabel文字选择规则，按density提供内部纵向留白和rowHeight最小高度，contentPadding可覆盖，文字可撑高 |
 | `IanvsSidebar` / `IanvsSidebarItem` | 分组导航 | selectedId/onSelected；支持 header/footer/badge；选择与焦点状态分开 |
 | `IanvsToolbar` | 工具栏 | 最小52，供 Workspace 按文字缩放增长；title、leading、actions |
 | `IanvsWorkspace` | 桌面窗口内容框架 | 默认侧栏262，宽度小于880切换真实 Drawer；不绘制伪装的系统窗口按钮 |

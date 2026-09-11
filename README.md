@@ -43,6 +43,10 @@ MaterialApp(
 
 ## 组合组件
 
+以下 `IanvsChoiceTile` 和设置行留白改进属于尚未发布的0.4.0，当前请通过固定提交SHA的Git依赖接入；pub.dev安装示例仍使用已发布的0.3.1。
+
+整行单选列表使用 `RadioGroup<T>` 配合 `IanvsChoiceTile<T>(value: ..., title: ..., subtitle: ...)`：组级状态与原生键盘语义保留，默认用右侧小勾标记选择。[接入规范](docs/integration.md)
+
 ```dart
 IanvsFormSection(
   title: const Text('连接设置'),

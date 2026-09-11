@@ -24,6 +24,31 @@ Future<void> tapVisible(WidgetTester tester, Finder finder) async {
 }
 
 void main() {
+  testWidgets('storage choice tiles update the shared radio group', (
+    tester,
+  ) async {
+    await open(tester, 'feedback', ThemeMode.light);
+    await tapVisible(tester, find.text('远程存储'));
+    expect(
+      tester
+          .widget<RadioGroup<String>>(find.byType(RadioGroup<String>))
+          .groupValue,
+      '远程',
+    );
+    final selected = find.widgetWithText(IanvsChoiceTile<String>, '远程存储');
+    expect(
+      find.descendant(of: selected, matching: find.byIcon(Icons.check)),
+      findsOneWidget,
+    );
+    await tapVisible(tester, find.text('归档存储'));
+    expect(
+      tester
+          .widget<RadioGroup<String>>(find.byType(RadioGroup<String>))
+          .groupValue,
+      '远程',
+    );
+    expect(tester.takeException(), isNull);
+  });
   testWidgets('choice labels share checkbox, radio and switch behavior', (
     tester,
   ) async {
