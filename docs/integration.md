@@ -4,7 +4,7 @@ Ianvs Design 提供同系列应用共享的主题和基础交互；连接、会�
 
 ## 主题与依赖
 
-已发布版本可使用 `ianvs_design: ^0.3.1`。本文标注0.4.0的单选行和设置行改进目前仅在Git主线提供，尚未发布到pub.dev；接入这些功能时使用Git依赖并固定完整提交SHA。库与宿主联合开发时可临时使用指向本仓库的path override，交付前应移除本机路径依赖。
+使用 `ianvs_design: ^0.4.0` 接入，包括单选行、设置行留白以及分隔线、菜单和弹窗改进。此前固定Git提交测试这些功能的宿主可移除对应 override，改用pub.dev版本。库与宿主联合开发时可临时使用指向本仓库的path override，交付前应移除本机路径依赖。
 
 ```dart
 ThemeData createTheme(Brightness brightness, ThemeData appBase) {

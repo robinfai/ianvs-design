@@ -10,7 +10,7 @@
 
 ```yaml
 dependencies:
-  ianvs_design: ^0.3.1
+  ianvs_design: ^0.4.0
 ```
 
 ```dart
@@ -42,8 +42,6 @@ MaterialApp(
 详细说明见 [组件 API 与交互契约](https://github.com/robinfai/ianvs-design/blob/main/docs/components.md)、[设计规范](https://github.com/robinfai/ianvs-design/blob/main/docs/design/plan.md) 和 [Terminal / ACP 接入指南](https://github.com/robinfai/ianvs-design/blob/main/docs/integration.md)。
 
 ## 组合组件
-
-以下 `IanvsChoiceTile` 和设置行留白改进属于尚未发布的0.4.0，当前请通过固定提交SHA的Git依赖接入；pub.dev安装示例仍使用已发布的0.3.1。
 
 整行单选列表使用 `RadioGroup<T>` 配合 `IanvsChoiceTile<T>(value: ..., title: ..., subtitle: ...)`：组级状态与原生键盘语义保留，默认用右侧小勾标记选择。[接入规范](docs/integration.md)
 
