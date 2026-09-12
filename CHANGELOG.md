@@ -2,6 +2,7 @@
 
 ## 0.4.0 — 未发布
 
+- `Dialog` / `AlertDialog` / `IanvsDialog` 外层独立采用16点圆角、0.75点 separator 边线和轻阴影；新增 `IanvsTokens.dialogRadius`，保留内容卡片、输入边界与键盘焦点样式。
 - 菜单项悬停、按压和键盘焦点改用柔和中性背景，与选中底色区分；移除菜单项焦点描边，修复鼠标展开子菜单后出现粗蓝框的问题。
 - 修复 `IanvsResizeHandle` 鼠标拖动、取消和双击重置后残留蓝色粗线；鼠标操作结束恢复中性分隔线，保留实际焦点，Tab 或方向键操作仍显示键盘焦点。
 - 新增 `IanvsChoiceTile<T>`：接入 Flutter RadioGroup/RawRadio，整行单选，右侧小勾和固定占位，中性悬停反馈与键盘焦点描边；保留互斥语义、方向键/Tab/Space、禁用与减少动画。

@@ -556,10 +556,14 @@ abstract final class IanvsTheme {
       dialogTheme: DialogThemeData(
         backgroundColor: t.raised,
         surfaceTintColor: Colors.transparent,
-        shape: panelShape,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(t.dialogRadius),
+          side: BorderSide(color: t.separator, width: .75),
+        ),
         titleTextStyle: typography.titleLarge,
         contentTextStyle: typography.bodyLarge,
-        elevation: 12,
+        elevation: 4,
+        shadowColor: Colors.black.withValues(alpha: .16),
         actionsPadding: const EdgeInsets.fromLTRB(24, 0, 24, 20),
       ),
       bottomSheetTheme: BottomSheetThemeData(

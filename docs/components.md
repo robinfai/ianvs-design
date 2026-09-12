@@ -115,6 +115,8 @@ Autocomplete<String>(
 
 使用 IanvsTheme 后，控件状态仍由 Material 管理，例如 DatePicker 返回 DateTime、MenuAnchor 保留键盘菜单、DataTable 的排序与选中由应用回调处理。库没有为这些控件增加业务状态层。
 
+`Dialog`、`AlertDialog` 与 `IanvsDialog` 的浮层外壳使用独立的 `IanvsTokens.dialogRadius`（默认16）、0.75点 `separator` 边线、4点 elevation 和16%黑色阴影。内容卡片仍采用 `panelRadius`（默认10）及原有边线；输入字段与键盘焦点样式保持独立。宿主可通过标准 `DialogThemeData` 或组件自身的 `shape` / `elevation` / `shadowColor` 覆盖外观；`Dialog.fullscreen` 继续使用 Flutter 的全屏表面。
+
 可通过组件自身 `style` / `decoration` 做局部覆盖。主题额外令牌只影响读取该令牌的组合组件；改变标准 Material 尺寸应调整对应组件主题，避免只更改扩展令牌而形成两套样式。
 
 ## 下拉与菜单的统一规则

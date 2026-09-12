@@ -27,6 +27,10 @@ void main() {
       middle.extension<IanvsTokens>()!.canvas,
       isNot(IanvsTokens.light.canvas),
     );
+    final customDialog = IanvsTokens.light.copyWith(dialogRadius: 24);
+    expect(customDialog.withDensity(IanvsDensity.touch).dialogRadius, 24);
+    expect(customDialog.lerp(IanvsTokens.dark, .5).dialogRadius, 20);
+    expect(customDialog.panelRadius, IanvsTokens.light.panelRadius);
   });
   for (final brightness in Brightness.values) {
     testWidgets(

@@ -48,6 +48,7 @@ class IanvsTokens extends ThemeExtension<IanvsTokens> {
     this.controlHeight = 32,
     this.controlRadius = 6,
     this.panelRadius = 10,
+    this.dialogRadius = 16,
     this.rowHeight = 40,
     this.density = IanvsDensity.compact,
     this.touchVisualDensity = IanvsTouchVisualDensity.standard,
@@ -74,6 +75,9 @@ class IanvsTokens extends ThemeExtension<IanvsTokens> {
   final double controlHeight;
   final double controlRadius;
   final double panelRadius;
+
+  /// Radius of floating dialogs, independent of cards and content panels.
+  final double dialogRadius;
   final double rowHeight;
   final IanvsDensity density;
   final IanvsTouchVisualDensity touchVisualDensity;
@@ -148,6 +152,7 @@ class IanvsTokens extends ThemeExtension<IanvsTokens> {
     double? controlHeight,
     double? controlRadius,
     double? panelRadius,
+    double? dialogRadius,
     double? rowHeight,
     IanvsDensity? density,
     IanvsTouchVisualDensity? touchVisualDensity,
@@ -171,6 +176,7 @@ class IanvsTokens extends ThemeExtension<IanvsTokens> {
     controlHeight: controlHeight ?? this.controlHeight,
     controlRadius: controlRadius ?? this.controlRadius,
     panelRadius: panelRadius ?? this.panelRadius,
+    dialogRadius: dialogRadius ?? this.dialogRadius,
     rowHeight: rowHeight ?? this.rowHeight,
     density: density ?? this.density,
     touchVisualDensity: touchVisualDensity ?? this.touchVisualDensity,
@@ -199,6 +205,7 @@ class IanvsTokens extends ThemeExtension<IanvsTokens> {
       controlHeight: lerpDouble(controlHeight, other.controlHeight, t)!,
       controlRadius: lerpDouble(controlRadius, other.controlRadius, t)!,
       panelRadius: lerpDouble(panelRadius, other.panelRadius, t)!,
+      dialogRadius: lerpDouble(dialogRadius, other.dialogRadius, t)!,
       rowHeight: lerpDouble(rowHeight, other.rowHeight, t)!,
       density: t < .5 ? density : other.density,
       touchVisualDensity: t < .5
