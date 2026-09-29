@@ -10,7 +10,7 @@
 
 ```yaml
 dependencies:
-  ianvs_design: ^0.4.0
+  ianvs_design: ^0.4.1
 ```
 
 ```dart

@@ -34,7 +34,7 @@
 
 `IanvsTypography.code` 是独立于普通 TextTheme 的等宽 TextStyle。默认13px/1.5（touch 16px），颜色取主题前景；macOS/iOS 默认 Menlo，Windows 默认 Consolas，Linux 默认 DejaVu Sans Mono，Android/Fuchsia 默认 monospace。平台字体只是请求的字体族与回退链，不保证该字体已安装；确定字体效果需要宿主打包字体并配置。`codeTextStyle` 最后按 `TextStyle.merge` 规则覆盖默认样式。IanvsTheme 重建自身的 Tokens/Typography 扩展，保留其他类型的宿主扩展。仅用 Material 主题时 `IanvsTypography.of` 也提供主题感知默认值。
 
-`IanvsResizeHandle` 的 `axis: Axis.horizontal` 调整宽度、`Axis.vertical` 调整高度；`reverse: true` 将物理拖动方向反转，适用于右/下侧面板，与文字方向无关。`semanticLabel` 必填，可用 `semanticValueFormatter` 本地化尺寸读法。`step` 默认20，`hitExtent` 默认8（触控场景应由宿主提供更大命中区）。父容器必须为手柄的长度方向提供有限约束。
+`IanvsResizeHandle` 的 `axis: Axis.horizontal` 调整宽度、`Axis.vertical` 调整高度；`reverse: true` 将物理拖动方向反转，适用于右/下侧面板，与文字方向无关。`semanticLabel` 必填，可用 `semanticValueFormatter` 本地化尺寸读法。`step` 默认20，`hitExtent` 默认8（触控场景应由宿主提供更大命中区）。`lineAlignment` 默认 `Alignment.center`，可将可见线贴齐完整命中区的物理边缘：调整宽度用 `Alignment.centerLeft` / `centerRight`，调整高度用 `Alignment.topCenter` / `bottomCenter`；不受 RTL 或 `reverse` 影响。1点普通线和2点高亮线均保持在命中区内部。父容器必须为手柄的长度方向提供有限约束。
 
 - `onChanged: null` 或 min=max 时禁用；所有请求限制在 min/max 内，父组件应用新 value 后才改变实际尺寸。
 - 外部传入范围外的 value 会在手柄显示和操作中被限制，不自动修改宿主尺寸；宿主负责布局预算和窗口缩小时的尺寸修正。

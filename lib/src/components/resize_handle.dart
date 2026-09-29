@@ -23,6 +23,7 @@ class IanvsResizeHandle extends StatefulWidget {
     this.resetValue,
     this.focusNode,
     this.hitExtent = 8,
+    this.lineAlignment = Alignment.center,
     this.semanticValueFormatter,
   }) : assert(value > double.negativeInfinity && value < double.infinity),
        assert(min >= 0 && min < double.infinity),
@@ -36,6 +37,16 @@ class IanvsResizeHandle extends StatefulWidget {
        );
 
   final double value, min, max, step, hitExtent;
+
+  /// Physical alignment of the visible line within the hit area.
+  ///
+  /// For [Axis.horizontal], use [Alignment.centerLeft] or
+  /// [Alignment.centerRight]; for [Axis.vertical], use [Alignment.topCenter]
+  /// or [Alignment.bottomCenter]. The line still fills the other dimension.
+  /// Neither text direction nor [reverse] changes this alignment. An edge
+  /// alignment keeps both the 1-point idle and 2-point active line inside the
+  /// hit area, without reducing [hitExtent]. Defaults to [Alignment.center].
+  final Alignment lineAlignment;
   final double? resetValue;
   final ValueChanged<double>? onChanged;
   final String semanticLabel;
@@ -215,7 +226,8 @@ class _IanvsResizeHandleState extends State<IanvsResizeHandle> {
               child: SizedBox(
                 width: horizontal ? widget.hitExtent : double.infinity,
                 height: horizontal ? double.infinity : widget.hitExtent,
-                child: Center(
+                child: Align(
+                  alignment: widget.lineAlignment,
                   child: ColoredBox(
                     color: color,
                     child: SizedBox(

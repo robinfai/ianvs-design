@@ -4,7 +4,7 @@ Ianvs Design 提供同系列应用共享的主题和基础交互；连接、会�
 
 ## 主题与依赖
 
-使用 `ianvs_design: ^0.4.0` 接入，包括单选行、设置行留白以及分隔线、菜单和弹窗改进。此前固定Git提交测试这些功能的宿主可移除对应 override，改用pub.dev版本。库与宿主联合开发时可临时使用指向本仓库的path override，交付前应移除本机路径依赖。
+使用 `ianvs_design: ^0.4.1` 接入，包括单选行、设置行留白以及分隔线、菜单和弹窗改进。此前固定Git提交测试这些功能的宿主可移除对应 override，改用pub.dev版本。库与宿主联合开发时可临时使用指向本仓库的path override，交付前应移除本机路径依赖。
 
 ```dart
 ThemeData createTheme(Brightness brightness, ThemeData appBase) {
@@ -79,6 +79,48 @@ Row(children: [
 ```
 
 右侧 Inspector 的手柄放在面板之前并传 `reverse: true`；底部终端使用 `axis: Axis.vertical, reverse: true` 并放在终端上方。宿主按窗口可用空间计算上下界，必要时隐藏面板或改布局；保持稳定 key/controller 防止草稿和会话被重建。现有 MacosWorkspaceLayout 可以复用手柄，继续管理快捷键、原生菜单、显示/隐藏和偏好存储。IanvsWorkspace 原 API 不变，不强制替换整个工作区。
+
+### 分隔线覆盖在面板内部
+
+0.4.1 起可用 `lineAlignment` 将可见线对齐真实面板边缘，同时保留完整的 `hitExtent`。例如左侧 sidebar 的右侧8点区域由手柄覆盖时，移除 sidebar 自己的右边框，避免重复画线：
+
+```dart
+SizedBox(
+  width: sidebarWidth,
+  child: Stack(
+    children: [
+      Positioned.fill(child: sidebarWithoutRightBorder),
+      Positioned(
+        right: 0,
+        top: 0,
+        bottom: 0,
+        width: 8,
+        child: IanvsResizeHandle(
+          value: sidebarWidth,
+          min: minSidebarWidth,
+          max: maxSidebarWidth,
+          resetValue: defaultSidebarWidth,
+          hitExtent: 8,
+          lineAlignment: Alignment.centerRight,
+          semanticLabel: '侧栏宽度',
+          onChanged: (value) => setState(() => sidebarWidth = value),
+        ),
+      ),
+    ],
+  ),
+);
+```
+
+外层必须提供有限高度。上例的尺寸变量与 sidebar 内容由宿主持有；`lineAlignment` 只改变可见线的位置，不改变命中区、拖动、双击、键盘或无障碍行为。高亮变为2点时向面板内部增厚，外边缘位置保持不变。
+
+| 面板位置 | 内侧覆盖区 | axis | lineAlignment | reverse |
+| --- | --- | --- | --- | --- |
+| 左侧面板 | right: 0, width: 8 | Axis.horizontal | Alignment.centerRight | false |
+| 右侧面板 | left: 0, width: 8 | Axis.horizontal | Alignment.centerLeft | true |
+| 顶部面板 | bottom: 0, height: 8 | Axis.vertical | Alignment.bottomCenter | false |
+| 底部面板 | top: 0, height: 8 | Axis.vertical | Alignment.topCenter | true |
+
+这些均为物理方向，RTL 不会翻转。`reverse` 仅控制尺寸变化的方向，不会镜像分隔线的对齐。现有使用方省略 `lineAlignment` 即维持居中。
 
 ## macOS 原生文本语义代理
 
